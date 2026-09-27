@@ -10,6 +10,7 @@ import 'package:latlong2/latlong.dart';
 import 'data/district_repository.dart';
 
 import 'data/street_segment_service.dart';
+import 'data/local_district_storage.dart';
 
 import 'models/district.dart';
 
@@ -239,9 +240,11 @@ class DistrictMapPage extends StatefulWidget {
 class _DistrictMapPageState extends State<DistrictMapPage> {
   final DistrictRepository _repository = const DistrictRepository();
 
+  final LocalDistrictStorage _localStorage = const LocalDistrictStorage();
+
   final MapController _mapController = MapController();
 
-  late final Future<List<TourStop>> _stopsFuture;
+  late Future<List<TourStop>> _stopsFuture;
 
   List<LatLng> _testRoutePoints = const [];
 
@@ -263,8 +266,30 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
   void initState() {
     super.initState();
 
-    _stopsFuture = _repository.loadDistrict(widget.district);
+    _stopsFuture = _loadStops();
     _loadTestRoute();
+  }
+
+  Future<List<TourStop>> _loadStops() async {
+    final assetStops = await _repository.loadDistrict(widget.district);
+    final savedStops = await _localStorage.loadStops(widget.district.number);
+
+    if (savedStops == null) {
+      return assetStops;
+    }
+
+    return savedStops;
+  }
+
+  Future<void> _reloadStopsFromStorage() async {
+    setState(() {
+      _loadedStops = const [];
+      _segments = const [];
+      _selectedSegment = null;
+      _selectedStopIndex = null;
+      _initialFitDone = false;
+      _stopsFuture = _loadStops();
+    });
   }
 
   Future<void> _loadTestRoute() async {
@@ -816,6 +841,44 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
                                   color: Colors.grey.shade600,
                                 ),
+                              ),
+
+                              const SizedBox(width: 4),
+
+                              PopupMenuButton<String>(
+                                tooltip: 'Bezirk-Menü',
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(Icons.more_vert_rounded),
+                                onSelected: (value) {
+                                  if (value == 'edit') {
+                                    Navigator.of(context)
+                                        .push(
+                                          MaterialPageRoute(
+                                            builder: (_) => DistrictEditorPage(
+                                              district: widget.district,
+                                              stops: stops,
+                                            ),
+                                          ),
+                                        )
+                                        .then((_) {
+                                          if (mounted) {
+                                            _reloadStopsFromStorage();
+                                          }
+                                        });
+                                  }
+                                },
+                                itemBuilder: (context) => const [
+                                  PopupMenuItem<String>(
+                                    value: 'edit',
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.edit_road_rounded),
+                                        SizedBox(width: 10),
+                                        Text('Bezirk bearbeiten'),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -2060,6 +2123,1086 @@ class _ErrorView extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class DistrictEditorPage extends StatelessWidget {
+  final District district;
+  final List<TourStop> stops;
+
+  const DistrictEditorPage({
+    super.key,
+    required this.district,
+    required this.stops,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('${district.name} bearbeiten')),
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primaryContainer,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.edit_location_alt_rounded,
+                  size: 32,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        district.name,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text('${stops.length} Stopps'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          const Text(
+            'Bearbeiten',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 10),
+          _EditorActionCard(
+            icon: Icons.location_on_rounded,
+            title: 'Zustellpunkte bearbeiten',
+            subtitle: 'Vorhandene Stopps ansehen und auswählen',
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      DistrictStopsEditorPage(district: district, stops: stops),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 10),
+          _EditorActionCard(
+            icon: Icons.alt_route_rounded,
+            title: 'Route bearbeiten',
+            subtitle: 'Fahrweg und manuelle Zwischenpunkte festlegen',
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      DistrictRouteEditorPage(district: district, stops: stops),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 18),
+          Container(
+            padding: const EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: Colors.grey.shade200),
+            ),
+            child: const Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.info_outline_rounded, size: 20),
+                SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'Zustellpunkte und Fahrroute werden getrennt bearbeitet. '
+                    'Eine Routenkorrektur verändert weder Adresse noch Reihenfolge eines Stopps.',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _EditorActionCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+
+  const _EditorActionCard({
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Container(
+                width: 46,
+                height: 46,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(13),
+                ),
+                child: Icon(icon, color: Theme.of(context).colorScheme.primary),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      subtitle,
+                      style: TextStyle(color: Colors.grey.shade600),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DistrictStopsEditorPage extends StatefulWidget {
+  final District district;
+  final List<TourStop> stops;
+
+  const DistrictStopsEditorPage({
+    super.key,
+    required this.district,
+    required this.stops,
+  });
+
+  @override
+  State<DistrictStopsEditorPage> createState() =>
+      _DistrictStopsEditorPageState();
+}
+
+class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
+  final LocalDistrictStorage _localStorage = const LocalDistrictStorage();
+  final MapController _editorMapController = MapController();
+
+  late final List<TourStop> _editableStops;
+  late LatLng _editorCenter;
+  double _editorZoom = 16;
+  bool _mapView = true;
+  bool _addMode = false;
+  int? _moveStopIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _editableStops = List<TourStop>.from(widget.stops);
+    _editorCenter = _editableStops.isNotEmpty
+        ? LatLng(_editableStops.first.latitude, _editableStops.first.longitude)
+        : const LatLng(50.05, 10.23);
+  }
+
+  Future<bool> _saveStops({required String successMessage}) async {
+    try {
+      await _localStorage.saveStops(widget.district.number, _editableStops);
+      if (!mounted) return false;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(successMessage),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      return true;
+    } catch (error) {
+      if (!mounted) return false;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Speichern fehlgeschlagen: $error'),
+          duration: const Duration(seconds: 4),
+        ),
+      );
+      return false;
+    }
+  }
+
+  Future<TourStop?> _showStopForm({
+    required LatLng position,
+    TourStop? existingStop,
+    int? stopIndex,
+  }) async {
+    final addressController = TextEditingController(
+      text: existingStop?.address ?? '',
+    );
+    final companyController = TextEditingController(
+      text: existingStop?.company ?? '',
+    );
+    final noteController = TextEditingController(
+      text: existingStop?.note ?? '',
+    );
+    final sectionController = TextEditingController(
+      text: existingStop?.section ?? '',
+    );
+    var isMailbox = existingStop?.isMailbox ?? false;
+
+    return showModalBottomSheet<TourStop>(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setSheetState) {
+            return SafeArea(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(
+                  20,
+                  4,
+                  20,
+                  20 + MediaQuery.viewInsetsOf(context).bottom,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        existingStop == null
+                            ? 'Neuen Zustellpunkt anlegen'
+                            : 'Stopp ${(stopIndex ?? 0) + 1} bearbeiten',
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        existingStop == null
+                            ? 'Nach dem Speichern bleibst du auf der Karte und kannst direkt den nächsten Punkt setzen.'
+                            : 'Änderungen werden direkt lokal gespeichert.',
+                        style: TextStyle(color: Colors.grey.shade600),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Position: ${position.latitude.toStringAsFixed(6)}, '
+                        '${position.longitude.toStringAsFixed(6)}',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey.shade600,
+                        ),
+                      ),
+                      const SizedBox(height: 18),
+                      TextField(
+                        controller: addressController,
+                        autofocus: existingStop == null,
+                        textCapitalization: TextCapitalization.words,
+                        decoration: const InputDecoration(
+                          labelText: 'Adresse',
+                          hintText: 'z. B. Bahnhofstraße 22',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.home_outlined),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      TextField(
+                        controller: companyController,
+                        textCapitalization: TextCapitalization.words,
+                        decoration: const InputDecoration(
+                          labelText: 'Firma',
+                          hintText: 'Optional',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.business_outlined),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      TextField(
+                        controller: noteController,
+                        textCapitalization: TextCapitalization.sentences,
+                        minLines: 2,
+                        maxLines: 4,
+                        decoration: const InputDecoration(
+                          labelText: 'Hinweis',
+                          hintText: 'Optional',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.info_outline_rounded),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      TextField(
+                        controller: sectionController,
+                        textCapitalization: TextCapitalization.characters,
+                        decoration: const InputDecoration(
+                          labelText: 'Teil',
+                          hintText: 'z. B. A oder B',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.label_outline_rounded),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      SwitchListTile.adaptive(
+                        contentPadding: EdgeInsets.zero,
+                        title: const Text(
+                          'Briefkasten',
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                        subtitle: const Text(
+                          'Diesen Zustellpunkt als Briefkasten kennzeichnen',
+                        ),
+                        value: isMailbox,
+                        onChanged: (value) {
+                          setSheetState(() => isMailbox = value);
+                        },
+                      ),
+                      const SizedBox(height: 14),
+                      SizedBox(
+                        width: double.infinity,
+                        child: FilledButton.icon(
+                          onPressed: () {
+                            final address = addressController.text.trim();
+                            if (address.isEmpty) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Bitte eine Adresse eingeben.'),
+                                ),
+                              );
+                              return;
+                            }
+                            final parsed = _editorSplitAddress(address);
+                            Navigator.of(context).pop(
+                              TourStop(
+                                latitude: position.latitude,
+                                longitude: position.longitude,
+                                name: address,
+                                address: address,
+                                streetName: parsed.street,
+                                houseNumber: parsed.houseNumber,
+                                company: companyController.text.trim(),
+                                note: noteController.text.trim(),
+                                recipients: existingStop == null
+                                    ? const <dynamic>[]
+                                    : List<dynamic>.from(
+                                        existingStop.recipients,
+                                      ),
+                                isMailbox: isMailbox,
+                                section: sectionController.text.trim(),
+                              ),
+                            );
+                          },
+                          icon: Icon(
+                            existingStop == null
+                                ? Icons.add_location_alt_rounded
+                                : Icons.check_rounded,
+                          ),
+                          label: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            child: Text(
+                              existingStop == null
+                                  ? 'Zustellpunkt hinzufügen'
+                                  : 'Änderungen speichern',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Future<void> _addStopAt(LatLng position) async {
+    final newStop = await _showStopForm(position: position);
+    if (newStop == null || !mounted) return;
+
+    setState(() => _editableStops.add(newStop));
+    final saved = await _saveStops(
+      successMessage:
+          'Stopp ${_editableStops.length} wurde hinzugefügt. Du kannst direkt den nächsten Punkt setzen.',
+    );
+    if (!saved && mounted) {
+      setState(() => _editableStops.removeLast());
+    }
+  }
+
+  Future<void> _editStop(int index) async {
+    final stop = _editableStops[index];
+    final updated = await _showStopForm(
+      position: LatLng(stop.latitude, stop.longitude),
+      existingStop: stop,
+      stopIndex: index,
+    );
+    if (updated == null || !mounted) return;
+
+    final previous = _editableStops[index];
+    setState(() => _editableStops[index] = updated);
+    final saved = await _saveStops(
+      successMessage: 'Stopp ${index + 1} wurde gespeichert.',
+    );
+    if (!saved && mounted) {
+      setState(() => _editableStops[index] = previous);
+    }
+  }
+
+  Future<void> _deleteStop(int index) async {
+    final stop = _editableStops[index];
+    final label = stop.address.isNotEmpty ? stop.address : stop.name;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Stopp ${index + 1} löschen?'),
+        content: Text(
+          '$label\n\nDer Zustellpunkt wird dauerhaft aus diesem Bezirk entfernt.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Abbrechen'),
+          ),
+          FilledButton.icon(
+            onPressed: () => Navigator.of(context).pop(true),
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.error,
+              foregroundColor: Theme.of(context).colorScheme.onError,
+            ),
+            icon: const Icon(Icons.delete_outline_rounded),
+            label: const Text('Löschen'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true || !mounted) return;
+
+    final removed = _editableStops[index];
+    setState(() => _editableStops.removeAt(index));
+    final saved = await _saveStops(successMessage: '$label wurde gelöscht.');
+    if (!saved && mounted) {
+      setState(() => _editableStops.insert(index, removed));
+    }
+  }
+
+  void _startMoveStop(int index) {
+    setState(() {
+      _addMode = false;
+      _moveStopIndex = index;
+    });
+  }
+
+  Future<void> _moveStopToMapPosition(LatLng position) async {
+    final index = _moveStopIndex;
+    if (index == null || index < 0 || index >= _editableStops.length) return;
+
+    final previous = _editableStops[index];
+    final moved = TourStop(
+      latitude: position.latitude,
+      longitude: position.longitude,
+      name: previous.name,
+      address: previous.address,
+      streetName: previous.streetName,
+      houseNumber: previous.houseNumber,
+      company: previous.company,
+      note: previous.note,
+      recipients: List<dynamic>.from(previous.recipients),
+      isMailbox: previous.isMailbox,
+      section: previous.section,
+    );
+
+    setState(() {
+      _editableStops[index] = moved;
+      _moveStopIndex = null;
+    });
+
+    final saved = await _saveStops(
+      successMessage: 'Position von Stopp ${index + 1} wurde gespeichert.',
+    );
+    if (!saved && mounted) {
+      setState(() => _editableStops[index] = previous);
+    }
+  }
+
+  Future<void> _reorderStops(int oldIndex, int newIndex) async {
+    if (oldIndex == newIndex) return;
+
+    final previousOrder = List<TourStop>.from(_editableStops);
+    setState(() {
+      final stop = _editableStops.removeAt(oldIndex);
+      _editableStops.insert(newIndex, stop);
+    });
+
+    final saved = await _saveStops(
+      successMessage: 'Zustellreihenfolge wurde gespeichert.',
+    );
+    if (!saved && mounted) {
+      setState(() {
+        _editableStops
+          ..clear()
+          ..addAll(previousOrder);
+      });
+    }
+  }
+
+  Future<void> _moveStopToPosition(int index) async {
+    final controller = TextEditingController(text: '${index + 1}');
+    final target = await showDialog<int>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('An Position verschieben'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Aktuell: Stopp ${index + 1}\n'
+              'Neue Position zwischen 1 und ${_editableStops.length}:',
+            ),
+            const SizedBox(height: 14),
+            TextField(
+              controller: controller,
+              autofocus: true,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Neue Stoppnummer',
+                border: OutlineInputBorder(),
+              ),
+              onSubmitted: (_) {
+                final value = int.tryParse(controller.text.trim());
+                if (value != null &&
+                    value >= 1 &&
+                    value <= _editableStops.length) {
+                  Navigator.of(context).pop(value);
+                }
+              },
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Abbrechen'),
+          ),
+          FilledButton(
+            onPressed: () {
+              final value = int.tryParse(controller.text.trim());
+              if (value == null || value < 1 || value > _editableStops.length) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Bitte eine Zahl zwischen 1 und ${_editableStops.length} eingeben.',
+                    ),
+                  ),
+                );
+                return;
+              }
+              Navigator.of(context).pop(value);
+            },
+            child: const Text('Verschieben'),
+          ),
+        ],
+      ),
+    );
+
+    if (target == null || !mounted || target == index + 1) return;
+
+    final previousOrder = List<TourStop>.from(_editableStops);
+    setState(() {
+      final stop = _editableStops.removeAt(index);
+      var insertIndex = target - 1;
+      if (insertIndex > _editableStops.length) {
+        insertIndex = _editableStops.length;
+      }
+      _editableStops.insert(insertIndex, stop);
+    });
+
+    final saved = await _saveStops(
+      successMessage: 'Stopp wurde an Position $target verschoben.',
+    );
+    if (!saved && mounted) {
+      setState(() {
+        _editableStops
+          ..clear()
+          ..addAll(previousOrder);
+      });
+    }
+  }
+
+  Future<void> _showMapStopActions(int index) async {
+    final stop = _editableStops[index];
+    final action = await showModalBottomSheet<String>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(
+                  stop.address.isNotEmpty ? stop.address : stop.name,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                subtitle: Text('Stopp ${index + 1}'),
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.edit_rounded),
+                title: const Text('Bearbeiten'),
+                onTap: () => Navigator.of(context).pop('edit'),
+              ),
+              ListTile(
+                leading: const Icon(Icons.open_with_rounded),
+                title: const Text('Position verschieben'),
+                subtitle: const Text(
+                  'Danach neue Position auf der Karte antippen',
+                ),
+                onTap: () => Navigator.of(context).pop('move'),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.delete_outline_rounded,
+                  color: Theme.of(context).colorScheme.error,
+                ),
+                title: Text(
+                  'Löschen',
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
+                onTap: () => Navigator.of(context).pop('delete'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    if (!mounted) return;
+    if (action == 'edit') {
+      await _editStop(index);
+    } else if (action == 'move') {
+      _startMoveStop(index);
+    } else if (action == 'delete') {
+      await _deleteStop(index);
+    }
+  }
+
+  Widget _buildMap() {
+    return Stack(
+      children: [
+        FlutterMap(
+          mapController: _editorMapController,
+          options: MapOptions(
+            initialCenter: _editorCenter,
+            initialZoom: _editorZoom,
+            minZoom: 4,
+            maxZoom: 19,
+            onPositionChanged: (position, hasGesture) {
+              _editorCenter = position.center;
+              _editorZoom = position.zoom;
+            },
+            onTap: (_, point) {
+              if (_moveStopIndex != null) {
+                _moveStopToMapPosition(point);
+              } else if (_addMode) {
+                _addStopAt(point);
+              }
+            },
+          ),
+          children: [
+            TileLayer(
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+              userAgentPackageName: 'de.ramonvidal.tourgo',
+            ),
+            MarkerLayer(
+              markers: List.generate(_editableStops.length, (index) {
+                final stop = _editableStops[index];
+                return Marker(
+                  point: LatLng(stop.latitude, stop.longitude),
+                  width: 40,
+                  height: 36,
+                  child: GestureDetector(
+                    onTap: () {
+                      if (!_addMode && _moveStopIndex == null) {
+                        _showMapStopActions(index);
+                      }
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: stop.company.isNotEmpty
+                            ? Colors.orange
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(9),
+                        border: Border.all(
+                          color: _moveStopIndex == index
+                              ? Colors.red
+                              : const Color(0xFF1565C0),
+                          width: _moveStopIndex == index ? 3 : 1.8,
+                        ),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 3,
+                            offset: Offset(0, 1),
+                            color: Color(0x33000000),
+                          ),
+                        ],
+                      ),
+                      child: Text(
+                        stop.houseNumber.isNotEmpty
+                            ? stop.houseNumber
+                            : '${index + 1}',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          color: stop.company.isNotEmpty
+                              ? Colors.white
+                              : const Color(0xFF1565C0),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ],
+        ),
+        Positioned(
+          top: 12,
+          left: 12,
+          right: 12,
+          child: SafeArea(
+            bottom: false,
+            child: Material(
+              color: (_addMode || _moveStopIndex != null)
+                  ? const Color(0xFF1565C0)
+                  : Colors.white.withValues(alpha: 0.96),
+              borderRadius: BorderRadius.circular(14),
+              elevation: 5,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 11,
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      _moveStopIndex != null
+                          ? Icons.open_with_rounded
+                          : _addMode
+                          ? Icons.add_location_alt_rounded
+                          : Icons.touch_app_rounded,
+                      color: (_addMode || _moveStopIndex != null)
+                          ? Colors.white
+                          : const Color(0xFF1565C0),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        _moveStopIndex != null
+                            ? 'Stopp ${_moveStopIndex! + 1} verschieben: Tippe auf die neue Position.'
+                            : _addMode
+                            ? 'Hinzufügen aktiv: Tippe auf die Position des nächsten Zustellpunkts.'
+                            : 'Tippe einen Zustellpunkt an, um ihn zu bearbeiten, zu verschieben oder zu löschen.',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: (_addMode || _moveStopIndex != null)
+                              ? Colors.white
+                              : Colors.black87,
+                        ),
+                      ),
+                    ),
+                    if (_addMode || _moveStopIndex != null)
+                      TextButton(
+                        onPressed: () => setState(() {
+                          _addMode = false;
+                          _moveStopIndex = null;
+                        }),
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white,
+                        ),
+                        child: Text(
+                          _moveStopIndex != null ? 'Abbrechen' : 'Fertig',
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildList() {
+    if (_editableStops.isEmpty) {
+      return const Center(child: Text('Noch keine Zustellpunkte'));
+    }
+
+    return ReorderableListView.builder(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 100),
+      itemCount: _editableStops.length,
+      onReorderItem: (oldIndex, newIndex) {
+        _reorderStops(oldIndex, newIndex);
+      },
+      buildDefaultDragHandles: false,
+      proxyDecorator: (child, index, animation) {
+        return Material(
+          elevation: 6,
+          borderRadius: BorderRadius.circular(12),
+          child: child,
+        );
+      },
+      itemBuilder: (context, index) {
+        final stop = _editableStops[index];
+        final subtitleParts = <String>['Stopp ${index + 1}'];
+        if (stop.company.isNotEmpty) subtitleParts.add(stop.company);
+        if (stop.hasSection) subtitleParts.add('Teil ${stop.section}');
+        if (stop.isMailbox) subtitleParts.add('Briefkasten');
+
+        return Padding(
+          key: ObjectKey(stop),
+          padding: const EdgeInsets.only(bottom: 4),
+          child: Card(
+            margin: EdgeInsets.zero,
+            child: ListTile(
+              leading: ReorderableDragStartListener(
+                index: index,
+                child: const SizedBox(
+                  width: 44,
+                  height: 44,
+                  child: Icon(Icons.drag_handle_rounded),
+                ),
+              ),
+              title: Text(
+                stop.address.isNotEmpty ? stop.address : stop.name,
+                style: const TextStyle(fontWeight: FontWeight.w700),
+              ),
+              subtitle: Text(subtitleParts.join(' • ')),
+              onTap: () => _editStop(index),
+              trailing: PopupMenuButton<String>(
+                onSelected: (value) {
+                  if (value == 'edit') {
+                    _editStop(index);
+                  } else if (value == 'position') {
+                    _moveStopToPosition(index);
+                  } else if (value == 'delete') {
+                    _deleteStop(index);
+                  }
+                },
+                itemBuilder: (context) => const [
+                  PopupMenuItem(value: 'edit', child: Text('Bearbeiten')),
+                  PopupMenuItem(
+                    value: 'position',
+                    child: Text('An Position verschieben'),
+                  ),
+                  PopupMenuItem(value: 'delete', child: Text('Löschen')),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Zustellpunkte bearbeiten'),
+        actions: [
+          IconButton(
+            tooltip: _mapView ? 'Listenansicht' : 'Kartenansicht',
+            onPressed: () {
+              setState(() {
+                _mapView = !_mapView;
+                if (!_mapView) {
+                  _addMode = false;
+                  _moveStopIndex = null;
+                }
+              });
+            },
+            icon: Icon(_mapView ? Icons.view_list_rounded : Icons.map_outlined),
+          ),
+        ],
+      ),
+      body: _mapView ? _buildMap() : _buildList(),
+      floatingActionButton: _mapView && _moveStopIndex == null
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                setState(() => _addMode = !_addMode);
+              },
+              icon: Icon(
+                _addMode ? Icons.close_rounded : Icons.add_location_alt_rounded,
+              ),
+              label: Text(_addMode ? 'Abbrechen' : 'Hinzufügen'),
+            )
+          : null,
+    );
+  }
+}
+
+_EditorAddressParts _editorSplitAddress(String address) {
+  if (address.isEmpty) {
+    return const _EditorAddressParts(street: '', houseNumber: '');
+  }
+
+  final match = RegExp(r'^(.+?)\s+(\d+\s*[a-zA-Z]?(?:[-/]\d+\s*[a-zA-Z]?)?)$')
+      .firstMatch(address);
+
+  if (match == null) {
+    return _EditorAddressParts(street: address, houseNumber: '');
+  }
+
+  return _EditorAddressParts(
+    street: (match.group(1) ?? '').trim(),
+    houseNumber: (match.group(2) ?? '').replaceAll(RegExp(r'\s+'), '').trim(),
+  );
+}
+
+class _EditorAddressParts {
+  final String street;
+  final String houseNumber;
+
+  const _EditorAddressParts({required this.street, required this.houseNumber});
+}
+
+class DistrictRouteEditorPage extends StatelessWidget {
+  final District district;
+  final List<TourStop> stops;
+
+  const DistrictRouteEditorPage({
+    super.key,
+    required this.district,
+    required this.stops,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final first = stops.isEmpty
+        ? const LatLng(50.0, 10.0)
+        : LatLng(stops.first.latitude, stops.first.longitude);
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Route bearbeiten')),
+      body: Stack(
+        children: [
+          FlutterMap(
+            options: MapOptions(
+              initialCenter: first,
+              initialZoom: 14,
+              minZoom: 4,
+              maxZoom: 19,
+            ),
+            children: [
+              TileLayer(
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                userAgentPackageName: 'de.ramonvidal.tourgo',
+              ),
+              MarkerLayer(
+                markers: List.generate(stops.length, (index) {
+                  final stop = stops[index];
+                  return Marker(
+                    point: LatLng(stop.latitude, stop.longitude),
+                    width: 34,
+                    height: 30,
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: const Color(0xFF1565C0),
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Text(
+                        stop.houseNumber.isNotEmpty
+                            ? stop.houseNumber
+                            : '${index + 1}',
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          color: Color(0xFF1565C0),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+              ),
+            ],
+          ),
+          Positioned(
+            left: 14,
+            right: 14,
+            bottom: 20,
+            child: SafeArea(
+              top: false,
+              child: Material(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                elevation: 6,
+                child: const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(Icons.alt_route_rounded, color: Color(0xFF1565C0)),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          'Der Routen-Editor ist angelegt. Als Nächstes machen wir '
+                          'die Karte antippbar, damit du manuelle Zwischenpunkte '
+                          'setzen, verschieben und löschen kannst.',
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
