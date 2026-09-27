@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -250,6 +251,8 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
   List<List<LatLng>> _testStopConnections = const [];
 
+  Map<int, List<LatLng>> _savedRouteSectionGeometries = <int, List<LatLng>>{};
+
   bool _initialFitDone = false;
 
   List<TourStop> _loadedStops = const [];
@@ -268,6 +271,7 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
     _stopsFuture = _loadStops();
     _loadTestRoute();
+    _loadSavedRouteSectionGeometries();
   }
 
   Future<List<TourStop>> _loadStops() async {
@@ -290,6 +294,128 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
       _initialFitDone = false;
       _stopsFuture = _loadStops();
     });
+  }
+
+  Future<void> _loadSavedRouteSectionGeometries() async {
+    try {
+      final geometries = await _localStorage.loadRouteSectionGeometries(
+        widget.district.number,
+      );
+      if (!mounted) return;
+      setState(() {
+        _savedRouteSectionGeometries = geometries;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _savedRouteSectionGeometries = <int, List<LatLng>>{};
+      });
+    }
+  }
+
+  double _squaredDistance(LatLng a, LatLng b) {
+    final lat = a.latitude - b.latitude;
+    final lng = a.longitude - b.longitude;
+    return lat * lat + lng * lng;
+  }
+
+  int _nearestRoutePointIndex(
+    List<LatLng> route,
+    LatLng target, {
+    int startIndex = 0,
+  }) {
+    if (route.isEmpty) return -1;
+
+    var bestIndex = startIndex.clamp(0, route.length - 1);
+    var bestDistance = _squaredDistance(route[bestIndex], target);
+
+    for (var index = bestIndex + 1; index < route.length; index++) {
+      final distance = _squaredDistance(route[index], target);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestIndex = index;
+      }
+    }
+
+    return bestIndex;
+  }
+
+  List<LatLng> _routeWithSavedCorrections(
+    List<LatLng> baseRoute,
+    List<TourStop> stops,
+  ) {
+    if (baseRoute.length < 2 ||
+        stops.length < 2 ||
+        _savedRouteSectionGeometries.isEmpty) {
+      return baseRoute;
+    }
+
+    final replacements = <({int start, int end, List<LatLng> points})>[];
+
+    for (final entry in _savedRouteSectionGeometries.entries) {
+      final afterStopIndex = entry.key;
+      final geometry = entry.value;
+
+      if (afterStopIndex < 0 ||
+          afterStopIndex >= stops.length - 1 ||
+          geometry.length < 2) {
+        continue;
+      }
+
+      final startStop = stops[afterStopIndex];
+      final endStop = stops[afterStopIndex + 1];
+
+      final startTarget = LatLng(startStop.latitude, startStop.longitude);
+      final endTarget = LatLng(endStop.latitude, endStop.longitude);
+
+      final startIndex = _nearestRoutePointIndex(baseRoute, startTarget);
+      if (startIndex < 0) continue;
+
+      final endIndex = _nearestRoutePointIndex(
+        baseRoute,
+        endTarget,
+        startIndex: startIndex,
+      );
+
+      if (endIndex <= startIndex) continue;
+
+      replacements.add((
+        start: startIndex,
+        end: endIndex,
+        points: List<LatLng>.from(geometry),
+      ));
+    }
+
+    if (replacements.isEmpty) return baseRoute;
+
+    replacements.sort((a, b) => a.start.compareTo(b.start));
+
+    final result = <LatLng>[];
+    var cursor = 0;
+
+    for (final replacement in replacements) {
+      if (replacement.start < cursor) {
+        continue;
+      }
+
+      result.addAll(baseRoute.sublist(cursor, replacement.start + 1));
+
+      if (result.isNotEmpty && replacement.points.isNotEmpty) {
+        final first = replacement.points.first;
+        if (_squaredDistance(result.last, first) < 0.0000000001) {
+          result.removeLast();
+        }
+      }
+
+      result.addAll(replacement.points);
+      cursor = replacement.end + 1;
+    }
+
+    if (cursor < baseRoute.length) {
+      result.addAll(baseRoute.sublist(cursor));
+    }
+
+    return result.length >= 2 ? result : baseRoute;
   }
 
   Future<void> _loadTestRoute() async {
@@ -634,6 +760,10 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
           }
 
           final selectedSegment = _selectedSegment;
+          final displayedRoutePoints = _routeWithSavedCorrections(
+            _testRoutePoints,
+            stops,
+          );
 
           return Stack(
             children: [
@@ -687,11 +817,11 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                     ),
                   ],
 
-                  if (_testRoutePoints.length > 1) ...[
+                  if (displayedRoutePoints.length > 1) ...[
                     PolylineLayer(
                       polylines: [
                         Polyline(
-                          points: _testRoutePoints,
+                          points: displayedRoutePoints,
                           strokeWidth: 9,
                           color: Colors.white.withValues(alpha: 0.95),
                         ),
@@ -700,7 +830,7 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                     PolylineLayer(
                       polylines: [
                         Polyline(
-                          points: _testRoutePoints,
+                          points: displayedRoutePoints,
                           strokeWidth: 5.5,
                           color: const Color(0xFF1565C0),
                         ),
@@ -860,10 +990,12 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                                             ),
                                           ),
                                         )
-                                        .then((_) {
-                                          if (mounted) {
-                                            _reloadStopsFromStorage();
+                                        .then((_) async {
+                                          if (!mounted) {
+                                            return;
                                           }
+                                          await _reloadStopsFromStorage();
+                                          await _loadSavedRouteSectionGeometries();
                                         });
                                   }
                                 },
@@ -3106,7 +3238,7 @@ class _EditorAddressParts {
   const _EditorAddressParts({required this.street, required this.houseNumber});
 }
 
-class DistrictRouteEditorPage extends StatelessWidget {
+class DistrictRouteEditorPage extends StatefulWidget {
   final District district;
   final List<TourStop> stops;
 
@@ -3117,13 +3249,433 @@ class DistrictRouteEditorPage extends StatelessWidget {
   });
 
   @override
+  State<DistrictRouteEditorPage> createState() =>
+      _DistrictRouteEditorPageState();
+}
+
+class _DistrictRouteEditorPageState extends State<DistrictRouteEditorPage> {
+  final LocalDistrictStorage _localStorage = const LocalDistrictStorage();
+
+  final List<StoredRouteViaPoint> _viaPoints = <StoredRouteViaPoint>[];
+  bool _loading = true;
+  bool _addMode = false;
+  int? _moveViaPointIndex;
+  int? _selectedAfterStopIndex;
+  final Map<int, List<LatLng>> _routedSectionGeometry = <int, List<LatLng>>{};
+  final Set<int> _routingSections = <int>{};
+
+  @override
+  void initState() {
+    super.initState();
+    _loadViaPoints();
+  }
+
+  Future<void> _loadViaPoints() async {
+    try {
+      final points = await _localStorage.loadRouteViaPoints(
+        widget.district.number,
+      );
+      if (!mounted) return;
+      setState(() {
+        _viaPoints
+          ..clear()
+          ..addAll(points);
+        _loading = false;
+      });
+    } catch (error) {
+      if (!mounted) return;
+      setState(() => _loading = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Routenpunkte konnten nicht geladen werden: $error'),
+        ),
+      );
+    }
+  }
+
+  Future<bool> _saveViaPoints(String successMessage) async {
+    try {
+      await _localStorage.saveRouteViaPoints(
+        widget.district.number,
+        _viaPoints,
+      );
+      if (!mounted) return false;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(successMessage),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      return true;
+    } catch (error) {
+      if (!mounted) return false;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Speichern fehlgeschlagen: $error'),
+          duration: const Duration(seconds: 4),
+        ),
+      );
+      return false;
+    }
+  }
+
+  Future<void> _calculateSectionRoute(int afterStopIndex) async {
+    if (afterStopIndex < 0 || afterStopIndex >= widget.stops.length - 1) {
+      return;
+    }
+
+    final start = widget.stops[afterStopIndex];
+    final end = widget.stops[afterStopIndex + 1];
+    final viaPoints = _pointsForSection(afterStopIndex);
+
+    final coordinates = <LatLng>[
+      LatLng(start.latitude, start.longitude),
+      ...viaPoints.map((point) => point.position),
+      LatLng(end.latitude, end.longitude),
+    ];
+
+    if (mounted) {
+      setState(() => _routingSections.add(afterStopIndex));
+    }
+
+    final coordinateString = coordinates
+        .map(
+          (point) =>
+              '${point.longitude.toStringAsFixed(7)},${point.latitude.toStringAsFixed(7)}',
+        )
+        .join(';');
+
+    final uri = Uri.parse(
+      'https://router.project-osrm.org/route/v1/driving/'
+      '$coordinateString'
+      '?overview=full&geometries=geojson&steps=false',
+    );
+
+    final client = HttpClient();
+    client.connectionTimeout = const Duration(seconds: 15);
+
+    try {
+      final request = await client.getUrl(uri);
+      request.headers.set(
+        HttpHeaders.userAgentHeader,
+        'TourGo/de.ramonvidal.tourgo',
+      );
+
+      final response = await request.close().timeout(
+        const Duration(seconds: 20),
+      );
+      final body = await response.transform(utf8.decoder).join();
+
+      if (response.statusCode != HttpStatus.ok) {
+        throw HttpException(
+          'Routing-Server antwortet mit ${response.statusCode}.',
+          uri: uri,
+        );
+      }
+
+      final decoded = jsonDecode(body);
+      if (decoded is! Map<String, dynamic> || decoded['code'] != 'Ok') {
+        throw const FormatException(
+          'Für diesen Abschnitt konnte keine Straßenroute berechnet werden.',
+        );
+      }
+
+      final routes = decoded['routes'];
+      if (routes is! List || routes.isEmpty) {
+        throw const FormatException(
+          'Der Routing-Server hat keine Route zurückgegeben.',
+        );
+      }
+
+      final route = routes.first;
+      if (route is! Map) {
+        throw const FormatException('Ungültige Routenantwort.');
+      }
+
+      final geometry = route['geometry'];
+      if (geometry is! Map) {
+        throw const FormatException('Routengeometrie fehlt.');
+      }
+
+      final rawCoordinates = geometry['coordinates'];
+      if (rawCoordinates is! List) {
+        throw const FormatException('Routenkoordinaten fehlen.');
+      }
+
+      final routedPoints = rawCoordinates.map<LatLng>((item) {
+        if (item is! List || item.length < 2) {
+          throw const FormatException('Ungültiger Routenpunkt.');
+        }
+        return LatLng((item[1] as num).toDouble(), (item[0] as num).toDouble());
+      }).toList();
+
+      await _localStorage.saveRouteSectionGeometry(
+        widget.district.number,
+        afterStopIndex,
+        routedPoints,
+      );
+
+      if (!mounted) return;
+      setState(() {
+        _routedSectionGeometry[afterStopIndex] = routedPoints;
+      });
+    } catch (error) {
+      if (!mounted) return;
+      _routedSectionGeometry.remove(afterStopIndex);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Straßenroute konnte nicht berechnet werden: $error'),
+          duration: const Duration(seconds: 4),
+        ),
+      );
+    } finally {
+      client.close(force: true);
+      if (mounted) {
+        setState(() => _routingSections.remove(afterStopIndex));
+      }
+    }
+  }
+
+  void _invalidateSectionRoute(int afterStopIndex) {
+    _routedSectionGeometry.remove(afterStopIndex);
+  }
+
+  Future<void> _selectRouteSection(int stopIndex) async {
+    if (stopIndex >= widget.stops.length - 1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Der letzte Stopp hat keinen folgenden Routenabschnitt.',
+          ),
+        ),
+      );
+      return;
+    }
+
+    final start = widget.stops[stopIndex];
+    final end = widget.stops[stopIndex + 1];
+    final startLabel = start.address.isNotEmpty ? start.address : start.name;
+    final endLabel = end.address.isNotEmpty ? end.address : end.name;
+
+    final selected = await showModalBottomSheet<bool>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Routenabschnitt bearbeiten',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'Stopp ${stopIndex + 1} → ${stopIndex + 2}',
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 4),
+              Text('$startLabel\n→ $endLabel'),
+              const SizedBox(height: 18),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton.icon(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  icon: const Icon(Icons.alt_route_rounded),
+                  label: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    child: Text('Diesen Abschnitt bearbeiten'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    if (selected == true && mounted) {
+      setState(() {
+        _selectedAfterStopIndex = stopIndex;
+        _moveViaPointIndex = null;
+        _addMode = true;
+      });
+      await _calculateSectionRoute(stopIndex);
+    }
+  }
+
+  Future<void> _addViaPoint(LatLng point) async {
+    final afterStopIndex = _selectedAfterStopIndex;
+    if (afterStopIndex == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Wähle zuerst einen Zustellpunkt und damit den Abschnitt zum nächsten Stopp.',
+          ),
+        ),
+      );
+      return;
+    }
+
+    final newPoint = StoredRouteViaPoint(
+      latitude: point.latitude,
+      longitude: point.longitude,
+      afterStopIndex: afterStopIndex,
+    );
+
+    setState(() => _viaPoints.add(newPoint));
+    final saved = await _saveViaPoints(
+      'Routenpunkt für Stopp ${afterStopIndex + 1} → ${afterStopIndex + 2} hinzugefügt.',
+    );
+    if (!saved && mounted) {
+      setState(() => _viaPoints.remove(newPoint));
+      return;
+    }
+    _invalidateSectionRoute(afterStopIndex);
+    await _calculateSectionRoute(afterStopIndex);
+  }
+
+  Future<void> _moveViaPoint(LatLng point) async {
+    final index = _moveViaPointIndex;
+    if (index == null || index < 0 || index >= _viaPoints.length) return;
+
+    final previous = _viaPoints[index];
+    final moved = StoredRouteViaPoint(
+      latitude: point.latitude,
+      longitude: point.longitude,
+      afterStopIndex: previous.afterStopIndex,
+    );
+
+    setState(() {
+      _viaPoints[index] = moved;
+      _moveViaPointIndex = null;
+    });
+
+    final saved = await _saveViaPoints(
+      'Routenpunkt ${index + 1} wurde verschoben.',
+    );
+    if (!saved && mounted) {
+      setState(() => _viaPoints[index] = previous);
+      return;
+    }
+    _invalidateSectionRoute(previous.afterStopIndex);
+    await _calculateSectionRoute(previous.afterStopIndex);
+  }
+
+  Future<void> _deleteViaPoint(int index) async {
+    final removed = _viaPoints[index];
+    setState(() => _viaPoints.removeAt(index));
+
+    final saved = await _saveViaPoints('Routenpunkt wurde gelöscht.');
+    if (!saved && mounted) {
+      setState(() => _viaPoints.insert(index, removed));
+      return;
+    }
+    _invalidateSectionRoute(removed.afterStopIndex);
+    await _calculateSectionRoute(removed.afterStopIndex);
+  }
+
+  Future<void> _showViaPointActions(int index) async {
+    final point = _viaPoints[index];
+    final action = await showModalBottomSheet<String>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: CircleAvatar(child: Text('${index + 1}')),
+                title: Text(
+                  'Routenpunkt ${index + 1}',
+                  style: const TextStyle(fontWeight: FontWeight.w800),
+                ),
+                subtitle: Text(
+                  'Abschnitt Stopp ${point.afterStopIndex + 1} → '
+                  '${point.afterStopIndex + 2}',
+                ),
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.open_with_rounded),
+                title: const Text('Verschieben'),
+                subtitle: const Text(
+                  'Danach die neue Position auf der Karte antippen',
+                ),
+                onTap: () => Navigator.of(context).pop('move'),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.delete_outline_rounded,
+                  color: Theme.of(context).colorScheme.error,
+                ),
+                title: Text(
+                  'Löschen',
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
+                onTap: () => Navigator.of(context).pop('delete'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    if (!mounted) return;
+    if (action == 'move') {
+      setState(() {
+        _addMode = false;
+        _moveViaPointIndex = index;
+        _selectedAfterStopIndex = point.afterStopIndex;
+      });
+    } else if (action == 'delete') {
+      await _deleteViaPoint(index);
+    }
+  }
+
+  List<StoredRouteViaPoint> _pointsForSection(int afterStopIndex) {
+    return _viaPoints
+        .where((point) => point.afterStopIndex == afterStopIndex)
+        .toList();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final first = stops.isEmpty
+    final first = widget.stops.isEmpty
         ? const LatLng(50.0, 10.0)
-        : LatLng(stops.first.latitude, stops.first.longitude);
+        : LatLng(widget.stops.first.latitude, widget.stops.first.longitude);
+
+    final selectedSection = _selectedAfterStopIndex;
+    final selectedSectionPoints = selectedSection == null
+        ? const <StoredRouteViaPoint>[]
+        : _pointsForSection(selectedSection);
+    final routedGeometry = selectedSection == null
+        ? const <LatLng>[]
+        : (_routedSectionGeometry[selectedSection] ?? const <LatLng>[]);
+    final routingSelectedSection =
+        selectedSection != null && _routingSections.contains(selectedSection);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Route bearbeiten')),
+      appBar: AppBar(
+        title: const Text('Route bearbeiten'),
+        actions: [
+          if (_viaPoints.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(right: 12),
+              child: Center(
+                child: Text(
+                  '${_viaPoints.length} Routenpunkte',
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+              ),
+            ),
+        ],
+      ),
       body: Stack(
         children: [
           FlutterMap(
@@ -3132,78 +3684,256 @@ class DistrictRouteEditorPage extends StatelessWidget {
               initialZoom: 14,
               minZoom: 4,
               maxZoom: 19,
+              onTap: (_, point) {
+                if (_moveViaPointIndex != null) {
+                  _moveViaPoint(point);
+                } else if (_addMode) {
+                  _addViaPoint(point);
+                }
+              },
             ),
             children: [
               TileLayer(
                 urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 userAgentPackageName: 'de.ramonvidal.tourgo',
               ),
-              MarkerLayer(
-                markers: List.generate(stops.length, (index) {
-                  final stop = stops[index];
-                  return Marker(
-                    point: LatLng(stop.latitude, stop.longitude),
-                    width: 34,
-                    height: 30,
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: const Color(0xFF1565C0),
-                          width: 1.5,
-                        ),
-                      ),
-                      child: Text(
-                        stop.houseNumber.isNotEmpty
-                            ? stop.houseNumber
-                            : '${index + 1}',
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w800,
-                          color: Color(0xFF1565C0),
-                        ),
-                      ),
+              if (selectedSection != null &&
+                  selectedSection < widget.stops.length - 1)
+                PolylineLayer(
+                  polylines: [
+                    Polyline(
+                      points: routedGeometry.isNotEmpty
+                          ? routedGeometry
+                          : [
+                              LatLng(
+                                widget.stops[selectedSection].latitude,
+                                widget.stops[selectedSection].longitude,
+                              ),
+                              ...selectedSectionPoints.map(
+                                (point) => point.position,
+                              ),
+                              LatLng(
+                                widget.stops[selectedSection + 1].latitude,
+                                widget.stops[selectedSection + 1].longitude,
+                              ),
+                            ],
+                      strokeWidth: routedGeometry.isNotEmpty ? 5 : 3,
+                      color: routedGeometry.isNotEmpty
+                          ? const Color(0xFF1565C0)
+                          : const Color(0xFF7B1FA2),
                     ),
-                  );
-                }),
+                  ],
+                ),
+              MarkerLayer(
+                markers: [
+                  ...List.generate(widget.stops.length, (index) {
+                    final stop = widget.stops[index];
+                    final sectionStart = _selectedAfterStopIndex == index;
+                    final sectionEnd =
+                        _selectedAfterStopIndex != null &&
+                        _selectedAfterStopIndex! + 1 == index;
+
+                    return Marker(
+                      point: LatLng(stop.latitude, stop.longitude),
+                      width: sectionStart || sectionEnd ? 42 : 34,
+                      height: sectionStart || sectionEnd ? 38 : 30,
+                      child: GestureDetector(
+                        onTap: () {
+                          if (!_addMode && _moveViaPointIndex == null) {
+                            _selectRouteSection(index);
+                          }
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: sectionStart
+                                ? const Color(0xFF2E7D32)
+                                : sectionEnd
+                                ? const Color(0xFFC62828)
+                                : stop.company.isNotEmpty
+                                ? Colors.orange
+                                : Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: sectionStart || sectionEnd
+                                  ? Colors.white
+                                  : const Color(0xFF1565C0),
+                              width: sectionStart || sectionEnd ? 2.5 : 1.5,
+                            ),
+                            boxShadow: sectionStart || sectionEnd
+                                ? const [
+                                    BoxShadow(
+                                      blurRadius: 4,
+                                      offset: Offset(0, 2),
+                                      color: Color(0x44000000),
+                                    ),
+                                  ]
+                                : null,
+                          ),
+                          child: Text(
+                            stop.houseNumber.isNotEmpty
+                                ? stop.houseNumber
+                                : '${index + 1}',
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w800,
+                              color:
+                                  sectionStart ||
+                                      sectionEnd ||
+                                      stop.company.isNotEmpty
+                                  ? Colors.white
+                                  : const Color(0xFF1565C0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                  ...List.generate(_viaPoints.length, (index) {
+                    final point = _viaPoints[index];
+                    final selected = _moveViaPointIndex == index;
+                    final belongsToSelected =
+                        point.afterStopIndex == _selectedAfterStopIndex;
+
+                    return Marker(
+                      point: point.position,
+                      width: belongsToSelected ? 44 : 34,
+                      height: belongsToSelected ? 44 : 34,
+                      child: GestureDetector(
+                        onTap: () {
+                          if (!_addMode && _moveViaPointIndex == null) {
+                            _showViaPointActions(index);
+                          }
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: selected
+                                ? Colors.red
+                                : belongsToSelected
+                                ? const Color(0xFF6A1B9A)
+                                : const Color(0xFF9E9E9E),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 3),
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 4,
+                                offset: Offset(0, 2),
+                                color: Color(0x44000000),
+                              ),
+                            ],
+                          ),
+                          child: Text(
+                            '${index + 1}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                ],
               ),
             ],
           ),
           Positioned(
-            left: 14,
-            right: 14,
-            bottom: 20,
+            top: 12,
+            left: 12,
+            right: 12,
             child: SafeArea(
-              top: false,
+              bottom: false,
               child: Material(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                elevation: 6,
-                child: const Padding(
-                  padding: EdgeInsets.all(16),
+                color: (_addMode || _moveViaPointIndex != null)
+                    ? const Color(0xFF1565C0)
+                    : Colors.white.withValues(alpha: 0.96),
+                borderRadius: BorderRadius.circular(14),
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 11,
+                  ),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.alt_route_rounded, color: Color(0xFF1565C0)),
-                      SizedBox(width: 12),
+                      Icon(
+                        _moveViaPointIndex != null
+                            ? Icons.open_with_rounded
+                            : _addMode
+                            ? Icons.add_road_rounded
+                            : Icons.alt_route_rounded,
+                        color: (_addMode || _moveViaPointIndex != null)
+                            ? Colors.white
+                            : const Color(0xFF1565C0),
+                      ),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          'Der Routen-Editor ist angelegt. Als Nächstes machen wir '
-                          'die Karte antippbar, damit du manuelle Zwischenpunkte '
-                          'setzen, verschieben und löschen kannst.',
-                          style: TextStyle(fontWeight: FontWeight.w600),
+                          routingSelectedSection
+                              ? 'Straßenroute wird berechnet …'
+                              : _moveViaPointIndex != null
+                              ? 'Routenpunkt verschieben: Tippe auf die neue Position.'
+                              : _addMode && selectedSection != null
+                              ? 'Abschnitt ${selectedSection + 1} → ${selectedSection + 2}: Setze die Via-Punkte in Fahrreihenfolge. Die blaue Linie folgt danach den Straßen.'
+                              : 'Tippe einen Zustellpunkt an und wähle den Abschnitt zum nächsten Stopp.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: (_addMode || _moveViaPointIndex != null)
+                                ? Colors.white
+                                : Colors.black87,
+                          ),
                         ),
                       ),
+                      if (routingSelectedSection)
+                        const Padding(
+                          padding: EdgeInsets.only(left: 8),
+                          child: SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2.5,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      if ((_addMode || _moveViaPointIndex != null) &&
+                          !routingSelectedSection)
+                        TextButton(
+                          onPressed: () => setState(() {
+                            _addMode = false;
+                            _moveViaPointIndex = null;
+                          }),
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.white,
+                          ),
+                          child: Text(
+                            _moveViaPointIndex != null ? 'Abbrechen' : 'Fertig',
+                          ),
+                        ),
                     ],
                   ),
                 ),
               ),
             ),
           ),
+          if (_loading) const Center(child: CircularProgressIndicator()),
         ],
       ),
+      floatingActionButton:
+          !_loading &&
+              _moveViaPointIndex == null &&
+              _selectedAfterStopIndex != null
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                setState(() => _addMode = !_addMode);
+              },
+              icon: Icon(
+                _addMode ? Icons.close_rounded : Icons.add_road_rounded,
+              ),
+              label: Text(_addMode ? 'Abbrechen' : 'Via-Punkt hinzufügen'),
+            )
+          : null,
     );
   }
 }
