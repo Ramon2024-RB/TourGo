@@ -728,6 +728,21 @@ Future<void> main() async {
     final currentDistance = connection.distanceMeters;
     final geographicDistance = geographicProjection.distanceMeters;
 
+    // Sichtbare Hausanschlüsse müssen immer an der FINALEN Hauptroute enden.
+    // Frühere lokale Straßensnaps können zwar geografisch sinnvoll aussehen,
+    // aber neben der später zusammengesetzten mainRoute liegen. Genau dadurch
+    // entstanden u. a. die auffälligen Linien bei Am Alten Schwimmbad 2a/10.
+    //
+    // Die Projektion auf globalMainAxis verändert ausschließlich den dünnen
+    // Hausanschluss. Stoppreihenfolge, Marker, routeParts und mainRoute bleiben
+    // vollständig unverändert.
+    final currentRoadPointProjection = globalMainAxis.project(
+      connection.roadPoint.latitude,
+      connection.roadPoint.longitude,
+    );
+    final currentRoadPointIsOnFinalRoute =
+        currentRoadPointProjection.distanceMeters <= 2.0;
+
     final isProtectedPointweg8 =
         _normalizeStreet(connection.streetName) == 'pointweg' &&
         _normalizeAddress(connection.stop.address) == 'pointweg8';
@@ -739,8 +754,9 @@ Future<void> main() async {
     final useGlobalFallback =
         !isProtectedPointweg8 &&
         !isProtectedBahnhofstrasse22 &&
-        currentDistance > geographicDistance + 30.0 &&
-        currentDistance > geographicDistance * 2.5;
+        (!currentRoadPointIsOnFinalRoute ||
+            (currentDistance > geographicDistance + 30.0 &&
+                currentDistance > geographicDistance * 2.5));
 
     if (useGlobalFallback) {
       print(
@@ -748,7 +764,7 @@ Future<void> main() async {
         '${connection.stop.address}: '
         '${currentDistance.toStringAsFixed(1)} m → '
         '${geographicDistance.toStringAsFixed(1)} m '
-        '· globaler geografischer Fallback',
+        '${currentRoadPointIsOnFinalRoute ? '· globaler geografischer Fallback' : '· Anschluss auf finale Hauptroute korrigiert'}',
       );
 
       correctedConnections.add(

@@ -15893,10 +15893,10 @@
       "address": "Karlstadter Str. 24",
       "streetName": "Karlstadter Str.",
       "segmentNumber": 1,
-      "distanceMeters": 27.82140239,
+      "distanceMeters": 52.67154700921495,
       "roadPoint": {
-        "lat": 49.9789,
-        "lng": 9.964536
+        "lat": 49.97819537202796,
+        "lng": 9.96452649784119
       },
       "stopPoint": {
         "lat": 49.97866328626868,
@@ -15904,8 +15904,8 @@
       },
       "points": [
         {
-          "lat": 49.9789,
-          "lng": 9.964536
+          "lat": 49.97819537202796,
+          "lng": 9.96452649784119
         },
         {
           "lat": 49.97866328626868,
@@ -15918,10 +15918,10 @@
       "address": "Karlstadter Str. 26",
       "streetName": "Karlstadter Str.",
       "segmentNumber": 1,
-      "distanceMeters": 26.30768312,
+      "distanceMeters": 60.64252718688069,
       "roadPoint": {
-        "lat": 49.9789,
-        "lng": 9.964536
+        "lat": 49.97818490047076,
+        "lng": 9.964423148124489
       },
       "stopPoint": {
         "lat": 49.97872362587958,
@@ -15929,8 +15929,8 @@
       },
       "points": [
         {
-          "lat": 49.9789,
-          "lng": 9.964536
+          "lat": 49.97818490047076,
+          "lng": 9.964423148124489
         },
         {
           "lat": 49.97872362587958,
@@ -16218,10 +16218,10 @@
       "address": "Karlstadter Str. 37",
       "streetName": "Karlstadter Str.",
       "segmentNumber": 1,
-      "distanceMeters": 20.29206165,
+      "distanceMeters": 60.83298696807549,
       "roadPoint": {
-        "lat": 49.978053,
-        "lng": 9.961686
+        "lat": 49.97816136846668,
+        "lng": 9.96247330839775
       },
       "stopPoint": {
         "lat": 49.97787502155756,
@@ -16229,8 +16229,8 @@
       },
       "points": [
         {
-          "lat": 49.978053,
-          "lng": 9.961686
+          "lat": 49.97816136846668,
+          "lng": 9.96247330839775
         },
         {
           "lat": 49.97787502155756,
@@ -16243,10 +16243,10 @@
       "address": "Karlstadter Str. 37a",
       "streetName": "Karlstadter Str.",
       "segmentNumber": 1,
-      "distanceMeters": 26.08820464,
+      "distanceMeters": 28.33199878592945,
       "roadPoint": {
-        "lat": 49.978163,
-        "lng": 9.962364
+        "lat": 49.97816136846668,
+        "lng": 9.96247330839775
       },
       "stopPoint": {
         "lat": 49.97793194269654,
@@ -16254,8 +16254,8 @@
       },
       "points": [
         {
-          "lat": 49.978163,
-          "lng": 9.962364
+          "lat": 49.97816136846668,
+          "lng": 9.96247330839775
         },
         {
           "lat": 49.97793194269654,
@@ -16643,10 +16643,10 @@
       "address": "Am Alten Schwimmbad 2a",
       "streetName": "Am Alten Schwimmbad",
       "segmentNumber": 3,
-      "distanceMeters": 4.349746583,
+      "distanceMeters": 47.13442949246827,
       "roadPoint": {
-        "lat": 49.976396,
-        "lng": 9.962127
+        "lat": 49.975987274894635,
+        "lng": 9.962217769980828
       },
       "stopPoint": {
         "lat": 49.97641057273915,
@@ -16654,8 +16654,8 @@
       },
       "points": [
         {
-          "lat": 49.976396,
-          "lng": 9.962127
+          "lat": 49.975987274894635,
+          "lng": 9.962217769980828
         },
         {
           "lat": 49.97641057273915,
@@ -16793,10 +16793,10 @@
       "address": "Am Alten Schwimmbad 10",
       "streetName": "Am Alten Schwimmbad",
       "segmentNumber": 3,
-      "distanceMeters": 18.29639289,
+      "distanceMeters": 77.28903931577874,
       "roadPoint": {
-        "lat": 49.976618,
-        "lng": 9.960513
+        "lat": 49.97593910415957,
+        "lng": 9.960827297597561
       },
       "stopPoint": {
         "lat": 49.976633089035545,
@@ -16804,8 +16804,8 @@
       },
       "points": [
         {
-          "lat": 49.976618,
-          "lng": 9.960513
+          "lat": 49.97593910415957,
+          "lng": 9.960827297597561
         },
         {
           "lat": 49.976633089035545,
@@ -17368,10 +17368,10 @@
       "address": "Bahnhofstraße 24",
       "streetName": "Bahnhofstraße",
       "segmentNumber": 6,
-      "distanceMeters": 20.61793544,
+      "distanceMeters": 74.29301620219857,
       "roadPoint": {
-        "lat": 49.973851,
-        "lng": 9.968662
+        "lat": 49.974409233703575,
+        "lng": 9.968714260560954
       },
       "stopPoint": {
         "lat": 49.973752405052466,
@@ -17379,8 +17379,8 @@
       },
       "points": [
         {
-          "lat": 49.973851,
-          "lng": 9.968662
+          "lat": 49.974409233703575,
+          "lng": 9.968714260560954
         },
         {
           "lat": 49.973752405052466,
@@ -17393,10 +17393,10 @@
       "address": "Bahnhofstraße 26",
       "streetName": "Bahnhofstraße",
       "segmentNumber": 6,
-      "distanceMeters": 4.770613041,
+      "distanceMeters": 55.80078219147355,
       "roadPoint": {
-        "lat": 49.973872,
-        "lng": 9.96858
+        "lat": 49.973943,
+        "lng": 9.967795
       },
       "stopPoint": {
         "lat": 49.97383175100464,
@@ -17404,8 +17404,8 @@
       },
       "points": [
         {
-          "lat": 49.973872,
-          "lng": 9.96858
+          "lat": 49.973943,
+          "lng": 9.967795
         },
         {
           "lat": 49.97383175100464,
@@ -17418,10 +17418,10 @@
       "address": "Bahnhofstraße 26",
       "streetName": "Bahnhofstraße",
       "segmentNumber": 6,
-      "distanceMeters": 10.0338996,
+      "distanceMeters": 47.46777959847327,
       "roadPoint": {
-        "lat": 49.973897,
-        "lng": 9.968478
+        "lat": 49.973943,
+        "lng": 9.967795
       },
       "stopPoint": {
         "lat": 49.9738127769845,
@@ -17429,8 +17429,8 @@
       },
       "points": [
         {
-          "lat": 49.973897,
-          "lng": 9.968478
+          "lat": 49.973943,
+          "lng": 9.967795
         },
         {
           "lat": 49.9738127769845,
@@ -17443,10 +17443,10 @@
       "address": "Bahnhofstraße 26",
       "streetName": "Bahnhofstraße",
       "segmentNumber": 6,
-      "distanceMeters": 15.33673527,
+      "distanceMeters": 35.4575160037942,
       "roadPoint": {
-        "lat": 49.973934,
-        "lng": 9.968358
+        "lat": 49.97392203424771,
+        "lng": 9.967783322872142
       },
       "stopPoint": {
         "lat": 49.97381450189574,
@@ -17454,8 +17454,8 @@
       },
       "points": [
         {
-          "lat": 49.973934,
-          "lng": 9.968358
+          "lat": 49.97392203424771,
+          "lng": 9.967783322872142
         },
         {
           "lat": 49.97381450189574,
@@ -17493,10 +17493,10 @@
       "address": "Bahnhofstraße 20",
       "streetName": "Bahnhofstraße",
       "segmentNumber": 6,
-      "distanceMeters": 7.271020417,
+      "distanceMeters": 9.987646381563719,
       "roadPoint": {
-        "lat": 49.974216,
-        "lng": 9.968042
+        "lat": 49.97432932557671,
+        "lng": 9.968100322968777
       },
       "stopPoint": {
         "lat": 49.97424227797206,
@@ -17504,8 +17504,8 @@
       },
       "points": [
         {
-          "lat": 49.974216,
-          "lng": 9.968042
+          "lat": 49.97432932557671,
+          "lng": 9.968100322968777
         },
         {
           "lat": 49.97424227797206,
@@ -19318,10 +19318,10 @@
       "address": "Ölmühlweg 11",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 6.132693488,
+      "distanceMeters": 58.278199083327756,
       "roadPoint": {
-        "lat": 49.975325,
-        "lng": 9.973807
+        "lat": 49.97475122438758,
+        "lng": 9.973701148539353
       },
       "stopPoint": {
         "lat": 49.9752703730988,
@@ -19329,8 +19329,8 @@
       },
       "points": [
         {
-          "lat": 49.975325,
-          "lng": 9.973807
+          "lat": 49.97475122438758,
+          "lng": 9.973701148539353
         },
         {
           "lat": 49.9752703730988,
@@ -19343,10 +19343,10 @@
       "address": "Ölmühlweg 11",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 3.232799437,
+      "distanceMeters": 63.62439708438471,
       "roadPoint": {
-        "lat": 49.975314,
-        "lng": 9.973548
+        "lat": 49.974776039597955,
+        "lng": 9.973422666733988
       },
       "stopPoint": {
         "lat": 49.97534281281716,
@@ -19354,8 +19354,8 @@
       },
       "points": [
         {
-          "lat": 49.975314,
-          "lng": 9.973548
+          "lat": 49.974776039597955,
+          "lng": 9.973422666733988
         },
         {
           "lat": 49.97534281281716,
@@ -19368,10 +19368,10 @@
       "address": "Ölmühlweg 13",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 7.629923434,
+      "distanceMeters": 75.07498228893553,
       "roadPoint": {
-        "lat": 49.975318,
-        "lng": 9.974099
+        "lat": 49.976000000000006,
+        "lng": 9.973677
       },
       "stopPoint": {
         "lat": 49.97538593164535,
@@ -19379,8 +19379,8 @@
       },
       "points": [
         {
-          "lat": 49.975318,
-          "lng": 9.974099
+          "lat": 49.976000000000006,
+          "lng": 9.973677
         },
         {
           "lat": 49.97538593164535,
@@ -19393,10 +19393,10 @@
       "address": "Ölmühlweg 19",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 6.287998497,
+      "distanceMeters": 61.54415090003201,
       "roadPoint": {
-        "lat": 49.975316,
-        "lng": 9.974123
+        "lat": 49.97472443963547,
+        "lng": 9.97389365320905
       },
       "stopPoint": {
         "lat": 49.9752600245587,
@@ -19404,8 +19404,8 @@
       },
       "points": [
         {
-          "lat": 49.975316,
-          "lng": 9.974123
+          "lat": 49.97472443963547,
+          "lng": 9.97389365320905
         },
         {
           "lat": 49.9752600245587,
@@ -19418,10 +19418,10 @@
       "address": "Ölmühlweg 17",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 8.527034291,
+      "distanceMeters": 66.86698682536912,
       "roadPoint": {
-        "lat": 49.975295,
-        "lng": 9.974363
+        "lat": 49.97468322973366,
+        "lng": 9.974060460484997
       },
       "stopPoint": {
         "lat": 49.97523415319875,
@@ -19429,8 +19429,8 @@
       },
       "points": [
         {
-          "lat": 49.975295,
-          "lng": 9.974363
+          "lat": 49.97468322973366,
+          "lng": 9.974060460484997
         },
         {
           "lat": 49.97523415319875,
@@ -19468,10 +19468,10 @@
       "address": "Ölmühlweg 23",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 11.51704743,
+      "distanceMeters": 49.28772914150583,
       "roadPoint": {
-        "lat": 49.974935,
-        "lng": 9.974934
+        "lat": 49.974565510796964,
+        "lng": 9.974469494013794
       },
       "stopPoint": {
         "lat": 49.974961690176464,
@@ -19479,8 +19479,8 @@
       },
       "points": [
         {
-          "lat": 49.974935,
-          "lng": 9.974934
+          "lat": 49.974565510796964,
+          "lng": 9.974469494013794
         },
         {
           "lat": 49.974961690176464,
@@ -19493,10 +19493,10 @@
       "address": "Ölmühlweg 25",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 15.73785141,
+      "distanceMeters": 66.19107588396295,
       "roadPoint": {
-        "lat": 49.975016,
-        "lng": 9.974968
+        "lat": 49.975548,
+        "lng": 9.975574
       },
       "stopPoint": {
         "lat": 49.975147964712534,
@@ -19504,8 +19504,8 @@
       },
       "points": [
         {
-          "lat": 49.975016,
-          "lng": 9.974968
+          "lat": 49.975548,
+          "lng": 9.975574
         },
         {
           "lat": 49.975147964712534,
@@ -19518,10 +19518,10 @@
       "address": "Ölmühlweg 27",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 16.51647952,
+      "distanceMeters": 50.53264586972919,
       "roadPoint": {
-        "lat": 49.974981,
-        "lng": 9.975265
+        "lat": 49.975548,
+        "lng": 9.975574
       },
       "stopPoint": {
         "lat": 49.97512724129076,
@@ -19529,8 +19529,8 @@
       },
       "points": [
         {
-          "lat": 49.974981,
-          "lng": 9.975265
+          "lat": 49.975548,
+          "lng": 9.975574
         },
         {
           "lat": 49.97512724129076,
@@ -19543,10 +19543,10 @@
       "address": "Ölmühlweg 29",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 20.28250614,
+      "distanceMeters": 47.672185786934286,
       "roadPoint": {
-        "lat": 49.97498,
-        "lng": 9.97527
+        "lat": 49.975548,
+        "lng": 9.975574
       },
       "stopPoint": {
         "lat": 49.97512896605233,
@@ -19554,8 +19554,8 @@
       },
       "points": [
         {
-          "lat": 49.97498,
-          "lng": 9.97527
+          "lat": 49.975548,
+          "lng": 9.975574
         },
         {
           "lat": 49.97512896605233,
@@ -19568,10 +19568,10 @@
       "address": "Ölmühlweg 33",
       "streetName": "Ölmühlweg",
       "segmentNumber": 10,
-      "distanceMeters": 7.917073491,
+      "distanceMeters": 60.04123676469261,
       "roadPoint": {
-        "lat": 49.974983,
-        "lng": 9.975241
+        "lat": 49.97447604573577,
+        "lng": 9.974728695920255
       },
       "stopPoint": {
         "lat": 49.97491337037369,
@@ -19579,8 +19579,8 @@
       },
       "points": [
         {
-          "lat": 49.974983,
-          "lng": 9.975241
+          "lat": 49.97447604573577,
+          "lng": 9.974728695920255
         },
         {
           "lat": 49.97491337037369,
@@ -19793,10 +19793,10 @@
       "address": "Dürrhof 4",
       "streetName": "Dürrhof",
       "segmentNumber": 11,
-      "distanceMeters": 2.066453269,
+      "distanceMeters": 39.29770808300043,
       "roadPoint": {
-        "lat": 49.95274,
-        "lng": 9.973028
+        "lat": 49.95308281870221,
+        "lng": 9.973228396694703
       },
       "stopPoint": {
         "lat": 49.952747707133,
@@ -19804,8 +19804,8 @@
       },
       "points": [
         {
-          "lat": 49.95274,
-          "lng": 9.973028
+          "lat": 49.95308281870221,
+          "lng": 9.973228396694703
         },
         {
           "lat": 49.952747707133,
@@ -19818,10 +19818,10 @@
       "address": "Dürrhof 6",
       "streetName": "Dürrhof",
       "segmentNumber": 11,
-      "distanceMeters": 25.18646422,
+      "distanceMeters": 35.69013999650297,
       "roadPoint": {
-        "lat": 49.95304,
-        "lng": 9.972981
+        "lat": 49.95308281870221,
+        "lng": 9.973228396694703
       },
       "stopPoint": {
         "lat": 49.953227411440125,
@@ -19829,8 +19829,8 @@
       },
       "points": [
         {
-          "lat": 49.95304,
-          "lng": 9.972981
+          "lat": 49.95308281870221,
+          "lng": 9.973228396694703
         },
         {
           "lat": 49.953227411440125,
@@ -20993,10 +20993,10 @@
       "address": "Am Artfeld 22",
       "streetName": "Am Artfeld",
       "segmentNumber": 16,
-      "distanceMeters": 5.83813208,
+      "distanceMeters": 6.502840260225094,
       "roadPoint": {
-        "lat": 49.968218,
-        "lng": 9.935553
+        "lat": 49.96824356049847,
+        "lng": 9.935538526248873
       },
       "stopPoint": {
         "lat": 49.96820099149882,
@@ -21004,8 +21004,8 @@
       },
       "points": [
         {
-          "lat": 49.968218,
-          "lng": 9.935553
+          "lat": 49.96824356049847,
+          "lng": 9.935538526248873
         },
         {
           "lat": 49.96820099149882,
@@ -21318,10 +21318,10 @@
       "address": "Hochrainstr. 8b",
       "streetName": "Hochrainstr.",
       "segmentNumber": 21,
-      "distanceMeters": 84.20220267,
+      "distanceMeters": 84.18753463750042,
       "roadPoint": {
-        "lat": 49.951161,
-        "lng": 9.890613
+        "lat": 49.95232958655886,
+        "lng": 9.889227641098163
       },
       "stopPoint": {
         "lat": 49.95163584786499,
@@ -21329,8 +21329,8 @@
       },
       "points": [
         {
-          "lat": 49.951161,
-          "lng": 9.890613
+          "lat": 49.95232958655886,
+          "lng": 9.889227641098163
         },
         {
           "lat": 49.95163584786499,
@@ -21543,10 +21543,10 @@
       "address": "Hochrainstr. 5",
       "streetName": "Hochrainstr.",
       "segmentNumber": 21,
-      "distanceMeters": 10.73201977,
+      "distanceMeters": 27.040352603632087,
       "roadPoint": {
-        "lat": 49.95287,
-        "lng": 9.890261
+        "lat": 49.95309245009907,
+        "lng": 9.889952343523948
       },
       "stopPoint": {
         "lat": 49.95296644238261,
@@ -21554,8 +21554,8 @@
       },
       "points": [
         {
-          "lat": 49.95287,
-          "lng": 9.890261
+          "lat": 49.95309245009907,
+          "lng": 9.889952343523948
         },
         {
           "lat": 49.95296644238261,
@@ -21568,10 +21568,10 @@
       "address": "Hochrainstr. 18a",
       "streetName": "Hochrainstr.",
       "segmentNumber": 21,
-      "distanceMeters": 6.922579149,
+      "distanceMeters": 47.76343791557397,
       "roadPoint": {
-        "lat": 49.952826,
-        "lng": 9.890469
+        "lat": 49.952953390110366,
+        "lng": 9.889831623415406
       },
       "stopPoint": {
         "lat": 49.95276800305463,
@@ -21579,8 +21579,8 @@
       },
       "points": [
         {
-          "lat": 49.952826,
-          "lng": 9.890469
+          "lat": 49.952953390110366,
+          "lng": 9.889831623415406
         },
         {
           "lat": 49.95276800305463,
@@ -21593,10 +21593,10 @@
       "address": "Hochrainstr. 20",
       "streetName": "Hochrainstr.",
       "segmentNumber": 21,
-      "distanceMeters": 13.3505136,
+      "distanceMeters": 60.559299019027,
       "roadPoint": {
-        "lat": 49.952802,
-        "lng": 9.890564
+        "lat": 49.952916777660256,
+        "lng": 9.889804398773013
       },
       "stopPoint": {
         "lat": 49.95268172483092,
@@ -21604,8 +21604,8 @@
       },
       "points": [
         {
-          "lat": 49.952802,
-          "lng": 9.890564
+          "lat": 49.952916777660256,
+          "lng": 9.889804398773013
         },
         {
           "lat": 49.95268172483092,
@@ -21618,10 +21618,10 @@
       "address": "Hochrainstr. 18",
       "streetName": "Hochrainstr.",
       "segmentNumber": 21,
-      "distanceMeters": 6.159484446,
+      "distanceMeters": 19.21596661006468,
       "roadPoint": {
-        "lat": 49.95272,
-        "lng": 9.889987
+        "lat": 49.95284948929474,
+        "lng": 9.889754363834552
       },
       "stopPoint": {
         "lat": 49.95277490530586,
@@ -21629,8 +21629,8 @@
       },
       "points": [
         {
-          "lat": 49.95272,
-          "lng": 9.889987
+          "lat": 49.95284948929474,
+          "lng": 9.889754363834552
         },
         {
           "lat": 49.95277490530586,
@@ -21643,10 +21643,10 @@
       "address": "Hochrainstr. 14",
       "streetName": "Hochrainstr.",
       "segmentNumber": 21,
-      "distanceMeters": 5.187088772,
+      "distanceMeters": 65.09019211923992,
       "roadPoint": {
-        "lat": 49.952411,
-        "lng": 9.890399
+        "lat": 49.952658356422404,
+        "lng": 9.889619745371045
       },
       "stopPoint": {
         "lat": 49.95243496825784,
@@ -21654,8 +21654,8 @@
       },
       "points": [
         {
-          "lat": 49.952411,
-          "lng": 9.890399
+          "lat": 49.952658356422404,
+          "lng": 9.889619745371045
         },
         {
           "lat": 49.95243496825784,
@@ -21668,10 +21668,10 @@
       "address": "Hochrainstr. 12",
       "streetName": "Hochrainstr.",
       "segmentNumber": 21,
-      "distanceMeters": 12.20028246,
+      "distanceMeters": 22.35444973237999,
       "roadPoint": {
-        "lat": 49.952723,
-        "lng": 9.889949
+        "lat": 49.95269114736435,
+        "lng": 9.889640786225453
       },
       "stopPoint": {
         "lat": 49.952614427709086,
@@ -21679,8 +21679,8 @@
       },
       "points": [
         {
-          "lat": 49.952723,
-          "lng": 9.889949
+          "lat": 49.95269114736435,
+          "lng": 9.889640786225453
         },
         {
           "lat": 49.952614427709086,
@@ -22443,10 +22443,10 @@
       "address": "Forstbergstr. 1",
       "streetName": "Forstbergstr.",
       "segmentNumber": 25,
-      "distanceMeters": 9.102920647,
+      "distanceMeters": 10.788691987942917,
       "roadPoint": {
-        "lat": 49.94732,
-        "lng": 9.887733
+        "lat": 49.947389011963516,
+        "lng": 9.887517691673589
       },
       "stopPoint": {
         "lat": 49.94731074343593,
@@ -22454,8 +22454,8 @@
       },
       "points": [
         {
-          "lat": 49.94732,
-          "lng": 9.887733
+          "lat": 49.947389011963516,
+          "lng": 9.887517691673589
         },
         {
           "lat": 49.94731074343593,
@@ -22543,10 +22543,10 @@
       "address": "Forstbergstr. 10",
       "streetName": "Forstbergstr.",
       "segmentNumber": 25,
-      "distanceMeters": 6.912034997,
+      "distanceMeters": 20.55224364359078,
       "roadPoint": {
-        "lat": 49.947011,
-        "lng": 9.886538
+        "lat": 49.946949619108324,
+        "lng": 9.88676969264621
       },
       "stopPoint": {
         "lat": 49.94696041319371,
@@ -22554,8 +22554,8 @@
       },
       "points": [
         {
-          "lat": 49.947011,
-          "lng": 9.886538
+          "lat": 49.946949619108324,
+          "lng": 9.88676969264621
         },
         {
           "lat": 49.94696041319371,
@@ -22568,10 +22568,10 @@
       "address": "Forstbergstr. 8",
       "streetName": "Forstbergstr.",
       "segmentNumber": 25,
-      "distanceMeters": 12.45992606,
+      "distanceMeters": 12.886561135370785,
       "roadPoint": {
-        "lat": 49.946996,
-        "lng": 9.886572
+        "lat": 49.947017910212175,
+        "lng": 9.886813993751076
       },
       "stopPoint": {
         "lat": 49.947088120079584,
@@ -22579,8 +22579,8 @@
       },
       "points": [
         {
-          "lat": 49.946996,
-          "lng": 9.886572
+          "lat": 49.947017910212175,
+          "lng": 9.886813993751076
         },
         {
           "lat": 49.947088120079584,
@@ -22668,10 +22668,10 @@
       "address": "Forstbergstr. 4",
       "streetName": "Forstbergstr.",
       "segmentNumber": 25,
-      "distanceMeters": 17.95769056,
+      "distanceMeters": 22.46960686407669,
       "roadPoint": {
-        "lat": 49.947629,
-        "lng": 9.887075
+        "lat": 49.947324060832415,
+        "lng": 9.887379871175243
       },
       "stopPoint": {
         "lat": 49.947486812472064,
@@ -22679,8 +22679,8 @@
       },
       "points": [
         {
-          "lat": 49.947629,
-          "lng": 9.887075
+          "lat": 49.947324060832415,
+          "lng": 9.887379871175243
         },
         {
           "lat": 49.947486812472064,
@@ -22768,10 +22768,10 @@
       "address": "Waldweg 8",
       "streetName": "Waldweg",
       "segmentNumber": 26,
-      "distanceMeters": 9.893773181,
+      "distanceMeters": 33.47067361149588,
       "roadPoint": {
-        "lat": 49.947902,
-        "lng": 9.887802
+        "lat": 49.947815959560806,
+        "lng": 9.888118075695175
       },
       "stopPoint": {
         "lat": 49.947973472121355,
@@ -22779,8 +22779,8 @@
       },
       "points": [
         {
-          "lat": 49.947902,
-          "lng": 9.887802
+          "lat": 49.947815959560806,
+          "lng": 9.888118075695175
         },
         {
           "lat": 49.947973472121355,
@@ -22793,10 +22793,10 @@
       "address": "Waldweg 6",
       "streetName": "Waldweg",
       "segmentNumber": 26,
-      "distanceMeters": 8.94076937,
+      "distanceMeters": 26.09566847881857,
       "roadPoint": {
-        "lat": 49.948132,
-        "lng": 9.888047
+        "lat": 49.94814016164848,
+        "lng": 9.88830074665139
       },
       "stopPoint": {
         "lat": 49.94817193120518,
@@ -22804,8 +22804,8 @@
       },
       "points": [
         {
-          "lat": 49.948132,
-          "lng": 9.888047
+          "lat": 49.94814016164848,
+          "lng": 9.88830074665139
         },
         {
           "lat": 49.94817193120518,
@@ -22818,10 +22818,10 @@
       "address": "Waldweg 4",
       "streetName": "Waldweg",
       "segmentNumber": 26,
-      "distanceMeters": 7.711872822,
+      "distanceMeters": 11.748258723994116,
       "roadPoint": {
-        "lat": 49.948311,
-        "lng": 9.888245
+        "lat": 49.94834991892369,
+        "lng": 9.888326030467178
       },
       "stopPoint": {
         "lat": 49.9483548579843,
@@ -22829,8 +22829,8 @@
       },
       "points": [
         {
-          "lat": 49.948311,
-          "lng": 9.888245
+          "lat": 49.94834991892369,
+          "lng": 9.888326030467178
         },
         {
           "lat": 49.9483548579843,
@@ -22968,10 +22968,10 @@
       "address": "Retzstadter Str. 15",
       "streetName": "Retzstadter Str.",
       "segmentNumber": 27,
-      "distanceMeters": 9.260918793,
+      "distanceMeters": 30.719281254164457,
       "roadPoint": {
-        "lat": 49.947566,
-        "lng": 9.890053
+        "lat": 49.94775200000001,
+        "lng": 9.889763
       },
       "stopPoint": {
         "lat": 49.947624872446646,
@@ -22979,8 +22979,8 @@
       },
       "points": [
         {
-          "lat": 49.947566,
-          "lng": 9.890053
+          "lat": 49.94775200000001,
+          "lng": 9.889763
         },
         {
           "lat": 49.947624872446646,
@@ -23018,10 +23018,10 @@
       "address": "Retzstadter Str. 12",
       "streetName": "Retzstadter Str.",
       "segmentNumber": 27,
-      "distanceMeters": 9.912011244,
+      "distanceMeters": 20.130913247176036,
       "roadPoint": {
-        "lat": 49.947738,
-        "lng": 9.889316
+        "lat": 49.947746,
+        "lng": 9.889561
       },
       "stopPoint": {
         "lat": 49.9476490329015,
@@ -23029,8 +23029,8 @@
       },
       "points": [
         {
-          "lat": 49.947738,
-          "lng": 9.889316
+          "lat": 49.947746,
+          "lng": 9.889561
         },
         {
           "lat": 49.9476490329015,
@@ -23043,10 +23043,10 @@
       "address": "Retzstadter Str. 14",
       "streetName": "Retzstadter Str.",
       "segmentNumber": 27,
-      "distanceMeters": 10.35637385,
+      "distanceMeters": 41.51563753103427,
       "roadPoint": {
-        "lat": 49.947728,
-        "lng": 9.889
+        "lat": 49.947746,
+        "lng": 9.889561
       },
       "stopPoint": {
         "lat": 49.947635226928796,
@@ -23054,8 +23054,8 @@
       },
       "points": [
         {
-          "lat": 49.947728,
-          "lng": 9.889
+          "lat": 49.947746,
+          "lng": 9.889561
         },
         {
           "lat": 49.947635226928796,
@@ -23068,10 +23068,10 @@
       "address": "Retzstadter Str. 16",
       "streetName": "Retzstadter Str.",
       "segmentNumber": 27,
-      "distanceMeters": 16.90797034,
+      "distanceMeters": 46.753290569054734,
       "roadPoint": {
-        "lat": 49.94772,
-        "lng": 9.88873
+        "lat": 49.947978,
+        "lng": 9.888589
       },
       "stopPoint": {
         "lat": 49.94756792275506,
@@ -23079,8 +23079,8 @@
       },
       "points": [
         {
-          "lat": 49.94772,
-          "lng": 9.88873
+          "lat": 49.947978,
+          "lng": 9.888589
         },
         {
           "lat": 49.94756792275506,
@@ -23843,10 +23843,10 @@
       "address": "Untere Dorfstr. 18",
       "streetName": "Untere Dorfstr.",
       "segmentNumber": 36,
-      "distanceMeters": 4.423901572,
+      "distanceMeters": 14.915081128662633,
       "roadPoint": {
-        "lat": 49.950136,
-        "lng": 9.885761
+        "lat": 49.95006498969204,
+        "lng": 9.885929789570017
       },
       "stopPoint": {
         "lat": 49.95010162003513,
@@ -23854,8 +23854,8 @@
       },
       "points": [
         {
-          "lat": 49.950136,
-          "lng": 9.885761
+          "lat": 49.95006498969204,
+          "lng": 9.885929789570017
         },
         {
           "lat": 49.95010162003513,
@@ -26018,10 +26018,10 @@
       "address": "Talweg 5",
       "streetName": "Talweg",
       "segmentNumber": 56,
-      "distanceMeters": 15.49346975,
+      "distanceMeters": 30.519365048121287,
       "roadPoint": {
-        "lat": 49.961881,
-        "lng": 9.897236
+        "lat": 49.96208789150657,
+        "lng": 9.897533754818813
       },
       "stopPoint": {
         "lat": 49.96200177463427,
@@ -26029,8 +26029,8 @@
       },
       "points": [
         {
-          "lat": 49.961881,
-          "lng": 9.897236
+          "lat": 49.96208789150657,
+          "lng": 9.897533754818813
         },
         {
           "lat": 49.96200177463427,
@@ -26793,10 +26793,10 @@
       "address": "Werthgasse 3",
       "streetName": "Werthgasse",
       "segmentNumber": 62,
-      "distanceMeters": 3.844409968,
+      "distanceMeters": 15.557074251715022,
       "roadPoint": {
-        "lat": 49.960076,
-        "lng": 9.898914
+        "lat": 49.960194,
+        "lng": 9.898818
       },
       "stopPoint": {
         "lat": 49.96008988414671,
@@ -26804,8 +26804,8 @@
       },
       "points": [
         {
-          "lat": 49.960076,
-          "lng": 9.898914
+          "lat": 49.960194,
+          "lng": 9.898818
         },
         {
           "lat": 49.96008988414671,
@@ -26818,10 +26818,10 @@
       "address": "Werthgasse 7",
       "streetName": "Werthgasse",
       "segmentNumber": 62,
-      "distanceMeters": 5.06546011,
+      "distanceMeters": 14.474520765138667,
       "roadPoint": {
-        "lat": 49.959922,
-        "lng": 9.898488
+        "lat": 49.96003678326803,
+        "lng": 9.898447829399705
       },
       "stopPoint": {
         "lat": 49.959927705621006,
@@ -26829,8 +26829,8 @@
       },
       "points": [
         {
-          "lat": 49.959922,
-          "lng": 9.898488
+          "lat": 49.96003678326803,
+          "lng": 9.898447829399705
         },
         {
           "lat": 49.959927705621006,
@@ -26843,10 +26843,10 @@
       "address": "Werthgasse 9",
       "streetName": "Werthgasse",
       "segmentNumber": 62,
-      "distanceMeters": 3.29807624,
+      "distanceMeters": 15.531073045631288,
       "roadPoint": {
-        "lat": 49.959922,
-        "lng": 9.898488
+        "lat": 49.96001528872902,
+        "lng": 9.898396552465346
       },
       "stopPoint": {
         "lat": 49.95989837540377,
@@ -26854,8 +26854,8 @@
       },
       "points": [
         {
-          "lat": 49.959922,
-          "lng": 9.898488
+          "lat": 49.96001528872902,
+          "lng": 9.898396552465346
         },
         {
           "lat": 49.95989837540377,

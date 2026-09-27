@@ -328,7 +328,7 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
       final position = await Geolocator.getCurrentPosition(
         locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.high,
+          accuracy: LocationAccuracy.medium,
         ),
       );
 
@@ -342,28 +342,29 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
       await _positionSubscription?.cancel();
 
-      _positionSubscription = Geolocator.getPositionStream(
-        locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.high,
-          distanceFilter: 5,
-        ),
-      ).listen(
-        (position) {
-          if (!mounted) return;
-          setState(() {
-            _currentPosition = position;
-            _locationLoading = false;
-            _locationError = null;
-          });
-        },
-        onError: (_) {
-          if (!mounted) return;
-          setState(() {
-            _locationLoading = false;
-            _locationError = 'Standort konnte nicht aktualisiert werden.';
-          });
-        },
-      );
+      _positionSubscription =
+          Geolocator.getPositionStream(
+            locationSettings: const LocationSettings(
+              accuracy: LocationAccuracy.medium,
+              distanceFilter: 15,
+            ),
+          ).listen(
+            (position) {
+              if (!mounted) return;
+              setState(() {
+                _currentPosition = position;
+                _locationLoading = false;
+                _locationError = null;
+              });
+            },
+            onError: (_) {
+              if (!mounted) return;
+              setState(() {
+                _locationLoading = false;
+                _locationError = 'Standort konnte nicht aktualisiert werden.';
+              });
+            },
+          );
     } catch (_) {
       if (!mounted) return;
       setState(() {
@@ -384,17 +385,13 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
     if (position == null) {
       if (_locationError != null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(_locationError!)),
-        );
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(_locationError!)));
       }
       return;
     }
 
-    _mapController.move(
-      LatLng(position.latitude, position.longitude),
-      17,
-    );
+    _mapController.move(LatLng(position.latitude, position.longitude), 17);
   }
 
   Future<List<TourStop>> _loadStops() async {
@@ -972,12 +969,10 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                           ),
                           radius: _currentPosition!.accuracy,
                           useRadiusInMeter: true,
-                          color: const Color(
-                            0xFF00B8B8,
-                          ).withValues(alpha: 0.12),
-                          borderColor: const Color(
-                            0xFF00A6A6,
-                          ).withValues(alpha: 0.32),
+                          color: const Color(0xFF00B8B8)
+                              .withValues(alpha: 0.12),
+                          borderColor: const Color(0xFF00A6A6)
+                              .withValues(alpha: 0.32),
                           borderStrokeWidth: 1.5,
                         ),
                       ],
@@ -1052,10 +1047,7 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: const Color(0xFF00B8B8),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 3,
-                              ),
+                              border: Border.all(color: Colors.white, width: 3),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withValues(alpha: 0.25),
@@ -3495,6 +3487,23 @@ class _DistrictRouteEditorPageState extends State<DistrictRouteEditorPage> {
       final points = await _localStorage.loadRouteViaPoints(
         widget.district.number,
       );
+
+      final savedGeometries = await _localStorage.loadRouteSectionGeometries(
+        widget.district.number,
+      );
+      final sectionsWithViaPoints = points
+          .map((point) => point.afterStopIndex)
+          .toSet();
+
+      for (final afterStopIndex in savedGeometries.keys) {
+        if (!sectionsWithViaPoints.contains(afterStopIndex)) {
+          await _localStorage.removeRouteSectionGeometry(
+            widget.district.number,
+            afterStopIndex,
+          );
+        }
+      }
+
       if (!mounted) return;
       setState(() {
         _viaPoints
@@ -3547,6 +3556,19 @@ class _DistrictRouteEditorPageState extends State<DistrictRouteEditorPage> {
     final start = widget.stops[afterStopIndex];
     final end = widget.stops[afterStopIndex + 1];
     final viaPoints = _pointsForSection(afterStopIndex);
+
+    if (viaPoints.isEmpty) {
+      await _localStorage.removeRouteSectionGeometry(
+        widget.district.number,
+        afterStopIndex,
+      );
+      if (!mounted) return;
+      setState(() {
+        _routedSectionGeometry.remove(afterStopIndex);
+        _routingSections.remove(afterStopIndex);
+      });
+      return;
+    }
 
     final coordinates = <LatLng>[
       LatLng(start.latitude, start.longitude),
@@ -3794,6 +3816,20 @@ class _DistrictRouteEditorPageState extends State<DistrictRouteEditorPage> {
       return;
     }
     _invalidateSectionRoute(removed.afterStopIndex);
+
+    if (_pointsForSection(removed.afterStopIndex).isEmpty) {
+      await _localStorage.removeRouteSectionGeometry(
+        widget.district.number,
+        removed.afterStopIndex,
+      );
+      if (mounted) {
+        setState(() {
+          _routedSectionGeometry.remove(removed.afterStopIndex);
+        });
+      }
+      return;
+    }
+
     await _calculateSectionRoute(removed.afterStopIndex);
   }
 
