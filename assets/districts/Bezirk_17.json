@@ -1,0 +1,3892 @@
+[
+  {
+    "lat": 49.97158669139835,
+    "lng": 9.983157019936627,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 2-10",
+    "firma": "Miwe",
+    "hinweis": "Nur Post",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.973143219246325,
+    "lng": 9.985250414470228,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 2-10",
+    "firma": "Miwe",
+    "hinweis": "Pakete",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97297087296591,
+    "lng": 9.983098063002053,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 1",
+    "firma": "Schraud",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97349655358005,
+    "lng": 9.983868673563377,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97355236434172,
+    "lng": 9.984511479520119,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97398929816124,
+    "lng": 9.984772503376009,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97412611023149,
+    "lng": 9.985971988865343,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.972432262382625,
+    "lng": 9.985534912319105,
+    "empfaenger": [],
+    "adresse": "Michael-Wenz-Str. 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976589965802674,
+    "lng": 9.986894130706787,
+    "empfaenger": [],
+    "adresse": "Dr.-Ludwig-Veilchenblau-Straße 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97600357735873,
+    "lng": 9.986658096313478,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 34",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97591660119473,
+    "lng": 9.98639725758598,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 25",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975779008457955,
+    "lng": 9.986632074076512,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 32",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975617551328355,
+    "lng": 9.986510232328222,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 30",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975683789080755,
+    "lng": 9.986025810168035,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 23",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975533395888874,
+    "lng": 9.98629439271568,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 28",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975486445666505,
+    "lng": 9.986110168440003,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 26",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975476349245255,
+    "lng": 9.985809337674706,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 24",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975474624835726,
+    "lng": 9.985661435876377,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 22",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975645702753326,
+    "lng": 9.98571960206876,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 21",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975474622990426,
+    "lng": 9.985373256986266,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97567297396923,
+    "lng": 9.985436305401796,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97566780076155,
+    "lng": 9.985229775307648,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97550945069994,
+    "lng": 9.985059023786526,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 18",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97557325376569,
+    "lng": 9.984820307184199,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97578550470738,
+    "lng": 9.984968628032844,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9759956631162,
+    "lng": 9.985143765231188,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97610291291426,
+    "lng": 9.984913082339997,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97567154717044,
+    "lng": 9.98454318813873,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9759194347579,
+    "lng": 9.98406221022767,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976273195077916,
+    "lng": 9.983748621511957,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976475208327734,
+    "lng": 9.983604405060214,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97666661342956,
+    "lng": 9.983513209953708,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976848811033655,
+    "lng": 9.983545090784764,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97696106316184,
+    "lng": 9.983698011141103,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.977054950534466,
+    "lng": 9.984190047962107,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 50",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97674142858042,
+    "lng": 9.98397719611324,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976972613131665,
+    "lng": 9.984426073622364,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 48",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97661394576968,
+    "lng": 9.984426073622364,
+    "empfaenger": [],
+    "adresse": "Edgar-Michael-Wenz-Ring 35",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97717660884343,
+    "lng": 9.983900785446169,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97713522445972,
+    "lng": 9.983466267585756,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.977333046289445,
+    "lng": 9.983797031522995,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97755031301358,
+    "lng": 9.983764845014818,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97769515695128,
+    "lng": 9.983437615515,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9778744869367,
+    "lng": 9.983437615515,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97792621661596,
+    "lng": 9.983797031522995,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97805888864276,
+    "lng": 9.98347804238925,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978316686715296,
+    "lng": 9.983453763303068,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978144838708715,
+    "lng": 9.983803876968166,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97826785067931,
+    "lng": 9.984282960542219,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97809886805432,
+    "lng": 9.98447607959129,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97793333347886,
+    "lng": 9.984567274697797,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97801321128949,
+    "lng": 9.98405873418302,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97739899567413,
+    "lng": 9.984929870895824,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.977277477944206,
+    "lng": 9.984694459337538,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.977432668740775,
+    "lng": 9.984565713304821,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.977646486351695,
+    "lng": 9.984453060526196,
+    "empfaenger": [],
+    "adresse": "Cordula-Beck-Str. 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97842540377918,
+    "lng": 9.983873597181327,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97865542480613,
+    "lng": 9.983889368972163,
+    "empfaenger": [],
+    "adresse": "Lorenz-Lembach-Str. 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97898602897893,
+    "lng": 9.983899695979131,
+    "empfaenger": [],
+    "adresse": "Lugendorfer-Str. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9791481113769,
+    "lng": 9.98341153393842,
+    "empfaenger": [],
+    "adresse": "Lugendorfer-Str. 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97930902710793,
+    "lng": 9.982726231687794,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978736267217236,
+    "lng": 9.981415472673586,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97866486116903,
+    "lng": 9.981127392805586,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9785132244121,
+    "lng": 9.981814026832582,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97848562662595,
+    "lng": 9.98173624277115,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97844940450757,
+    "lng": 9.981655776500702,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97841835695586,
+    "lng": 9.981567263603212,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97838730938411,
+    "lng": 9.98148947954178,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97834763745771,
+    "lng": 9.981403648853304,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97831486497209,
+    "lng": 9.981317818164827,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978273468116235,
+    "lng": 9.981199800968172,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97844422991701,
+    "lng": 9.980778694152834,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97819929866044,
+    "lng": 9.981044232845308,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97818377480641,
+    "lng": 9.980944991111757,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 21",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978166526073814,
+    "lng": 9.98085916042328,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 23",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97813892808877,
+    "lng": 9.980746507644655,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 25",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97811995446491,
+    "lng": 9.98063385486603,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 27",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978107880336715,
+    "lng": 9.980545341968538,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 29",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97809235645317,
+    "lng": 9.980454146862032,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 31",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978082007194686,
+    "lng": 9.980395138263702,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 33",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9780751076878,
+    "lng": 9.980330765247347,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 35",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978057858916245,
+    "lng": 9.9802502989769,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 37",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97804578477248,
+    "lng": 9.980180561542513,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 39",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97802508623326,
+    "lng": 9.980081319808962,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 41",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97799231352793,
+    "lng": 9.979582428932192,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 43",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97831486497209,
+    "lng": 9.97937321662903,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 22",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.977976789607084,
+    "lng": 9.978788495063784,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 45",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.977969890085106,
+    "lng": 9.978072345256807,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 47",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97864258882369,
+    "lng": 9.980059862136843,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 18",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97842008182036,
+    "lng": 9.979990124702455,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97849080121203,
+    "lng": 9.980379045009615,
+    "empfaenger": [],
+    "adresse": "Am Sonnenhügel 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97884957115877,
+    "lng": 9.982543587684633,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 56",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9787322812782,
+    "lng": 9.982291460037233,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 54",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97860809168128,
+    "lng": 9.982259273529055,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 52",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97855289620196,
+    "lng": 9.982489943504335,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 50",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97823379609597,
+    "lng": 9.982809126377107,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 59",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.978213097637635,
+    "lng": 9.982422888278963,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 48",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97799576328743,
+    "lng": 9.982302188873293,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 46",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97796816520447,
+    "lng": 9.982841312885286,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 57",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97773013108178,
+    "lng": 9.982701838016512,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 55",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97773358086008,
+    "lng": 9.98225122690201,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 44",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97751624434387,
+    "lng": 9.982669651508333,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 53",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97751969413752,
+    "lng": 9.982186853885652,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 42",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97730925627288,
+    "lng": 9.982074201107027,
+    "empfaenger": [],
+    "adresse": "4Schraudenbacher Str. 40",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97726958345758,
+    "lng": 9.982621371746065,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 51",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97708846801568,
+    "lng": 9.981950819492342,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 38",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97709536766404,
+    "lng": 9.982409477233888,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 49",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.9768245557227,
+    "lng": 9.982355833053589,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 47",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976667587594015,
+    "lng": 9.982717931270601,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 45",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976493369620805,
+    "lng": 9.982666969299318,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 43",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976553742257195,
+    "lng": 9.982208311557772,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 41",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97636744930684,
+    "lng": 9.981948137283327,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 39",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97613803199734,
+    "lng": 9.981805980205538,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 37",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97598106162901,
+    "lng": 9.981543123722078,
+    "empfaenger": [],
+    "adresse": "Schraudenbacher Str. 29",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976327775715,
+    "lng": 9.981218576431276,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976286377149506,
+    "lng": 9.9810066819191,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97607420894231,
+    "lng": 9.980802834033968,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976282927267434,
+    "lng": 9.980848431587221,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97629672679423,
+    "lng": 9.980582892894747,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97610525800668,
+    "lng": 9.980462193489076,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97631397619711,
+    "lng": 9.980403184890749,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976396773245,
+    "lng": 9.9802502989769,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976146656728005,
+    "lng": 9.980126917362215,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97638814855917,
+    "lng": 9.979829192161562,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97620013002368,
+    "lng": 9.9797460436821,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97625187831771,
+    "lng": 9.97948855161667,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97658306608182,
+    "lng": 9.979587793350222,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 18",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976562366913356,
+    "lng": 9.979196190834047,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97633640041167,
+    "lng": 9.979134500026705,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97644679639238,
+    "lng": 9.978815317153932,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.976667587594015,
+    "lng": 9.978909194469452,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 24",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97674175941095,
+    "lng": 9.978657066822054,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 26",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97658306608182,
+    "lng": 9.978482723236086,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97660549017094,
+    "lng": 9.978289604187013,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97690735189202,
+    "lng": 9.978437125682833,
+    "empfaenger": [],
+    "adresse": "Bischbergstr. 28",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97582926562096,
+    "lng": 9.981422424316408,
+    "empfaenger": [],
+    "adresse": "Schraudenbacherstr. 27",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97600521094978,
+    "lng": 9.981164932250978,
+    "empfaenger": [],
+    "adresse": "Schraudenbacherstr. 32",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97584996510481,
+    "lng": 9.981076419353487,
+    "empfaenger": [],
+    "adresse": "Schraudenbacherstr. 30",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97568436898475,
+    "lng": 9.98089134693146,
+    "empfaenger": [],
+    "adresse": "Schraudenbacherstr. 28",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97520712697871,
+    "lng": 9.98082250356673,
+    "empfaenger": [],
+    "adresse": "Schraudenbacherstr. 25",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975529122104625,
+    "lng": 9.980615079402925,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97527037619135,
+    "lng": 9.980470240116121,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975389399484264,
+    "lng": 9.980336129665377,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97562744518685,
+    "lng": 9.980129599571228,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975656769575984,
+    "lng": 9.97998744249344,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97568954387213,
+    "lng": 9.979794323444368,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975780966790715,
+    "lng": 9.979896247386934,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 8a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97552739713647,
+    "lng": 9.979778230190279,
+    "empfaenger": [],
+    "adresse": "6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97556017152072,
+    "lng": 9.979644119739534,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97566884431927,
+    "lng": 9.979327619075777,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97577751687241,
+    "lng": 9.979410767555239,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97570679349271,
+    "lng": 9.979571700096132,
+    "empfaenger": [],
+    "adresse": "Michael-Ignaz-Schmidt-Str. 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97536352488041,
+    "lng": 9.980690181255342,
+    "adresse": "Michael-Ignaz-Schmidt-Str. 2",
+    "firma": "",
+    "hinweis": "Post-Briefkasten leeren",
+    "empfaenger": [],
+    "briefkasten": true,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97515480256722,
+    "lng": 9.980282485485079,
+    "empfaenger": [],
+    "adresse": "Schraudenbacherstr. 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.975192752146064,
+    "lng": 9.980081319808962,
+    "empfaenger": [],
+    "adresse": "Schraudenbacherstr. 14a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "A"
+  },
+  {
+    "lat": 49.97655346294681,
+    "lng": 9.981416877954558,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 26",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97687659900998,
+    "lng": 9.981386479585694,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 21",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9766368345587,
+    "lng": 9.98095374986464,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 24",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97669863627548,
+    "lng": 9.980692863464357,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 22",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.976875728371965,
+    "lng": 9.980888664722444,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97687687831851,
+    "lng": 9.980414807796466,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97740182604801,
+    "lng": 9.980136752128617,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.977082718307926,
+    "lng": 9.980077743530288,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 18",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.977358703504095,
+    "lng": 9.9803763628006,
+    "empfaenger": [],
+    "adresse": "Max-Balles-Straße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.977136190563336,
+    "lng": 9.98063921928406,
+    "empfaenger": [],
+    "adresse": "Max-Balles-Straße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97743862392159,
+    "lng": 9.980841279029834,
+    "empfaenger": [],
+    "adresse": "Max-Balles-Straße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97712066636629,
+    "lng": 9.981020987033832,
+    "empfaenger": [],
+    "adresse": "Max-Balles-Straße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.977397801278904,
+    "lng": 9.981235563755023,
+    "empfaenger": [],
+    "adresse": "Max-Balles-Straße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97735467873138,
+    "lng": 9.9815735220909,
+    "empfaenger": [],
+    "adresse": "Max-Balles-Straße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97711836648483,
+    "lng": 9.981375038623797,
+    "empfaenger": [],
+    "adresse": "Max-Balles-Straße 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97717505435107,
+    "lng": 9.979754862435746,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97747288773609,
+    "lng": 9.979805824407029,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97750911058961,
+    "lng": 9.979395446427752,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97722318440874,
+    "lng": 9.979365955988781,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97730023021036,
+    "lng": 9.97902978579222,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97749554557684,
+    "lng": 9.979088902473451,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.977335129830436,
+    "lng": 9.978750944137575,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97735818389454,
+    "lng": 9.978308373780932,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 8a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97741705826749,
+    "lng": 9.978019215606768,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97783698602563,
+    "lng": 9.976836883787,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97787838325702,
+    "lng": 9.976592802766643,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97795945273197,
+    "lng": 9.97631653523811,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97809504001326,
+    "lng": 9.9755164661345,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.978167805893015,
+    "lng": 9.975204006874677,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 1a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97839307906567,
+    "lng": 9.973514110045565,
+    "empfaenger": [],
+    "adresse": "Zehntbergstraße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.978349522104544,
+    "lng": 9.973036782485925,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 15a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97851132719062,
+    "lng": 9.972397180302668,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97808183483282,
+    "lng": 9.97264394353204,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 15b",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97819912629904,
+    "lng": 9.972453506691982,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97893231100354,
+    "lng": 9.972735199286593,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97914325255321,
+    "lng": 9.973098344171595,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97930465489935,
+    "lng": 9.973395059875642,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97947266287896,
+    "lng": 9.973692027953849,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9796287361717,
+    "lng": 9.97398597928053,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979793054355774,
+    "lng": 9.974287748336792,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979950012288214,
+    "lng": 9.974513053894045,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98009793555929,
+    "lng": 9.974693432939386,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980267376213575,
+    "lng": 9.974907338619234,
+    "empfaenger": [],
+    "adresse": "Gartenstraße 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98026230496142,
+    "lng": 9.975413769326723,
+    "empfaenger": [],
+    "adresse": "Josef-Schmitter-Allee 5",
+    "firma": "Sam´s Sport&More",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98167177174934,
+    "lng": 9.977142100000263,
+    "empfaenger": [],
+    "adresse": "Josef-Schmitter-Allee 2",
+    "firma": "Schützenverein",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9797580950678,
+    "lng": 9.974932493866158,
+    "empfaenger": [],
+    "adresse": "Josef-Schmitter-Allee 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97957526417022,
+    "lng": 9.974701823890879,
+    "empfaenger": [],
+    "adresse": "Josef-Schmitter-Allee 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97910116823542,
+    "lng": 9.973911881055574,
+    "empfaenger": [],
+    "adresse": "Josef-Schmitter-Allee 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97884964161212,
+    "lng": 9.971660955990435,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97956941662966,
+    "lng": 9.97233349202238,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980097885271284,
+    "lng": 9.97284890077054,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 10",
+    "firma": "Grundschule Arnstein",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98079516158407,
+    "lng": 9.974073171615602,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 5",
+    "firma": "Max-Balles-Mittelschule Arnstein",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980136291367735,
+    "lng": 9.973939061164856,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97996017243491,
+    "lng": 9.973739534942553,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97985543223894,
+    "lng": 9.973548648720525,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979717446999324,
+    "lng": 9.973307249909183,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979511191792916,
+    "lng": 9.972976387395397,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 1",
+    "firma": "Musikschule",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97926948037432,
+    "lng": 9.972566705890555,
+    "empfaenger": [],
+    "adresse": "Am Zehnthäusl 1a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979111672269866,
+    "lng": 9.97163987257606,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97896238219401,
+    "lng": 9.970730560679442,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97868857124991,
+    "lng": 9.970711011361956,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 13a",
+    "firma": "Hundesalon",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979052067625524,
+    "lng": 9.970359998043785,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97896065092207,
+    "lng": 9.970140056904564,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98183089740712,
+    "lng": 9.974372395410064,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 22",
+    "firma": "Michael-Ignaz-Schmidt Realschule",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981291895467166,
+    "lng": 9.973998069763185,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 13",
+    "firma": "Üris Bistro",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9804553335659,
+    "lng": 9.972216402154018,
+    "empfaenger": [],
+    "adresse": "Schwebenriederstr. 7",
+    "firma": "Tierarzt Dr. Klein",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98040073274972,
+    "lng": 9.971780559818395,
+    "empfaenger": [],
+    "adresse": "Schwebenriederstr. 5a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98012304019926,
+    "lng": 9.971697411338935,
+    "empfaenger": [],
+    "adresse": "Schwebenriederstr. 5d",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979871284917415,
+    "lng": 9.971327751679294,
+    "empfaenger": [],
+    "adresse": "Schwebenriederstr. 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": ""
+  },
+  {
+    "lat": 49.979729131728874,
+    "lng": 9.971796291140562,
+    "empfaenger": [],
+    "adresse": "Schwebenriederstr. 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97986539212234,
+    "lng": 9.972016232279783,
+    "empfaenger": [],
+    "adresse": "Schwebenriederstr. 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97950155969415,
+    "lng": 9.971345365047457,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 4a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97941704316018,
+    "lng": 9.970956444740297,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97967606871305,
+    "lng": 9.970800931396337,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 3b",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979666122378966,
+    "lng": 9.970419873815645,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 3a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979293192497295,
+    "lng": 9.970621978558384,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97920695076108,
+    "lng": 9.970474457062569,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 2a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97934838712733,
+    "lng": 9.970423495091284,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97925697098691,
+    "lng": 9.970254515923346,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 1a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979186252721384,
+    "lng": 9.970115041054571,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97938606668546,
+    "lng": 9.969937895919891,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 11a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979296375449735,
+    "lng": 9.969739412452787,
+    "empfaenger": [],
+    "adresse": "Schützenbergstr. 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97936313562699,
+    "lng": 9.969484723892467,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": ""
+  },
+  {
+    "lat": 49.97925663382016,
+    "lng": 9.969309568405153,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97942049281755,
+    "lng": 9.969073534011843,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97947051282138,
+    "lng": 9.968821406364443,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 9a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979482586607595,
+    "lng": 9.968488812446596,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97936874793129,
+    "lng": 9.968191087245943,
+    "empfaenger": [],
+    "adresse": "Schützenbergstraße 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97956192855603,
+    "lng": 9.969301521778108,
+    "empfaenger": [],
+    "adresse": "Schwabachweg 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.979632646269366,
+    "lng": 9.96948927640915,
+    "empfaenger": [],
+    "adresse": "Schwabachweg 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.97965161929673,
+    "lng": 9.969958662986757,
+    "empfaenger": [],
+    "adresse": "Schwabachweg 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980248403429044,
+    "lng": 9.971106648445131,
+    "empfaenger": [],
+    "adresse": "Schwabachweg 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980395011115,
+    "lng": 9.971176385879518,
+    "empfaenger": [],
+    "adresse": "Schwabachweg 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98054506793093,
+    "lng": 9.971238076686861,
+    "empfaenger": [],
+    "adresse": "Schwabachweg 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9816696167579,
+    "lng": 9.972686469554903,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98200594143865,
+    "lng": 9.97327119112015,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 18",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98209217815752,
+    "lng": 9.973450899124147,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98219566201612,
+    "lng": 9.973601102828981,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.982418151558356,
+    "lng": 9.973917603492739,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981338464005745,
+    "lng": 9.972171485424044,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 9a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9811866848992,
+    "lng": 9.97225731611252,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 9a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980883125249555,
+    "lng": 9.972407519817352,
+    "empfaenger": [],
+    "adresse": "Schwebenrieder Straße 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98064510554821,
+    "lng": 9.966536164283754,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98064683033289,
+    "lng": 9.96726840734482,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98065372947099,
+    "lng": 9.967890679836275,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98071582166938,
+    "lng": 9.968193769454958,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98077618900768,
+    "lng": 9.968606829643251,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98077446422763,
+    "lng": 9.96889114379883,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98079171202527,
+    "lng": 9.9690118432045,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 6a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98081068459553,
+    "lng": 9.969178140163423,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 6b",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9808313819364,
+    "lng": 9.969344437122347,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 6c",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98099523557052,
+    "lng": 9.969851374626161,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98105905209808,
+    "lng": 9.970194697380068,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98162132379021,
+    "lng": 9.971168339252474,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98187486132986,
+    "lng": 9.971463382244112,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98209735235576,
+    "lng": 9.97176915407181,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98237848295566,
+    "lng": 9.972064197063448,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98274757216916,
+    "lng": 9.972428977489473,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98297350856145,
+    "lng": 9.972732067108156,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98306146824397,
+    "lng": 9.972852766513826,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983164950017525,
+    "lng": 9.972925186157228,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 21",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98328912785196,
+    "lng": 9.973016381263735,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 23",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983532308515855,
+    "lng": 9.973088800907137,
+    "empfaenger": [],
+    "adresse": "Schlesierstraße 25",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98373223148461,
+    "lng": 9.973255025479684,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984323080297216,
+    "lng": 9.972941412445742,
+    "empfaenger": [],
+    "adresse": "Untere Hornbergstraße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98405403370039,
+    "lng": 9.97337324809714,
+    "empfaenger": [],
+    "adresse": "Untere Hornbergstraße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98444553049364,
+    "lng": 9.973255230900484,
+    "empfaenger": [],
+    "adresse": "Untere Hornbergstraße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984514516382525,
+    "lng": 9.973526134010987,
+    "empfaenger": [],
+    "adresse": "Untere Hornbergstraße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98391128779062,
+    "lng": 9.972985276638537,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98382160499116,
+    "lng": 9.972856530605823,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983830228344516,
+    "lng": 9.972518572269948,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98365086227616,
+    "lng": 9.97277338212636,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98352307499199,
+    "lng": 9.972781653738117,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983699426185744,
+    "lng": 9.972479062998573,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9835631766513,
+    "lng": 9.972473698580544,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98345612811699,
+    "lng": 9.972452804348398,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983230488359,
+    "lng": 9.972305595874788,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983130456117756,
+    "lng": 9.972198307514192,
+    "empfaenger": [],
+    "adresse": "Pommernstraße 10a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98399477496506,
+    "lng": 9.972698990443067,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98404823953854,
+    "lng": 9.972500506975967,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98413964657494,
+    "lng": 9.972401265242414,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984205183588465,
+    "lng": 9.972234968283493,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98445367068272,
+    "lng": 9.972610117570047,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98463993232413,
+    "lng": 9.972264112607126,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984458980485435,
+    "lng": 9.971951460160115,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98435475427227,
+    "lng": 9.97182104141499,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98412895267893,
+    "lng": 9.971538294326809,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 17",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98413240199842,
+    "lng": 9.971345372872996,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98434268170875,
+    "lng": 9.971410663435714,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 21",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98457681725942,
+    "lng": 9.971708098891458,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 23",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98464235367735,
+    "lng": 9.97153911972352,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 25",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984723411754935,
+    "lng": 9.97139696264573,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 27",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984818738506036,
+    "lng": 9.97121520825907,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 29",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98486495662888,
+    "lng": 9.970965968440884,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 31",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98492059395017,
+    "lng": 9.970879384542714,
+    "empfaenger": [],
+    "adresse": "Bücholder-Kreuz-Straße 31a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98496377261327,
+    "lng": 9.971998929977433,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.985090820179835,
+    "lng": 9.972265362739565,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98495974847671,
+    "lng": 9.972707927227022,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98520522019025,
+    "lng": 9.972498714923859,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98517935086497,
+    "lng": 9.972839355468752,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98534836353862,
+    "lng": 9.972726702690126,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98553979554361,
+    "lng": 9.972962737083437,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.985317320439,
+    "lng": 9.973204135894777,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98546218806583,
+    "lng": 9.97352331876755,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98572605297938,
+    "lng": 9.97338116168976,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98580021083175,
+    "lng": 9.973614513874056,
+    "empfaenger": [],
+    "adresse": "Obere Hornbergstr. 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98474474412011,
+    "lng": 9.97277766466141,
+    "empfaenger": [],
+    "adresse": "Mittlere Hornbergstr. 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98476543976841,
+    "lng": 9.97312366962433,
+    "empfaenger": [],
+    "adresse": "Mittlere Hornbergstr. 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98496204798337,
+    "lng": 9.973083436489107,
+    "empfaenger": [],
+    "adresse": "Mittlere Hornbergstr. 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98498964205448,
+    "lng": 9.973241686820984,
+    "empfaenger": [],
+    "adresse": "Mittlere Hornbergstr. 1a",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984808555673816,
+    "lng": 9.97338652610779,
+    "empfaenger": [],
+    "adresse": "Mittlere Hornbergstr. 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98510346743055,
+    "lng": 9.973555505275728,
+    "empfaenger": [],
+    "adresse": "Mittlere Hornbergstr. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.984098000623305,
+    "lng": 9.971696734428408,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 39",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98394105622369,
+    "lng": 9.97201055288315,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 46",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9838393007899,
+    "lng": 9.971932768821716,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 44",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98387379418142,
+    "lng": 9.97149020433426,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 37",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983639238631426,
+    "lng": 9.97187912464142,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 42",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.983665108784955,
+    "lng": 9.971525073051454,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 35",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98348401741799,
+    "lng": 9.971436560153963,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 33",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98340123256606,
+    "lng": 9.971911311149599,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 40",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98300627787374,
+    "lng": 9.972018599510193,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 38",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98274929687847,
+    "lng": 9.97189521789551,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 36",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.982518185280746,
+    "lng": 9.971739649772646,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 34",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98230259510284,
+    "lng": 9.971546530723574,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 32",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98213357172769,
+    "lng": 9.971323907375337,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 30",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98194040142891,
+    "lng": 9.971093237400057,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 28",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98176965203683,
+    "lng": 9.970857203006746,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 26",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98159545253753,
+    "lng": 9.970588982105257,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 24",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98145402277714,
+    "lng": 9.970347583293917,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 22",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98127637261094,
+    "lng": 9.969760179519655,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98124360212027,
+    "lng": 9.969620704650879,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 20",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98144022472948,
+    "lng": 9.969537556171419,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981171162009055,
+    "lng": 9.969328343868257,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 18",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98135571160121,
+    "lng": 9.969078898429872,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981105620862046,
+    "lng": 9.968998432159426,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 16",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98107629979369,
+    "lng": 9.968824088573458,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981278097373,
+    "lng": 9.968695342540743,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98122290495675,
+    "lng": 9.968394935131073,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98099523557052,
+    "lng": 9.968453943729402,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98119358395989,
+    "lng": 9.96799260377884,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980945217151906,
+    "lng": 9.968003332614899,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98093141895832,
+    "lng": 9.967606365680696,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98116426294515,
+    "lng": 9.967649281024935,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981121143773336,
+    "lng": 9.967297911643984,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98090727211001,
+    "lng": 9.967225492000582,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.980903822559256,
+    "lng": 9.967072606086733,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98091072166051,
+    "lng": 9.966742694377901,
+    "empfaenger": [],
+    "adresse": "Neubergstr. 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98142297716433,
+    "lng": 9.966571033000948,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981500591158806,
+    "lng": 9.966847300529482,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98160752579051,
+    "lng": 9.967145025730135,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98134536304467,
+    "lng": 9.967195987701418,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98164547028011,
+    "lng": 9.967434704303741,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98144367424177,
+    "lng": 9.967477619647982,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981459197044,
+    "lng": 9.96763586997986,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 6",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98169031372924,
+    "lng": 9.967719018459322,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98172480866167,
+    "lng": 9.967984557151796,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 11",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981507490174494,
+    "lng": 9.968006014823914,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98174723035445,
+    "lng": 9.968258142471315,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 13",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981566131767714,
+    "lng": 9.968515634536745,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98179034896511,
+    "lng": 9.968676567077638,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 15",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98158855353449,
+    "lng": 9.968757033348085,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 12",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.981928328259464,
+    "lng": 9.969180822372437,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 19",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98212322333849,
+    "lng": 9.969601929187776,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 21",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.9816972127177,
+    "lng": 9.969449043273928,
+    "empfaenger": [],
+    "adresse": "Sudetenstraße 14",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98221463403274,
+    "lng": 9.969990849494936,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 1",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98196627249604,
+    "lng": 9.970170557498934,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 2",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.982112874947056,
+    "lng": 9.970444142818453,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 4",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98235606155706,
+    "lng": 9.97024029493332,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 3",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.982542331320516,
+    "lng": 9.970551431179048,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 5",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98231294345346,
+    "lng": 9.97076600790024,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 8",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.982423325721506,
+    "lng": 9.970945715904238,
+    "empfaenger": [],
+    "adresse": "Neubergstraße 25",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98263546593178,
+    "lng": 9.9711549282074,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 10",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.982870026376084,
+    "lng": 9.970787465572359,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 7",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  },
+  {
+    "lat": 49.98301662607299,
+    "lng": 9.971146881580353,
+    "empfaenger": [],
+    "adresse": "Schwabenstraße 9",
+    "firma": "",
+    "hinweis": "",
+    "briefkasten": false,
+    "teil": "B"
+  }
+]

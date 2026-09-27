@@ -1,0 +1,3851 @@
+[
+  {
+    "lat": 49.978677085941364,
+    "lng": 9.966694414615631,
+    "name": "Karlstadter Str. 1",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9786788107966,
+    "lng": 9.966576397418978,
+    "name": "Karlstadter Str. 3",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97882887296531,
+    "lng": 9.96662735939026,
+    "name": "Karlstadter Str. 2",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.978830597815126,
+    "lng": 9.966453015804293,
+    "name": "Karlstadter Str. 4",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97879955169309,
+    "lng": 9.966273307800295,
+    "name": "Karlstadter Str. 4a",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 4a",
+    "firma": "Zahnarztpraxis Dr. Mulfinger",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97885134240888,
+    "lng": 9.966174066066742,
+    "empfaenger": [],
+    "adresse": "Karlstadterstr. 4a",
+    "firma": "Sparkasse Mainfranken",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97865983606036,
+    "lng": 9.966278672218325,
+    "name": "Karlstadter Str. 5",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 5",
+    "firma": "Hubertus Apotheke",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97856676101025,
+    "lng": 9.966225028038027,
+    "empfaenger": [],
+    "adresse": "Karlstadterstr. 5",
+    "firma": "Arztpraxis Dr. Magers, Christian Raab",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97861154139661,
+    "lng": 9.96601313352585,
+    "name": "Karlstadter Str. 7",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.978846121460485,
+    "lng": 9.965860247612001,
+    "name": "Karlstadter Str. 8",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 8",
+    "firma": "",
+    "hinweis": "2 Parteien Haus"
+  },
+  {
+    "lat": 49.97875125466062,
+    "lng": 9.965701997280123,
+    "name": "Karlstadter Str. 10",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 10",
+    "firma": "",
+    "hinweis": "4 Parteien Haus"
+  },
+  {
+    "lat": 49.97845975368705,
+    "lng": 9.965385496616364,
+    "name": "Karlstadter Str. 15",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97863747533314,
+    "lng": 9.96513068675995,
+    "empfaenger": [],
+    "adresse": "Karlstadterstr. 14",
+    "firma": "Beauty Shop",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9786149912301,
+    "lng": 9.965168237686157,
+    "empfaenger": [],
+    "adresse": "Karlstadterstr. 16",
+    "firma": "Notarin Osterholzer",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97856324559591,
+    "lng": 9.965205788612367,
+    "name": "Karlstadter Str. 16",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 16",
+    "firma": "Friseurladen",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.978423531549204,
+    "lng": 9.965039491653442,
+    "name": "Karlstadter Str. 18",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97832693904833,
+    "lng": 9.964709579944612,
+    "name": "Karlstadter Str. 20",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9781596359304,
+    "lng": 9.964932203292848,
+    "name": "Karlstadter Str. 22",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97809929644079,
+    "lng": 9.9646532535553,
+    "name": "Karlstadter Str. 24",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 19",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97827346799787,
+    "lng": 9.964376986026766,
+    "name": "Karlstadter Str. 26",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 22",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97866328626868,
+    "lng": 9.96441185474396,
+    "name": "Karlstadter Str. 17",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 24",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97872362587958,
+    "lng": 9.96429115533829,
+    "name": "Karlstadter Str. 19",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 26",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9780751076878,
+    "lng": 9.964355528354647,
+    "name": "Karlstadter Str. 21",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 21",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97806820817991,
+    "lng": 9.963993430137634,
+    "name": "Karlstadter Str. 29",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 29",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9780647584256,
+    "lng": 9.963816404342651,
+    "name": "Karlstadter Str. 31",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 31",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.978049234528136,
+    "lng": 9.963682293891909,
+    "name": "Karlstadter Str. 33",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 33",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97829071681052,
+    "lng": 9.964175820350649,
+    "name": "Karlstadter Str. 28",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 28",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97822862148223,
+    "lng": 9.96388077735901,
+    "name": "Karlstadter Str. 32",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 32",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97838385965267,
+    "lng": 9.963607192039492,
+    "name": "Karlstadter Str. 30b",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 30b",
+    "firma": "",
+    "hinweis": "2 Parteien"
+  },
+  {
+    "lat": 49.97821827225306,
+    "lng": 9.963462352752687,
+    "name": "Karlstadter Str. 34",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 34",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9782234468679,
+    "lng": 9.963274598121645,
+    "name": "Karlstadter Str. 36",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 36",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.978216547381315,
+    "lng": 9.962966144084932,
+    "name": "Karlstadter Str. 38",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 38",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97822862148223,
+    "lng": 9.962622821331026,
+    "name": "Karlstadter Str. 40",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 40",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97787502155756,
+    "lng": 9.961748421192171,
+    "name": "Karlstadter Str. 37",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 37",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97793194269654,
+    "lng": 9.962300956249239,
+    "name": "Karlstadter Str. 37a",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 37a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97793539246037,
+    "lng": 9.962469935417177,
+    "name": "Karlstadter Str. 37b",
+    "empfaenger": [],
+    "adresse": "Karlstadter Str. 37b",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.978049234528136,
+    "lng": 9.963395297527315,
+    "name": "Wernstr. 1",
+    "empfaenger": [],
+    "adresse": "Wernstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.977937117342194,
+    "lng": 9.96341407299042,
+    "name": "Wernstr. 3",
+    "empfaenger": [],
+    "adresse": "Wernstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9779336675785,
+    "lng": 9.963558912277223,
+    "name": "Wernstr. 2a",
+    "empfaenger": [],
+    "adresse": "Wernstr. 2a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.977792227053406,
+    "lng": 9.963550865650179,
+    "name": "Wernstr. 2",
+    "empfaenger": [],
+    "adresse": "Wernstr. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97773358086008,
+    "lng": 9.963239729404451,
+    "name": "Wernstr. 3a",
+    "empfaenger": [],
+    "adresse": "Wernstr. 3a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97773013108178,
+    "lng": 9.962942004203796,
+    "name": "Wernstr. 3b",
+    "empfaenger": [],
+    "adresse": "Wernstr. 3b",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97752831862053,
+    "lng": 9.963322877883913,
+    "name": "Wernstr. 5a",
+    "empfaenger": [],
+    "adresse": "Wernstr. 5a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.977564541432315,
+    "lng": 9.963558912277223,
+    "name": "Wernstr. 4",
+    "empfaenger": [],
+    "adresse": "Wernstr. 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9772885574168,
+    "lng": 9.963341653347017,
+    "name": "Wernstr. 5",
+    "empfaenger": [],
+    "adresse": "Wernstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.977190237728855,
+    "lng": 9.963612556457521,
+    "name": "Wernstr. 8",
+    "empfaenger": [],
+    "adresse": "Wernstr. 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97692287615792,
+    "lng": 9.963314831256868,
+    "name": "Wernstr. 7",
+    "empfaenger": [],
+    "adresse": "Wernstr. 7",
+    "firma": "",
+    "hinweis": "3 Parteien Haus"
+  },
+  {
+    "lat": 49.976589965802674,
+    "lng": 9.963102936744692,
+    "name": "Wernstr. 11",
+    "empfaenger": [],
+    "adresse": "Wernstr. 11",
+    "firma": "Rechtsanwalt",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97590343873017,
+    "lng": 9.962569177150728,
+    "name": "Am Alten Schwimmbad 1",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97617080596565,
+    "lng": 9.96253699064255,
+    "name": "Am Alten Schwimmbad 2",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97641057273915,
+    "lng": 9.962182939052584,
+    "name": "Am Alten Schwimmbad 2a",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 2a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97586376475574,
+    "lng": 9.962220489978792,
+    "name": "Am Alten Schwimmbad 3",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975886189180095,
+    "lng": 9.961493611335756,
+    "name": "Am Alten Schwimmbad 5",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 5",
+    "firma": "Doc4Fit Dr. Magers",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97602246045719,
+    "lng": 9.960533380508425,
+    "name": "Am Alten Schwimmbad 6",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 6",
+    "firma": "Bauhof",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975820640833405,
+    "lng": 9.960627257823946,
+    "name": "Am Alten Schwimmbad 9",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 9",
+    "firma": "Physiotherapeut",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97583810762964,
+    "lng": 9.960369765758514,
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.976633089035545,
+    "lng": 9.96076673269272,
+    "name": "Am Alten Schwimmbad 10",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 10",
+    "firma": "",
+    "hinweis": "Vorsicht viele Katzen"
+  },
+  {
+    "lat": 49.97619495519121,
+    "lng": 9.958347380161287,
+    "name": "Am Alten Schwimmbad 15",
+    "empfaenger": [],
+    "adresse": "Am Alten Schwimmbad 15",
+    "firma": "Badesee",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97519965206627,
+    "lng": 9.961796700954439,
+    "name": "Sondheimer-Au-Str. 6",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974866729788396,
+    "lng": 9.960589706897736,
+    "name": "Sondheimer-Au-Str. 4",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 4",
+    "firma": "KFZ-Technik Grefenstein",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974573480278174,
+    "lng": 9.96071845293045,
+    "name": "Sondheimer-Au-Str. 4",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 4",
+    "firma": "Thilo Hammer",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97416982802936,
+    "lng": 9.960283935070038,
+    "name": "Sondheimer-Au-Str. 17",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 17",
+    "firma": "Getränke Krapf",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.973526392444384,
+    "lng": 9.960195422172546,
+    "name": "Sondheimer-Au-Str. 1",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97354364284039,
+    "lng": 9.959624111652376,
+    "name": "Sondheimer-Au-Str. 3",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97381792330622,
+    "lng": 9.959197640419008,
+    "name": "Sondheimer-Au-Str. 13",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 13",
+    "firma": "CWO Waffenhandel",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97372304659239,
+    "lng": 9.960584342479708,
+    "name": "Sondheimer-Au-Str. 2",
+    "empfaenger": [],
+    "adresse": "Sondheimer-Au-Str. 2",
+    "firma": "Fenster Ziegler",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97372649665799,
+    "lng": 9.964956343173982,
+    "name": "Sondheimer Str. 31",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 31",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97381447324719,
+    "lng": 9.965551793575289,
+    "name": "Sondheimer Str. 30",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 30",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97399560101262,
+    "lng": 9.965465962886812,
+    "name": "Sondheimer Str. 30a",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 30a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97407150196874,
+    "lng": 9.965522289276125,
+    "name": "Sondheimer Str. 30b",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 30b",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97378687276591,
+    "lng": 9.966284036636354,
+    "name": "Sondheimer Str. 28",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 28",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97406632690735,
+    "lng": 9.966474473476412,
+    "name": "Sondheimer Str. 27a",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 27a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974109452401926,
+    "lng": 9.966721236705782,
+    "name": "Sondheimer Str. 27",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 27",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97417672809626,
+    "lng": 9.966962635517122,
+    "name": "Sondheimer Str. 25",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 25",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97430265414314,
+    "lng": 9.967539310455324,
+    "name": "Sondheimer Str. 21",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 21",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97442167982972,
+    "lng": 9.967753887176515,
+    "name": "Sondheimer Str. 19",
+    "empfaenger": [],
+    "adresse": "Sondheimer Str. 19",
+    "firma": "Georg Willert Essig",
+    "hinweis": "Werktags Abholung Pakete"
+  },
+  {
+    "lat": 49.97411463550862,
+    "lng": 9.969462454319002,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 22",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.973850725017314,
+    "lng": 9.968856275081636,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 22",
+    "firma": "Oxycare GmbH",
+    "hinweis": "Abholung Pakete (VORSICHT) aber nur mit richtigen Sendungsnummern"
+  },
+  {
+    "lat": 49.973845550287315,
+    "lng": 9.970293939113619,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 22",
+    "firma": "Pfeiffer GmbH",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.973752405052466,
+    "lng": 9.968904554843904,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 24",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97383175100464,
+    "lng": 9.968555867671968,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 26",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9738127769845,
+    "lng": 9.968427121639253,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 26",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97381450189574,
+    "lng": 9.96825009584427,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 26",
+    "firma": "",
+    "hinweis": "Metalltreppe hoch"
+  },
+  {
+    "lat": 49.97346261872431,
+    "lng": 9.967367649078371,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 26a",
+    "firma": "Casino",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97424227797206,
+    "lng": 9.968134760856628,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97434233354374,
+    "lng": 9.968529045581818,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 18",
+    "firma": "Söder Schreinerei, Bestattungen",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97446825678544,
+    "lng": 9.96862292289734,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 21",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97446998311694,
+    "lng": 9.96890187263489,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97419058345233,
+    "lng": 9.969156682491304,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 14a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97439928321899,
+    "lng": 9.96935784816742,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97454588995182,
+    "lng": 9.96938467025757,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974426879814594,
+    "lng": 9.969569742679598,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 14b",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974614881200964,
+    "lng": 9.970106184482576,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97451829342446,
+    "lng": 9.970307350158693,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97461315642094,
+    "lng": 9.970307350158693,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974551064298936,
+    "lng": 9.97064530849457,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974663175016495,
+    "lng": 9.97064530849457,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 9a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9747321660975,
+    "lng": 9.970926940441132,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97464420245191,
+    "lng": 9.970999360084535,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97476148727697,
+    "lng": 9.97125953435898,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97485979933654,
+    "lng": 9.971230030059814,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97484430488898,
+    "lng": 9.971525073051454,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97497023647849,
+    "lng": 9.97149020433426,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97504097021846,
+    "lng": 9.97127026319504,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97508928282438,
+    "lng": 9.97137486934662,
+    "empfaenger": [],
+    "adresse": "Bahnhofstraße 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97567401920833,
+    "lng": 9.972147345542908,
+    "empfaenger": [],
+    "adresse": "Pointweg 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97569126861357,
+    "lng": 9.972439706325533,
+    "empfaenger": [],
+    "adresse": "Pointweg 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97581201714876,
+    "lng": 9.972391426563265,
+    "empfaenger": [],
+    "adresse": "Pointweg 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975860245703764,
+    "lng": 9.972600638866426,
+    "empfaenger": [],
+    "adresse": "Pointweg 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97606376404511,
+    "lng": 9.972581863403322,
+    "empfaenger": [],
+    "adresse": "Pointweg 3a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97590171753064,
+    "lng": 9.97301369905472,
+    "empfaenger": [],
+    "adresse": "Pointweg 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975815512789545,
+    "lng": 9.973335564136507,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975517132370825,
+    "lng": 9.973233640193941,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97594137203518,
+    "lng": 9.973204135894777,
+    "empfaenger": [],
+    "adresse": "Pointweg 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97583443055254,
+    "lng": 9.97348576784134,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975779230124225,
+    "lng": 9.97351258993149,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97570678266887,
+    "lng": 9.973531365394594,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975615359167584,
+    "lng": 9.973542094230652,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975508409229064,
+    "lng": 9.973550140857698,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97540672056166,
+    "lng": 9.973552823066713,
+    "empfaenger": [],
+    "adresse": "Pointweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.976036278613634,
+    "lng": 9.9736225605011,
+    "empfaenger": [],
+    "adresse": "Pointweg 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97583450212204,
+    "lng": 9.974172413349153,
+    "empfaenger": [],
+    "adresse": "Pointweg 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975689624056706,
+    "lng": 9.974150955677034,
+    "empfaenger": [],
+    "adresse": "Pointweg 10a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97563270755454,
+    "lng": 9.9747571349144,
+    "empfaenger": [],
+    "adresse": "Pointweg 14",
+    "firma": "Julian Hammer",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97555854352648,
+    "lng": 9.97498244047165,
+    "empfaenger": [],
+    "adresse": "Pointweg 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97545160914525,
+    "lng": 9.975508153438568,
+    "empfaenger": [],
+    "adresse": "Pointweg 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974111319460505,
+    "lng": 9.972420930862429,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974178586537086,
+    "lng": 9.972166121006014,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 14a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974235504759214,
+    "lng": 9.971970319747927,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 14b",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97445282826081,
+    "lng": 9.97213661670685,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97460115961107,
+    "lng": 9.972099065780641,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97485470167423,
+    "lng": 9.971970319747927,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97490127047939,
+    "lng": 9.97227340936661,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975061673796624,
+    "lng": 9.972096383571627,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975170333804535,
+    "lng": 9.971849620342256,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97522207657919,
+    "lng": 9.97202664613724,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97529451637027,
+    "lng": 9.971793293952944,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97555667851211,
+    "lng": 9.971887171268463,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97551873407999,
+    "lng": 9.971680641174318,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97581711448877,
+    "lng": 9.971809387207033,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97567568585514,
+    "lng": 9.971608221530916,
+    "empfaenger": [],
+    "adresse": "Würzburger Straße 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97547739180935,
+    "lng": 9.97057557106018,
+    "empfaenger": [],
+    "adresse": "Ölgäßchen 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97534798376515,
+    "lng": 9.970047175884249,
+    "empfaenger": [],
+    "adresse": "Ölgäßchen 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975304864902945,
+    "lng": 9.969677031040193,
+    "empfaenger": [],
+    "adresse": "Ölgäßchen 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9752635266456,
+    "lng": 9.969347119331362,
+    "empfaenger": [],
+    "adresse": "Ölgäßchen 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975049656334264,
+    "lng": 9.969250559806826,
+    "empfaenger": [],
+    "adresse": "Ölgäßchen 13a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975154793731356,
+    "lng": 9.968794584274294,
+    "empfaenger": [],
+    "adresse": "Ölgäßchen 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97508923555246,
+    "lng": 9.968432486057283,
+    "empfaenger": [],
+    "adresse": "Ölgäßchen 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9747632893661,
+    "lng": 9.972316324710848,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9747615645914,
+    "lng": 9.972434341907503,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97506512398718,
+    "lng": 9.972568452358248,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974854702336906,
+    "lng": 9.972689151763918,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974752881957976,
+    "lng": 9.972879588603975,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974833957582625,
+    "lng": 9.972984194755556,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97475639026693,
+    "lng": 9.973045885562899,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97480295916721,
+    "lng": 9.973598420619966,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97472707173513,
+    "lng": 9.973544776439667,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9752703730988,
+    "lng": 9.973812997341158,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97534281281716,
+    "lng": 9.973544776439667,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97538593164535,
+    "lng": 9.974113404750824,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9752600245587,
+    "lng": 9.974110722541809,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 19",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97523415319875,
+    "lng": 9.974435269832613,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97456658844143,
+    "lng": 9.97433066368103,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974961690176464,
+    "lng": 9.974778592586519,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 23",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.975147964712534,
+    "lng": 9.97488856315613,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 25",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97512724129076,
+    "lng": 9.975306987762453,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 27",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97512896605233,
+    "lng": 9.975433051586153,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 29",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97491337037369,
+    "lng": 9.975221157073976,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 33",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974376924150846,
+    "lng": 9.974722266197205,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97449420962736,
+    "lng": 9.975033402442934,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 35",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.974316556514744,
+    "lng": 9.975390136241915,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 39",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97414062754329,
+    "lng": 9.975172877311708,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97401989160244,
+    "lng": 9.975341856479647,
+    "empfaenger": [],
+    "adresse": "Ölmühlweg 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95229215617317,
+    "lng": 9.974687397480013,
+    "empfaenger": [],
+    "adresse": "Dürrhof 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952944420988025,
+    "lng": 9.973866641521456,
+    "empfaenger": [],
+    "adresse": "Dürrhof 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952916812074385,
+    "lng": 9.973359704017641,
+    "empfaenger": [],
+    "adresse": "Dürrhof 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952747707133,
+    "lng": 9.973053932189943,
+    "empfaenger": [],
+    "adresse": "Dürrhof 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.953227411440125,
+    "lng": 9.972783029079439,
+    "empfaenger": [],
+    "adresse": "Dürrhof 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95319462604609,
+    "lng": 9.97319608926773,
+    "empfaenger": [],
+    "adresse": "Dürrhof 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95326329408599,
+    "lng": 9.991148114204409,
+    "empfaenger": [],
+    "adresse": "Faustenbach 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95312525027359,
+    "lng": 9.991156160831453,
+    "empfaenger": [],
+    "adresse": "Faustenbach 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95300273605868,
+    "lng": 9.991003274917604,
+    "empfaenger": [],
+    "adresse": "Faustenbach 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95793638689105,
+    "lng": 9.94541645050049,
+    "empfaenger": [],
+    "adresse": "Gut Ebenroth 2",
+    "firma": "Pferdehof",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95922019797578,
+    "lng": 9.94518578052521,
+    "empfaenger": [],
+    "adresse": "Gut Ebenroth 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9645554124773,
+    "lng": 9.940057396888735,
+    "empfaenger": [],
+    "adresse": "Ebenrother Straße 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9648072823356,
+    "lng": 9.940094947814943,
+    "empfaenger": [],
+    "adresse": "Ebenrother Straße 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.967450333060754,
+    "lng": 9.935256242752077,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 25",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.967681487434064,
+    "lng": 9.934880733489992,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9678332897022,
+    "lng": 9.935089945793154,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 23",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96796979300429,
+    "lng": 9.934738576412203,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 18a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.968047418758964,
+    "lng": 9.93468225002289,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96806466890968,
+    "lng": 9.934971928596498,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 19",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96826474325281,
+    "lng": 9.934529364109041,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96847691761415,
+    "lng": 9.93467152118683,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96839756865401,
+    "lng": 9.934400618076326,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9685562962686,
+    "lng": 9.93429332971573,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96879444580671,
+    "lng": 9.934432804584505,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96887034524553,
+    "lng": 9.934089481830599,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96912219252593,
+    "lng": 9.934250414371492,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96913771731517,
+    "lng": 9.933874905109407,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96928606504863,
+    "lng": 9.933746159076692,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.969372313520665,
+    "lng": 9.9340358376503,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9694861612671,
+    "lng": 9.933856129646303,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.969575859301905,
+    "lng": 9.93349939584732,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.969776080240685,
+    "lng": 9.933652281761171,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96991235136827,
+    "lng": 9.933464527130129,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96989165198134,
+    "lng": 9.933188259601595,
+    "empfaenger": [],
+    "adresse": "Eulenbergstraße 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.97048503087632,
+    "lng": 9.93417799472809,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.970184892465895,
+    "lng": 9.93445158004761,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9700675964865,
+    "lng": 9.934191405773165,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96982610386401,
+    "lng": 9.934414029121399,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96995375011544,
+    "lng": 9.93456155061722,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96984335337722,
+    "lng": 9.934668838977815,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96964843329712,
+    "lng": 9.934837818145754,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96947073401717,
+    "lng": 9.934679567813873,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9694431345794,
+    "lng": 9.934966564178469,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.969236138291414,
+    "lng": 9.934843182563784,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96926886371794,
+    "lng": 9.935143589973451,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9690290920679,
+    "lng": 9.93493437767029,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.969037716968096,
+    "lng": 9.935229420661928,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.968853143766275,
+    "lng": 9.935071170330048,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96879794416651,
+    "lng": 9.93537425994873,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96847699228756,
+    "lng": 9.9352964758873,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96854599223746,
+    "lng": 9.935586154460909,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 19",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96820099149882,
+    "lng": 9.935476183891298,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 22",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.968318292027426,
+    "lng": 9.935881197452547,
+    "empfaenger": [],
+    "adresse": "Am Artfeld 21",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.968121639432624,
+    "lng": 9.932925403118135,
+    "empfaenger": [],
+    "adresse": "Ebenrother Str. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.968247565196435,
+    "lng": 9.933282136917114,
+    "empfaenger": [],
+    "adresse": "Ebenrother Str. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96953276420842,
+    "lng": 9.93154138326645,
+    "empfaenger": [],
+    "adresse": "Ebenrother Str. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.956293677292194,
+    "lng": 9.889210760593416,
+    "empfaenger": [],
+    "adresse": "An der alten Kirche 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952540228209365,
+    "lng": 9.887566566467285,
+    "empfaenger": [],
+    "adresse": "Hofriethweg 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952647213498125,
+    "lng": 9.887424409389498,
+    "empfaenger": [],
+    "adresse": "Hofriethweg 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952233075575776,
+    "lng": 9.888057410717012,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95202413692177,
+    "lng": 9.888446331024172,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952100069654634,
+    "lng": 9.888655543327332,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95212078685863,
+    "lng": 9.888821840286257,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9521587515063,
+    "lng": 9.889006912708282,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95163584786499,
+    "lng": 9.889698922634127,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 8b",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9523244285744,
+    "lng": 9.889446794986727,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 8a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9525125258018,
+    "lng": 9.889320731163027,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 1a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95249191219461,
+    "lng": 9.88962918519974,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952667920300755,
+    "lng": 9.889524579048159,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95293020569676,
+    "lng": 9.889715015888216,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.953318454482954,
+    "lng": 9.889999330043795,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 3a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.953028562351975,
+    "lng": 9.889929592609407,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 5a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95304236677873,
+    "lng": 9.890071749687197,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 5a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95296644238261,
+    "lng": 9.890275597572328,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95276800305463,
+    "lng": 9.890433847904207,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 18a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95268172483092,
+    "lng": 9.890567958354952,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95277490530586,
+    "lng": 9.88999664783478,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95243496825784,
+    "lng": 9.890460669994356,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.952614427709086,
+    "lng": 9.889929592609407,
+    "empfaenger": [],
+    "adresse": "Hochrainstr. 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95184639799372,
+    "lng": 9.888017177581789,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95170833442849,
+    "lng": 9.888076186180117,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95166172682738,
+    "lng": 9.887875020504,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.951392502901626,
+    "lng": 9.887681901454927,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.951252897179224,
+    "lng": 9.887582659721376,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95103883242908,
+    "lng": 9.887917935848236,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 5",
+    "firma": "Joa Landtechnik",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95086109273772,
+    "lng": 9.887767732143404,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9493198495172,
+    "lng": 9.887789189815523,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94947170968792,
+    "lng": 9.887982308864595,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94941821354604,
+    "lng": 9.888068139553072,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94947170968792,
+    "lng": 9.888151288032534,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94881249502019,
+    "lng": 9.88750755786896,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94871930687854,
+    "lng": 9.88723397254944,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94862956997916,
+    "lng": 9.886989891529085,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.948534655769,
+    "lng": 9.88671898841858,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94832066668174,
+    "lng": 9.886740446090698,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.948165150076555,
+    "lng": 9.886287152767183,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94835665531567,
+    "lng": 9.886206686496736,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94826696791214,
+    "lng": 9.885930418968202,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94807886360668,
+    "lng": 9.88598942756653,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94807886360668,
+    "lng": 9.88551199436188,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94795461081853,
+    "lng": 9.88572657108307,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94790456446607,
+    "lng": 9.885284006595613,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94774752212596,
+    "lng": 9.88549053668976,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94757839903322,
+    "lng": 9.885281324386598,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94737120616794,
+    "lng": 9.885037243366241,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94715721191169,
+    "lng": 9.884828031063082,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947043311355344,
+    "lng": 9.884347915649416,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 26",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.946944942476286,
+    "lng": 9.884642958641052,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94677754234312,
+    "lng": 9.884557127952576,
+    "empfaenger": [],
+    "adresse": "Bahnstr. 19",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94731074343593,
+    "lng": 9.88760679960251,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94751265675297,
+    "lng": 9.887547791004183,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94685345726695,
+    "lng": 9.886885285377504,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94673951399718,
+    "lng": 9.886600971221926,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94696041319371,
+    "lng": 9.88648295402527,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947088120079584,
+    "lng": 9.886670708656313,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947257286888494,
+    "lng": 9.886920154094698,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947072630173956,
+    "lng": 9.887075722217562,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94737636420746,
+    "lng": 9.887161552906038,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 4",
+    "firma": "Metallbau Gerhard",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947486812472064,
+    "lng": 9.887193739414217,
+    "empfaenger": [],
+    "adresse": "Forstbergstr. 4",
+    "firma": "",
+    "hinweis": "Treppe runter um die Ecke links ist die Haustür"
+  },
+  {
+    "lat": 49.948154673926005,
+    "lng": 9.888207614421846,
+    "empfaenger": [],
+    "adresse": "Waldweg 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947966569181986,
+    "lng": 9.888709187507631,
+    "empfaenger": [],
+    "adresse": "Waldweg 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94819091420514,
+    "lng": 9.888548254966738,
+    "empfaenger": [],
+    "adresse": "Waldweg 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947973472121355,
+    "lng": 9.887719452381136,
+    "empfaenger": [],
+    "adresse": "Waldweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94817193120518,
+    "lng": 9.887939393520357,
+    "empfaenger": [],
+    "adresse": "Waldweg 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9483548579843,
+    "lng": 9.888162016868593,
+    "empfaenger": [],
+    "adresse": "Waldweg 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94864132682738,
+    "lng": 9.888298809528353,
+    "empfaenger": [],
+    "adresse": "Waldweg 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.948486012605855,
+    "lng": 9.88918125629425,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94825131460976,
+    "lng": 9.889757931232454,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94804250146064,
+    "lng": 9.889666736125948,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94797002065179,
+    "lng": 9.889999330043795,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947624872446646,
+    "lng": 9.890144169330599,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947624872446646,
+    "lng": 9.889570176601412,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9476490329015,
+    "lng": 9.889323413372042,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.947635226928796,
+    "lng": 9.889006912708282,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94756792275506,
+    "lng": 9.888733327388765,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94823750880967,
+    "lng": 9.890407025814058,
+    "empfaenger": [],
+    "adresse": "Poppenhäuser Weg 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94853088121017,
+    "lng": 9.88975524902344,
+    "empfaenger": [],
+    "adresse": "Poppenhäuser Weg 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94891743976236,
+    "lng": 9.890758395195009,
+    "empfaenger": [],
+    "adresse": "Poppenhäuser Weg1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94974083207647,
+    "lng": 9.887866973876955,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950417290512725,
+    "lng": 9.888773560523989,
+    "empfaenger": [],
+    "adresse": "Tunnelweg 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9505725985065,
+    "lng": 9.888682365417482,
+    "empfaenger": [],
+    "adresse": "Tunnelweg 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95017397364892,
+    "lng": 9.889135658740997,
+    "empfaenger": [],
+    "adresse": "Retzstadter Str. 1a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95006353154628,
+    "lng": 9.887797236442568,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95029994636309,
+    "lng": 9.887791872024538,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95038105190882,
+    "lng": 9.887837469577791,
+    "empfaenger": [],
+    "adresse": "Luitpoldstr. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950961051946145,
+    "lng": 9.887456595897676,
+    "empfaenger": [],
+    "adresse": "Schulgasse 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95081264773752,
+    "lng": 9.887440502643587,
+    "empfaenger": [],
+    "adresse": "Schulgasse 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95072291473839,
+    "lng": 9.887459278106691,
+    "empfaenger": [],
+    "adresse": "Schulgasse 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95058141236154,
+    "lng": 9.887571930885317,
+    "empfaenger": [],
+    "adresse": "Schulgasse 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95047442248357,
+    "lng": 9.8875692486763,
+    "empfaenger": [],
+    "adresse": "Schulgasse 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950510661017255,
+    "lng": 9.887445867061617,
+    "empfaenger": [],
+    "adresse": "Schulgasse 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950446812153906,
+    "lng": 9.887429773807527,
+    "empfaenger": [],
+    "adresse": "Schulgasse 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950319114173226,
+    "lng": 9.887384176254274,
+    "empfaenger": [],
+    "adresse": "Schulgasse 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950232831562175,
+    "lng": 9.887529015541078,
+    "empfaenger": [],
+    "adresse": "Schulgasse 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95014009636889,
+    "lng": 9.887360930442798,
+    "adresse": "Schultorstraße 5",
+    "firma": "",
+    "hinweis": "Post-Briefkasten leeren",
+    "empfaenger": [],
+    "briefkasten": true
+  },
+  {
+    "lat": 49.95022247763846,
+    "lng": 9.887129366397858,
+    "empfaenger": [],
+    "adresse": "Schultorstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9503570784731,
+    "lng": 9.887064993381502,
+    "empfaenger": [],
+    "adresse": "Schultorstr. 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95043473262969,
+    "lng": 9.886837005615236,
+    "empfaenger": [],
+    "adresse": "Schultorstr. ",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950424378749354,
+    "lng": 9.886512458324434,
+    "empfaenger": [],
+    "adresse": "Schultorstr. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950521014879016,
+    "lng": 9.886627793312075,
+    "empfaenger": [],
+    "adresse": "Schultorstr. ",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950565881587565,
+    "lng": 9.886335432529451,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950351901524904,
+    "lng": 9.886319339275362,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.950433006983104,
+    "lng": 9.886174499988558,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9501619782616,
+    "lng": 9.885900914669039,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95013964616862,
+    "lng": 9.8861101269722,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95010162003513,
+    "lng": 9.885729253292086,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94991869989015,
+    "lng": 9.885933101177217,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94979100050923,
+    "lng": 9.885833859443666,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9498479475723,
+    "lng": 9.885493218898775,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94966675213793,
+    "lng": 9.885372519493105,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 22",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94956321158368,
+    "lng": 9.885192811489107,
+    "empfaenger": [],
+    "adresse": "Brückenstr. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9495269723371,
+    "lng": 9.884951412677765,
+    "empfaenger": [],
+    "adresse": "Brückenstr. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94999980607789,
+    "lng": 9.88448739051819,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 22",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94923015462458,
+    "lng": 9.885198175907137,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 24",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94910072772374,
+    "lng": 9.885219633579256,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.948962671979494,
+    "lng": 9.885168671607971,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 26",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.949535600731636,
+    "lng": 9.885680973529817,
+    "empfaenger": [],
+    "adresse": "Brückenstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94935612980741,
+    "lng": 9.885662198066713,
+    "empfaenger": [],
+    "adresse": "Brückenstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94941480306774,
+    "lng": 9.885941147804262,
+    "empfaenger": [],
+    "adresse": "Brückenstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94930781059816,
+    "lng": 9.88626301288605,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.949219800485324,
+    "lng": 9.886035025119783,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94929055372596,
+    "lng": 9.885946512222292,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.949142144369844,
+    "lng": 9.885796308517458,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 6a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94906963803078,
+    "lng": 9.88586872816086,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94896954759103,
+    "lng": 9.885772168636324,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.949064460944165,
+    "lng": 9.885694384574892,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94872622341315,
+    "lng": 9.885812401771547,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 19",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94973572158701,
+    "lng": 9.886364936828615,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.94971846486814,
+    "lng": 9.886595606803896,
+    "empfaenger": [],
+    "adresse": "Pfarrgasse 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95070208797569,
+    "lng": 9.886469542980196,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95087982825385,
+    "lng": 9.886689484119417,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95085739505105,
+    "lng": 9.886863827705385,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.951016252551405,
+    "lng": 9.886863827705385,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95095762367549,
+    "lng": 9.887000620365143,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9512319977136,
+    "lng": 9.887231290340425,
+    "empfaenger": [],
+    "adresse": "Untere Dorfstr. 2",
+    "firma": "Fahrzeugtechnik Vierheilig",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960031299241386,
+    "lng": 9.895851910114288,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959965737695725,
+    "lng": 9.895516633987429,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95991052790381,
+    "lng": 9.895417392253876,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95978449282609,
+    "lng": 9.894929230213167,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95967587453352,
+    "lng": 9.895036518573763,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959703479571914,
+    "lng": 9.894819259643556,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959437780420245,
+    "lng": 9.894803166389467,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959413625879186,
+    "lng": 9.894336462020876,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959442956391754,
+    "lng": 9.894084334373476,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95927559969792,
+    "lng": 9.893985092639925,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959356690127386,
+    "lng": 9.893732964992525,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95914447445919,
+    "lng": 9.893698096275331,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959118441745225,
+    "lng": 9.89337891340256,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 22",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95885461740107,
+    "lng": 9.893075823783876,
+    "empfaenger": [],
+    "adresse": "Rosenstr. ",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95897539138734,
+    "lng": 9.89288002252579,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 26",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.958759723342176,
+    "lng": 9.89272713661194,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95874764590308,
+    "lng": 9.89286929368973,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95857166001829,
+    "lng": 9.891528189182283,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 25",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.958614793873075,
+    "lng": 9.892407953739166,
+    "empfaenger": [],
+    "adresse": "Rosenstr. 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95852507541171,
+    "lng": 9.892155826091768,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95837478994091,
+    "lng": 9.892088770866396,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95826436664506,
+    "lng": 9.892263114452364,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95811425957109,
+    "lng": 9.892158508300783,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 19",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95812633716909,
+    "lng": 9.89248037338257,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95817119679218,
+    "lng": 9.89274859428406,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95827126810845,
+    "lng": 9.893067777156832,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.958461057964634,
+    "lng": 9.892973899841309,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.958514544061714,
+    "lng": 9.893590807914736,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95870950900926,
+    "lng": 9.893931448459627,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95882165663029,
+    "lng": 9.894129931926729,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9589562334307,
+    "lng": 9.894406199455263,
+    "empfaenger": [],
+    "adresse": "Fliederstr. 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95956527501641,
+    "lng": 9.895774126052858,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 32",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959724004135765,
+    "lng": 9.895986020565033,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 30",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95998107518635,
+    "lng": 9.896519780158998,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 23",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95998970170785,
+    "lng": 9.89687114953995,
+    "empfaenger": [],
+    "adresse": "Krokusgasse 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96002075717254,
+    "lng": 9.89694356918335,
+    "empfaenger": [],
+    "adresse": "Krokusgasse 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959874106191094,
+    "lng": 9.897147417068483,
+    "empfaenger": [],
+    "adresse": "Krokusgasse 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96025712310828,
+    "lng": 9.896629750728609,
+    "empfaenger": [],
+    "adresse": "Sebastianstr.28 ",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96023987015953,
+    "lng": 9.896809458732607,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 21",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96034511305074,
+    "lng": 9.896884560585024,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. ",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960433102832376,
+    "lng": 9.896989166736603,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 17",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96071949983161,
+    "lng": 9.896696805953981,
+    "empfaenger": [],
+    "adresse": "Am Kirchenhügel 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960667741463894,
+    "lng": 9.896903336048126,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 24",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9607436537175,
+    "lng": 9.89687114953995,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 22",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96074020316312,
+    "lng": 9.897029399871828,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 20",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96068844481766,
+    "lng": 9.897423684597015,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 13",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96075939996223,
+    "lng": 9.897651672363283,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960838543866174,
+    "lng": 9.897445142269136,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 18",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96079103805052,
+    "lng": 9.89734321832657,
+    "adresse": "Luitpoldstraße 18",
+    "firma": "",
+    "hinweis": "Post-Briefkasten leeren",
+    "empfaenger": [],
+    "briefkasten": true
+  },
+  {
+    "lat": 49.96087477460088,
+    "lng": 9.897565841674806,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 16",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9608680997759,
+    "lng": 9.897890388965608,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96096793922205,
+    "lng": 9.89783138036728,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 14",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96106455419433,
+    "lng": 9.897981584072115,
+    "empfaenger": [],
+    "adresse": "Talweg 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.961442385884865,
+    "lng": 9.897769689559938,
+    "empfaenger": [],
+    "adresse": "Lerchengasse 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96127883268106,
+    "lng": 9.897152781486513,
+    "empfaenger": [],
+    "adresse": "Lerchengasse 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.9615873068424,
+    "lng": 9.897871613502504,
+    "empfaenger": [],
+    "adresse": "Talweg 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96156142813196,
+    "lng": 9.89773750305176,
+    "empfaenger": [],
+    "adresse": "Talweg 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96200177463427,
+    "lng": 9.897128641605379,
+    "empfaenger": [],
+    "adresse": "Talweg 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96308878029733,
+    "lng": 9.897286891937258,
+    "empfaenger": [],
+    "adresse": "Talweg 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96219672546053,
+    "lng": 9.898544847965242,
+    "empfaenger": [],
+    "adresse": "Am Werthgraben 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.962120815498146,
+    "lng": 9.898721873760225,
+    "empfaenger": [],
+    "adresse": "Am Werthgraben 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96198969800842,
+    "lng": 9.899145662784578,
+    "empfaenger": [],
+    "adresse": "Am Werthgraben 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96094928430445,
+    "lng": 9.898252487182617,
+    "empfaenger": [],
+    "adresse": "Auenstraße 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960871647102586,
+    "lng": 9.8981049656868,
+    "empfaenger": [],
+    "adresse": "Auenstraße 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96084231746039,
+    "lng": 9.8983570933342,
+    "empfaenger": [],
+    "adresse": "Auenstraße 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96073007798535,
+    "lng": 9.898263216018679,
+    "empfaenger": [],
+    "adresse": "Auenstraße 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96075767534851,
+    "lng": 9.898437559604647,
+    "empfaenger": [],
+    "adresse": "Auenstraße 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96054719732675,
+    "lng": 9.898450970649721,
+    "empfaenger": [],
+    "adresse": "Auenstraße 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960588701573904,
+    "lng": 9.898574352264406,
+    "empfaenger": [],
+    "adresse": "Auenstraße 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96025227027514,
+    "lng": 9.898754060268404,
+    "empfaenger": [],
+    "adresse": "Auenstraße 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96015554274809,
+    "lng": 9.898303449153902,
+    "empfaenger": [],
+    "adresse": "Obere Gasse 5",
+    "firma": "",
+    "hinweis": "Steht Leer"
+  },
+  {
+    "lat": 49.96018998837636,
+    "lng": 9.897944033145906,
+    "empfaenger": [],
+    "adresse": "Obere Gasse 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960039947629525,
+    "lng": 9.897783100605013,
+    "empfaenger": [],
+    "adresse": "Obere Gasse 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.960188323402875,
+    "lng": 9.897793829441072,
+    "empfaenger": [],
+    "adresse": "Obere Gasse 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96031081933626,
+    "lng": 9.897954761981966,
+    "empfaenger": [],
+    "adresse": "Obere Gasse 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96033842401062,
+    "lng": 9.897600710391998,
+    "empfaenger": [],
+    "adresse": "Obere Gasse 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96112687583952,
+    "lng": 9.898324906826021,
+    "empfaenger": [],
+    "adresse": "Sebastianstr. 12",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.961171732666976,
+    "lng": 9.898496568202974,
+    "empfaenger": [],
+    "adresse": "Sebastianstraße 10",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96110617267432,
+    "lng": 9.898735284805298,
+    "empfaenger": [],
+    "adresse": "Sebastianstraße 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96105096419019,
+    "lng": 9.898590445518495,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 2a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96061965699774,
+    "lng": 9.899016916751863,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96041433324804,
+    "lng": 9.899161756038668,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95998643936266,
+    "lng": 9.899346828460693,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959756973348455,
+    "lng": 9.899770617485048,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 3a",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95989844876469,
+    "lng": 9.899856448173525,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 3b",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95963620132276,
+    "lng": 9.899539947509767,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95869761982584,
+    "lng": 9.90045189857483,
+    "empfaenger": [],
+    "adresse": "Winterbergstraße 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96024688624159,
+    "lng": 9.899156391620638,
+    "empfaenger": [],
+    "adresse": "Werthgasse 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96008988414671,
+    "lng": 9.898963272571565,
+    "empfaenger": [],
+    "adresse": "Werthgasse 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959927705621006,
+    "lng": 9.898558259010315,
+    "empfaenger": [],
+    "adresse": "Werthgasse 7",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95989837540377,
+    "lng": 9.898515343666077,
+    "empfaenger": [],
+    "adresse": "Werthgasse 9",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95982250733657,
+    "lng": 9.898059368133547,
+    "empfaenger": [],
+    "adresse": "Werthgasse 11",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959508499867,
+    "lng": 9.8974746465683,
+    "empfaenger": [],
+    "adresse": "Werthgasse 15",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95950674780838,
+    "lng": 9.897080361843111,
+    "empfaenger": [],
+    "adresse": "Dahlienweg 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.95971206062387,
+    "lng": 9.89672362804413,
+    "empfaenger": [],
+    "adresse": "Dahlienweg 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.959510198451184,
+    "lng": 9.89634543657303,
+    "empfaenger": [],
+    "adresse": "Dahlienweg 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96124943368441,
+    "lng": 9.898775517940521,
+    "empfaenger": [],
+    "adresse": "Sebastianstraße 8",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96116662118093,
+    "lng": 9.8989874124527,
+    "empfaenger": [],
+    "adresse": "Sebastianstraße 5",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96141678351707,
+    "lng": 9.89916980266571,
+    "empfaenger": [],
+    "adresse": "Sebastianstraße 6",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96142540978135,
+    "lng": 9.89937096834183,
+    "empfaenger": [],
+    "adresse": "Sebastianstraße 4",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96144783806122,
+    "lng": 9.899829626083376,
+    "empfaenger": [],
+    "adresse": "Sebastianstraße 2",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.961753206678225,
+    "lng": 9.899902045726778,
+    "empfaenger": [],
+    "adresse": "Am Ochsenberg 1",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.96184464436187,
+    "lng": 9.899912774562836,
+    "empfaenger": [],
+    "adresse": "Am Ochsenberg 3",
+    "firma": "",
+    "hinweis": ""
+  },
+  {
+    "lat": 49.961810139596,
+    "lng": 9.900422394275667,
+    "empfaenger": [],
+    "adresse": "Am Ochsenberg 2",
+    "firma": "",
+    "hinweis": ""
+  }
+]

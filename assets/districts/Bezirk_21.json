@@ -1,0 +1,1389 @@
+{
+  "points": [
+    {
+      "lat": 50.00908701763673,
+      "lng": 9.95067894458771,
+      "empfaenger": [],
+      "adresse": "Mühlweg 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00709775185767,
+      "lng": 9.934784173965456,
+      "empfaenger": [],
+      "adresse": "Steinbachshof 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.006778841107355,
+      "lng": 9.952116608619692,
+      "empfaenger": [],
+      "adresse": "Weichselsberg 13",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00708740883952,
+      "lng": 9.950644075870514,
+      "empfaenger": [],
+      "adresse": "Weichselsberg 6",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00749423254258,
+      "lng": 9.950601160526276,
+      "empfaenger": [],
+      "adresse": "Weichselsberg 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00784933855352,
+      "lng": 9.950571656227114,
+      "empfaenger": [],
+      "adresse": "Weichselsberg 2b",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.008021719166294,
+      "lng": 9.950968623161318,
+      "empfaenger": [],
+      "adresse": "Weichselsberg 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "B"
+    },
+    {
+      "lat": 50.008961182639496,
+      "lng": 9.950488507747652,
+      "empfaenger": [],
+      "adresse": "Weichselsberg 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00913700679078,
+      "lng": 9.95017468929291,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 2a",
+      "firma": "",
+      "hinweis": ""
+    },
+    {
+      "lat": 50.00893877363282,
+      "lng": 9.949914515018465,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.009199062220006,
+      "lng": 9.949340522289278,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00892325969899,
+      "lng": 9.949552416801453,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.009018066994116,
+      "lng": 9.948796033859255,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00875950120331,
+      "lng": 9.948946237564089,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00868193119481,
+      "lng": 9.948562681674959,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00893877363282,
+      "lng": 9.9484258890152,
+      "empfaenger": [],
+      "adresse": "Höhlenweg 6",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00928525018324,
+      "lng": 9.948369562625887,
+      "empfaenger": [],
+      "adresse": "Am Dorfgraben 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00958690683742,
+      "lng": 9.950032532215118,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00966275164118,
+      "lng": 9.95015323162079,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 1a",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01007644846377,
+      "lng": 9.94991183280945,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010207451715196,
+      "lng": 9.949530959129335,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01005576370719,
+      "lng": 9.949278831481935,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00974204380803,
+      "lng": 9.949445128440859,
+      "empfaenger": [],
+      "adresse": "Förstergasse 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00954381314559,
+      "lng": 9.94927614927292,
+      "empfaenger": [],
+      "adresse": "Förstergasse 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00997991952369,
+      "lng": 9.948956966400148,
+      "empfaenger": [],
+      "adresse": "Förstergasse 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00981961210555,
+      "lng": 9.948812127113342,
+      "empfaenger": [],
+      "adresse": "Förstergasse 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.00989373280619,
+      "lng": 9.948506355285645,
+      "empfaenger": [],
+      "adresse": "Förstergasse 9",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01006438235686,
+      "lng": 9.948337376117708,
+      "empfaenger": [],
+      "adresse": "Förstergasse 11",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010450496275325,
+      "lng": 9.94837760925293,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 9",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01070905296873,
+      "lng": 9.948332011699677,
+      "empfaenger": [],
+      "adresse": "",
+      "firma": "",
+      "hinweis": ""
+    },
+    {
+      "lat": 50.0104315353964,
+      "lng": 9.947690963745119,
+      "empfaenger": [],
+      "adresse": "Förstergasse 17",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01061769642931,
+      "lng": 9.9480476975441,
+      "empfaenger": [],
+      "adresse": "Förstergasse 17a",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010843501899565,
+      "lng": 9.947897493839264,
+      "empfaenger": [],
+      "adresse": "Förstergasse 19",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.011058964145334,
+      "lng": 9.947299361228945,
+      "empfaenger": [],
+      "adresse": "Förstergasse 21",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01114687246416,
+      "lng": 9.94766414165497,
+      "empfaenger": [],
+      "adresse": "Förstergasse 23",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01090383142575,
+      "lng": 9.948326647281649,
+      "empfaenger": [],
+      "adresse": "Förstergasse 25",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01100725329447,
+      "lng": 9.948495626449587,
+      "empfaenger": [],
+      "adresse": "Förstergasse 27",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01100208220631,
+      "lng": 9.948844313621523,
+      "empfaenger": [],
+      "adresse": "Förstergasse 31",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010907278824945,
+      "lng": 9.948932826519014,
+      "adresse": "Förstergasse 31",
+      "firma": "",
+      "hinweis": "Post-Briefkasten leeren",
+      "empfaenger": [],
+      "briefkasten": true
+    },
+    {
+      "lat": 50.010674578823306,
+      "lng": 9.949238598346712,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 8",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01056081396798,
+      "lng": 9.948970377445223,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 11",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010800409334486,
+      "lng": 9.948900640010834,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 13",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01030570391942,
+      "lng": 9.948597550392153,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010353968086534,
+      "lng": 9.948973059654238,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01040395592279,
+      "lng": 9.949493408203127,
+      "empfaenger": [],
+      "adresse": "Brunnengasse 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01032811228876,
+      "lng": 9.949812591075897,
+      "empfaenger": [],
+      "adresse": "Brunnengasse 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010409127075306,
+      "lng": 9.95078891515732,
+      "empfaenger": [],
+      "adresse": "Brunnengasse 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010510826294876,
+      "lng": 9.950968623161318,
+      "empfaenger": [],
+      "adresse": "Brunnengasse 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01041257451,
+      "lng": 9.95112419128418,
+      "empfaenger": [],
+      "adresse": "Brunnengasse 9",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01004542132558,
+      "lng": 9.950676262378694,
+      "empfaenger": [],
+      "adresse": "Brunnengasse 15",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.009969577125744,
+      "lng": 9.95038390159607,
+      "empfaenger": [],
+      "adresse": "Brunnengasse 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.0108141989595,
+      "lng": 9.949453175067903,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 10",
+      "firma": "Feuerwehr",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.010981397848134,
+      "lng": 9.949324429035189,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 12",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01134509651451,
+      "lng": 9.949265420436861,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 13a",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01128476754228,
+      "lng": 9.949683845043182,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 16",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01156400386358,
+      "lng": 9.949630200862886,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 15",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01170879242846,
+      "lng": 9.949823319911959,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 19",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.011639845547194,
+      "lng": 9.949973523616793,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 18",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.011857027888205,
+      "lng": 9.950185418128969,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 18a",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01195872404378,
+      "lng": 9.95039999485016,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 20",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01186219888434,
+      "lng": 9.949831366539003,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 21",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01217762859768,
+      "lng": 9.94963824748993,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 25",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01258440921506,
+      "lng": 9.951113462448122,
+      "empfaenger": [],
+      "adresse": "Triebweg 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01279641639222,
+      "lng": 9.950743317604067,
+      "empfaenger": [],
+      "adresse": "Triebweg 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.013004975385556,
+      "lng": 9.950713813304903,
+      "empfaenger": [],
+      "adresse": "Triebweg 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01332212121094,
+      "lng": 9.950593113899233,
+      "empfaenger": [],
+      "adresse": "Triebweg 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.0121759049437,
+      "lng": 9.950587749481203,
+      "empfaenger": [],
+      "adresse": "Triebweg 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.012448241510434,
+      "lng": 9.949064254760744,
+      "empfaenger": [],
+      "adresse": "Afterbankweg 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01236550651413,
+      "lng": 9.949635565280916,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 27",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.0123810193368,
+      "lng": 9.950011074543001,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 22",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.012873979759924,
+      "lng": 9.94941830635071,
+      "empfaenger": [],
+      "adresse": "Brackenstraße 27",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01235344098193,
+      "lng": 9.950139820575716,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01266369656154,
+      "lng": 9.950445592403414,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.012839507167506,
+      "lng": 9.950035214424133,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.012987739139405,
+      "lng": 9.949986934661865,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01292224134776,
+      "lng": 9.950381219387054,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 2a",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.013172166652176,
+      "lng": 9.950198829174044,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01333935733712,
+      "lng": 9.950059354305269,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 6",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.013491034981044,
+      "lng": 9.949842095375063,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 8",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01360651650257,
+      "lng": 9.949694573879244,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 10",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.013491034981044,
+      "lng": 9.949378073215485,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 9",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01383920230743,
+      "lng": 9.949930608272554,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 12",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01386677980963,
+      "lng": 9.94928151369095,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 14",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.014002943494745,
+      "lng": 9.949120581150057,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 16",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01389263370358,
+      "lng": 9.948846995830538,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 13",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.013704761757616,
+      "lng": 9.949107170104982,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 11",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01427871686477,
+      "lng": 9.94893014431,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 16a",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01416151337588,
+      "lng": 9.948517084121706,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 17",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01458206574384,
+      "lng": 9.948213994503023,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 19",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01508017423789,
+      "lng": 9.948332011699677,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 18",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01540937113529,
+      "lng": 9.948412477970125,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 22",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01395813017259,
+      "lng": 9.948018193244936,
+      "empfaenger": [],
+      "adresse": "An der Lehmgrube 8",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01414427754458,
+      "lng": 9.948203265666963,
+      "empfaenger": [],
+      "adresse": "An der Lehmgrube 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01415634262715,
+      "lng": 9.947808980941772,
+      "empfaenger": [],
+      "adresse": "An der Lehmgrube 6",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01435110711215,
+      "lng": 9.947642683982851,
+      "empfaenger": [],
+      "adresse": "An der Lehmgrube 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01493367227563,
+      "lng": 9.947454929351808,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015126710061814,
+      "lng": 9.947838485240938,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01510775102787,
+      "lng": 9.947326183319092,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01528182914947,
+      "lng": 9.947709739208223,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015299064572744,
+      "lng": 9.947100877761843,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015474865537,
+      "lng": 9.947599768638613,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 6",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015760971613474,
+      "lng": 9.946851432323458,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 12",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01586093598557,
+      "lng": 9.947202801704409,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 10",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015688583490046,
+      "lng": 9.94740128517151,
+      "empfaenger": [],
+      "adresse": "An der Ziegelei 8",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01633317865572,
+      "lng": 9.948581457138063,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01587644767986,
+      "lng": 9.949683845043182,
+      "empfaenger": [],
+      "adresse": "Am Trieb 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015747183407875,
+      "lng": 9.949823319911959,
+      "empfaenger": [],
+      "adresse": "Am Trieb 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01550244210048,
+      "lng": 9.950035214424133,
+      "empfaenger": [],
+      "adresse": "Am Trieb 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015280105606784,
+      "lng": 9.95015859603882,
+      "empfaenger": [],
+      "adresse": "Am Trieb 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.0147285687781,
+      "lng": 9.95005398988724,
+      "empfaenger": [],
+      "adresse": "Am Trieb 12",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01494918426925,
+      "lng": 9.949885010719301,
+      "empfaenger": [],
+      "adresse": "Am Trieb 10",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01542488297535,
+      "lng": 9.9494343996048,
+      "empfaenger": [],
+      "adresse": "Am Trieb 6",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01558689522772,
+      "lng": 9.949300289154055,
+      "empfaenger": [],
+      "adresse": "Am Trieb 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.015843700763845,
+      "lng": 9.949112534523012,
+      "empfaenger": [],
+      "adresse": "Am Trieb 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01602122325159,
+      "lng": 9.948989152908327,
+      "empfaenger": [],
+      "adresse": "Am Trieb 2a",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01671924220796,
+      "lng": 9.949697256088259,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 13",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.016955359905346,
+      "lng": 9.949962794780733,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 15",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.0171690712734,
+      "lng": 9.950080811977388,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 17",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01673820060608,
+      "lng": 9.949294924736025,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 9",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.016524487321576,
+      "lng": 9.948994517326357,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.016365925238134,
+      "lng": 9.949083030223848,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01611256951886,
+      "lng": 9.949415624141695,
+      "empfaenger": [],
+      "adresse": "Todenbüttler Straße 6",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.01622459772273,
+      "lng": 9.947564899921419,
+      "empfaenger": [],
+      "adresse": "Sassenstraße 20",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02480690505835,
+      "lng": 9.934328198432922,
+      "empfaenger": [],
+      "adresse": "Hauptstraße 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02491374339881,
+      "lng": 9.934212863445284,
+      "adresse": "Hauptstraße 2",
+      "firma": "",
+      "hinweis": "Post-Briefkasten leeren",
+      "empfaenger": [],
+      "briefkasten": true
+    },
+    {
+      "lat": 50.024839645865335,
+      "lng": 9.93479758501053,
+      "empfaenger": [],
+      "adresse": "Hauptstraße 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02664552528894,
+      "lng": 9.933158755302431,
+      "empfaenger": [],
+      "adresse": "Am Schleifweg 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.025096401946584,
+      "lng": 9.934076070785524,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02527733661573,
+      "lng": 9.93417799472809,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02538417390989,
+      "lng": 9.934239685535431,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 5",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02553409035741,
+      "lng": 9.934663474559786,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02567022097916,
+      "lng": 9.934261143207552,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 7",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02576154890155,
+      "lng": 9.934604465961458,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02579084272668,
+      "lng": 9.934346973896028,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 9",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.026069994752085,
+      "lng": 9.934365749359133,
+      "empfaenger": [],
+      "adresse": "Kirchgasse 11",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.026021746369835,
+      "lng": 9.935972392559053,
+      "empfaenger": [],
+      "adresse": "Gauaschacher Straße 4",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02568572950653,
+      "lng": 9.935148954391481,
+      "empfaenger": [],
+      "adresse": "Gauaschacher Straße 3",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.025497903671535,
+      "lng": 9.935071170330048,
+      "empfaenger": [],
+      "adresse": "Gauaschacher Straße 1",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    },
+    {
+      "lat": 50.02531180028496,
+      "lng": 9.935503005981447,
+      "empfaenger": [],
+      "adresse": "Gauaschacher Straße 2",
+      "firma": "",
+      "hinweis": "",
+      "briefkasten": false,
+      "teil": "A"
+    }
+  ],
+  "notes": []
+}
