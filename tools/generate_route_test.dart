@@ -12,7 +12,8 @@ const String outputPath = 'assets/districts/Bezirk_19_route_test.json';
 
 const int districtNumber = 19;
 
-const int minimumTestStopCount = 220;
+// Vollständiger Bezirk: Es werden alle erkannten Straßenabschnitte
+// und damit alle gültigen Stopps aus Bezirk_19.json verarbeitet.
 
 const String osrmBaseUrl = 'https://router.project-osrm.org';
 
@@ -117,23 +118,15 @@ Future<void> main() async {
     return;
   }
 
-  final selectedSegments = <_StreetSegment>[];
-  var selectedStopCount = 0;
-
-  for (final segment in allSegments) {
-    selectedSegments.add(segment);
-    selectedStopCount += segment.stops.length;
-
-    if (selectedStopCount >= minimumTestStopCount) {
-      break;
-    }
-  }
+  // Für die vollständige Bezirksroute werden bewusst ALLE
+  // zusammenhängenden Straßenabschnitte verwendet. Die gespeicherte
+  // Zustellreihenfolge wird dabei nicht verändert.
+  final selectedSegments = List<_StreetSegment>.from(allSegments);
 
   print('');
 
   print(
-    'Verwende Straßenabschnitte bis mindestens '
-    '$minimumTestStopCount Stopps erreicht sind – insgesamt '
+    'Erzeuge die vollständige Route für alle '
     '${selectedSegments.length} Straßenabschnitte:',
   );
 
@@ -154,7 +147,7 @@ Future<void> main() async {
 
   print('');
 
-  print('Test umfasst ${selectedStops.length} Stopps.');
+  print('Vollständiger Bezirk umfasst ${selectedStops.length} Stopps.');
 
   print('');
 
@@ -210,6 +203,91 @@ Future<void> main() async {
     }
 
     final normalizedStreet = _normalizeStreet(segment.streetName);
+
+    // Ein Straßenabschnitt kann absichtlich nur einen einzigen Zustellpunkt
+    // enthalten. Dafür lässt sich keine Straßenachse aus zwei Stopps bilden.
+    // In diesem Fall verwenden wir den von OSRM ermittelten Straßenpunkt
+    // direkt als kurzen Zwischenpunkt der Gesamtroute. Der Übergang vom
+    // vorherigen Abschnitt und später zum nächsten Abschnitt bleibt dadurch
+    // eine echte Straßenroute; der Zustellpunkt selbst bleibt unverändert.
+    if (segment.stops.length == 1) {
+      final stop = segment.stops.first;
+      final snapped = snappedStops.first;
+      final roadPoint = _RoutePoint(
+        latitude: snapped.roadLatitude,
+        longitude: snapped.roadLongitude,
+      );
+
+      print('');
+      print('  Einzelstopp-Straßenabschnitt');
+
+      if (previousRouteEnd != null) {
+        final gap = _distanceMeters(
+          previousRouteEnd.latitude,
+          previousRouteEnd.longitude,
+          roadPoint.latitude,
+          roadPoint.longitude,
+        );
+
+        if (gap > 2) {
+          print(
+            '  Übergang zur Straße: '
+            '${gap.toStringAsFixed(1)} m Luftlinie',
+          );
+
+          final transition = await _routeBetweenPoints(
+            previousRouteEnd,
+            roadPoint,
+          );
+
+          routeParts.add(
+            _RoutePart(
+              type: 'transition',
+              streetName: '',
+              segmentNumber: segmentIndex + 1,
+              points: transition.points,
+              distanceMeters: transition.distanceMeters,
+            ),
+          );
+        }
+      }
+
+      // Der Straßenabschnitt selbst hat bei genau einem Stopp keine
+      // aus der Stoppreihenfolge ableitbare Fahrtrichtung. Wir speichern
+      // deshalb nur den Straßenpunkt. Der nächste Abschnitt routet von
+      // genau diesem Punkt weiter.
+      routeParts.add(
+        _RoutePart(
+          type: 'street',
+          streetName: segment.streetName,
+          segmentNumber: segmentIndex + 1,
+          points: [roadPoint],
+          distanceMeters: 0,
+        ),
+      );
+
+      connections.add(
+        _StopConnection(
+          stop: stop,
+          streetName: segment.streetName,
+          segmentNumber: segmentIndex + 1,
+          roadPoint: roadPoint,
+          distanceMeters: snapped.snapDistanceMeters,
+        ),
+      );
+
+      print(
+        '  Hausanschluss: '
+        '${snapped.snapDistanceMeters.toStringAsFixed(1)} m',
+      );
+      print('  Straßenachse: Einzelpunkt');
+      print('  Tourroute: Einzelpunkt');
+      print('  Erkannte Richtungswechsel: 0');
+      print('');
+
+      previousRouteEnd = roadPoint;
+      continue;
+    }
 
     final matchingSnaps = snappedStops.where((item) {
       return _normalizeStreet(item.roadName) == normalizedStreet;
@@ -698,7 +776,7 @@ Future<void> main() async {
   final output = <String, dynamic>{
     'district': districtNumber,
 
-    'type': 'ordered_street_movement_test',
+    'type': 'ordered_street_movement_full',
 
     'segmentCount': selectedSegments.length,
 
