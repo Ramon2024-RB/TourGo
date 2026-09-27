@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
 
 import 'package:latlong2/latlong.dart';
 
@@ -253,6 +255,11 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
   Map<int, List<LatLng>> _savedRouteSectionGeometries = <int, List<LatLng>>{};
 
+  StreamSubscription<Position>? _positionSubscription;
+  Position? _currentPosition;
+  bool _locationLoading = false;
+  String? _locationError;
+
   bool _initialFitDone = false;
 
   List<TourStop> _loadedStops = const [];
@@ -272,6 +279,122 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
     _stopsFuture = _loadStops();
     _loadTestRoute();
     _loadSavedRouteSectionGeometries();
+    _startLocationTracking();
+  }
+
+  @override
+  void dispose() {
+    _positionSubscription?.cancel();
+    super.dispose();
+  }
+
+  Future<void> _startLocationTracking() async {
+    if (_locationLoading) return;
+
+    setState(() {
+      _locationLoading = true;
+      _locationError = null;
+    });
+
+    try {
+      final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+
+      if (!serviceEnabled) {
+        if (!mounted) return;
+        setState(() {
+          _locationLoading = false;
+          _locationError = 'Ortungsdienste sind deaktiviert.';
+        });
+        return;
+      }
+
+      var permission = await Geolocator.checkPermission();
+
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
+        if (!mounted) return;
+        setState(() {
+          _locationLoading = false;
+          _locationError = permission == LocationPermission.deniedForever
+              ? 'Standortzugriff ist in den Einstellungen deaktiviert.'
+              : 'Standortzugriff wurde nicht erlaubt.';
+        });
+        return;
+      }
+
+      final position = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.high,
+        ),
+      );
+
+      if (!mounted) return;
+
+      setState(() {
+        _currentPosition = position;
+        _locationLoading = false;
+        _locationError = null;
+      });
+
+      await _positionSubscription?.cancel();
+
+      _positionSubscription = Geolocator.getPositionStream(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.high,
+          distanceFilter: 5,
+        ),
+      ).listen(
+        (position) {
+          if (!mounted) return;
+          setState(() {
+            _currentPosition = position;
+            _locationLoading = false;
+            _locationError = null;
+          });
+        },
+        onError: (_) {
+          if (!mounted) return;
+          setState(() {
+            _locationLoading = false;
+            _locationError = 'Standort konnte nicht aktualisiert werden.';
+          });
+        },
+      );
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _locationLoading = false;
+        _locationError = 'Standort konnte nicht ermittelt werden.';
+      });
+    }
+  }
+
+  Future<void> _centerOnCurrentLocation() async {
+    if (_currentPosition == null) {
+      await _startLocationTracking();
+    }
+
+    if (!mounted) return;
+
+    final position = _currentPosition;
+
+    if (position == null) {
+      if (_locationError != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(_locationError!)),
+        );
+      }
+      return;
+    }
+
+    _mapController.move(
+      LatLng(position.latitude, position.longitude),
+      17,
+    );
   }
 
   Future<List<TourStop>> _loadStops() async {
@@ -838,6 +961,28 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                     ),
                   ],
 
+                  if (_currentPosition != null &&
+                      _currentPosition!.accuracy > 0)
+                    CircleLayer(
+                      circles: [
+                        CircleMarker(
+                          point: LatLng(
+                            _currentPosition!.latitude,
+                            _currentPosition!.longitude,
+                          ),
+                          radius: _currentPosition!.accuracy,
+                          useRadiusInMeter: true,
+                          color: const Color(
+                            0xFF00B8B8,
+                          ).withValues(alpha: 0.12),
+                          borderColor: const Color(
+                            0xFF00A6A6,
+                          ).withValues(alpha: 0.32),
+                          borderStrokeWidth: 1.5,
+                        ),
+                      ],
+                    ),
+
                   MarkerLayer(
                     markers: List.generate(stops.length, (index) {
                       final stop = stops[index];
@@ -892,6 +1037,49 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                       );
                     }),
                   ),
+
+                  if (_currentPosition != null)
+                    MarkerLayer(
+                      markers: [
+                        Marker(
+                          point: LatLng(
+                            _currentPosition!.latitude,
+                            _currentPosition!.longitude,
+                          ),
+                          width: 30,
+                          height: 30,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: const Color(0xFF00B8B8),
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 3,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withValues(alpha: 0.25),
+                                  blurRadius: 7,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
+                            child: const Center(
+                              child: SizedBox(
+                                width: 7,
+                                height: 7,
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                 ],
               ),
 
@@ -1029,24 +1217,56 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                 child: SafeArea(
                   top: false,
 
-                  child: Material(
-                    color: Colors.white,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Material(
+                        color: Colors.white,
+                        shape: const CircleBorder(),
+                        elevation: 4,
+                        child: IconButton(
+                          tooltip: 'Zu meinem Standort',
+                          onPressed: _locationLoading
+                              ? null
+                              : _centerOnCurrentLocation,
+                          icon: _locationLoading
+                              ? const SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2.4,
+                                    color: Color(0xFF00A6A6),
+                                  ),
+                                )
+                              : Icon(
+                                  _currentPosition == null
+                                      ? Icons.my_location_outlined
+                                      : Icons.my_location_rounded,
+                                  color: const Color(0xFF00A6A6),
+                                ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Material(
+                        color: Colors.white,
 
-                    shape: const CircleBorder(),
+                        shape: const CircleBorder(),
 
-                    elevation: 4,
+                        elevation: 4,
 
-                    child: IconButton(
-                      tooltip: 'Gesamten Bezirk anzeigen',
+                        child: IconButton(
+                          tooltip: 'Gesamten Bezirk anzeigen',
 
-                      onPressed: () {
-                        _clearSelection();
+                          onPressed: () {
+                            _clearSelection();
 
-                        _fitDistrict(stops);
-                      },
+                            _fitDistrict(stops);
+                          },
 
-                      icon: const Icon(Icons.zoom_out_map_rounded),
-                    ),
+                          icon: const Icon(Icons.zoom_out_map_rounded),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
