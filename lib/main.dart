@@ -1,9 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
@@ -249,18 +246,14 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
   late Future<List<TourStop>> _stopsFuture;
 
-  List<LatLng> _testRoutePoints = const [];
-
-  List<List<LatLng>> _testStopConnections = const [];
-
-  Map<int, List<LatLng>> _savedRouteSectionGeometries = <int, List<LatLng>>{};
-
   StreamSubscription<Position>? _positionSubscription;
   Position? _currentPosition;
   bool _locationLoading = false;
   String? _locationError;
 
   bool _initialFitDone = false;
+
+  int _markerZoomLevel = 0;
 
   List<TourStop> _loadedStops = const [];
 
@@ -277,8 +270,6 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
     super.initState();
 
     _stopsFuture = _loadStops();
-    _loadTestRoute();
-    _loadSavedRouteSectionGeometries();
     _startLocationTracking();
   }
 
@@ -414,236 +405,6 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
       _initialFitDone = false;
       _stopsFuture = _loadStops();
     });
-  }
-
-  Future<void> _loadSavedRouteSectionGeometries() async {
-    try {
-      final geometries = await _localStorage.loadRouteSectionGeometries(
-        widget.district.number,
-      );
-      if (!mounted) return;
-      setState(() {
-        _savedRouteSectionGeometries = geometries;
-      });
-    } catch (_) {
-      if (!mounted) return;
-      setState(() {
-        _savedRouteSectionGeometries = <int, List<LatLng>>{};
-      });
-    }
-  }
-
-  double _squaredDistance(LatLng a, LatLng b) {
-    final lat = a.latitude - b.latitude;
-    final lng = a.longitude - b.longitude;
-    return lat * lat + lng * lng;
-  }
-
-  int _nearestRoutePointIndex(
-    List<LatLng> route,
-    LatLng target, {
-    int startIndex = 0,
-  }) {
-    if (route.isEmpty) return -1;
-
-    var bestIndex = startIndex.clamp(0, route.length - 1);
-    var bestDistance = _squaredDistance(route[bestIndex], target);
-
-    for (var index = bestIndex + 1; index < route.length; index++) {
-      final distance = _squaredDistance(route[index], target);
-      if (distance < bestDistance) {
-        bestDistance = distance;
-        bestIndex = index;
-      }
-    }
-
-    return bestIndex;
-  }
-
-  List<LatLng> _routeWithSavedCorrections(
-    List<LatLng> baseRoute,
-    List<TourStop> stops,
-  ) {
-    if (baseRoute.length < 2 ||
-        stops.length < 2 ||
-        _savedRouteSectionGeometries.isEmpty) {
-      return baseRoute;
-    }
-
-    final replacements = <({int start, int end, List<LatLng> points})>[];
-
-    for (final entry in _savedRouteSectionGeometries.entries) {
-      final afterStopIndex = entry.key;
-      final geometry = entry.value;
-
-      if (afterStopIndex < 0 ||
-          afterStopIndex >= stops.length - 1 ||
-          geometry.length < 2) {
-        continue;
-      }
-
-      final startStop = stops[afterStopIndex];
-      final endStop = stops[afterStopIndex + 1];
-
-      final startTarget = LatLng(startStop.latitude, startStop.longitude);
-      final endTarget = LatLng(endStop.latitude, endStop.longitude);
-
-      final startIndex = _nearestRoutePointIndex(baseRoute, startTarget);
-      if (startIndex < 0) continue;
-
-      final endIndex = _nearestRoutePointIndex(
-        baseRoute,
-        endTarget,
-        startIndex: startIndex,
-      );
-
-      if (endIndex <= startIndex) continue;
-
-      replacements.add((
-        start: startIndex,
-        end: endIndex,
-        points: List<LatLng>.from(geometry),
-      ));
-    }
-
-    if (replacements.isEmpty) return baseRoute;
-
-    replacements.sort((a, b) => a.start.compareTo(b.start));
-
-    final result = <LatLng>[];
-    var cursor = 0;
-
-    for (final replacement in replacements) {
-      if (replacement.start < cursor) {
-        continue;
-      }
-
-      result.addAll(baseRoute.sublist(cursor, replacement.start + 1));
-
-      if (result.isNotEmpty && replacement.points.isNotEmpty) {
-        final first = replacement.points.first;
-        if (_squaredDistance(result.last, first) < 0.0000000001) {
-          result.removeLast();
-        }
-      }
-
-      result.addAll(replacement.points);
-      cursor = replacement.end + 1;
-    }
-
-    if (cursor < baseRoute.length) {
-      result.addAll(baseRoute.sublist(cursor));
-    }
-
-    return result.length >= 2 ? result : baseRoute;
-  }
-
-  Future<void> _loadTestRoute() async {
-    if (widget.district.number != 19) {
-      return;
-    }
-
-    try {
-      final jsonString = await rootBundle.loadString(
-        'assets/districts/Bezirk_19_route_test.json',
-      );
-
-      final dynamic decoded = jsonDecode(jsonString);
-
-      if (decoded is! Map) {
-        throw const FormatException('Routendatei ist kein JSON-Objekt.');
-      }
-
-      final routeData = Map<String, dynamic>.from(decoded);
-      final mainRoute = routeData['mainRoute'];
-
-      if (mainRoute is! Map) {
-        throw const FormatException('mainRoute fehlt in der Routendatei.');
-      }
-
-      final mainRouteMap = Map<String, dynamic>.from(mainRoute);
-      final rawRoutePoints = mainRouteMap['points'];
-
-      if (rawRoutePoints is! List) {
-        throw const FormatException('mainRoute.points fehlt.');
-      }
-
-      final routePoints = <LatLng>[];
-
-      for (final item in rawRoutePoints) {
-        if (item is! Map) {
-          continue;
-        }
-
-        final point = Map<String, dynamic>.from(item);
-        final lat = point['lat'];
-        final lng = point['lng'];
-
-        if (lat is num && lng is num) {
-          routePoints.add(LatLng(lat.toDouble(), lng.toDouble()));
-        }
-      }
-
-      final connections = <List<LatLng>>[];
-      final rawConnections = routeData['stopConnections'];
-
-      if (rawConnections is List) {
-        for (final rawConnection in rawConnections) {
-          if (rawConnection is! Map) {
-            continue;
-          }
-
-          final connection = Map<String, dynamic>.from(rawConnection);
-          final rawPoints = connection['points'];
-
-          if (rawPoints is! List) {
-            continue;
-          }
-
-          final connectionPoints = <LatLng>[];
-
-          for (final rawPoint in rawPoints) {
-            if (rawPoint is! Map) {
-              continue;
-            }
-
-            final point = Map<String, dynamic>.from(rawPoint);
-            final lat = point['lat'];
-            final lng = point['lng'];
-
-            if (lat is num && lng is num) {
-              connectionPoints.add(LatLng(lat.toDouble(), lng.toDouble()));
-            }
-          }
-
-          if (connectionPoints.length >= 2) {
-            connections.add(connectionPoints);
-          }
-        }
-      }
-
-      if (routePoints.length < 2) {
-        throw const FormatException('Hauptroute enthält zu wenige Punkte.');
-      }
-
-      if (!mounted) {
-        return;
-      }
-
-      setState(() {
-        _testRoutePoints = routePoints;
-        _testStopConnections = connections;
-      });
-    } catch (error) {
-      if (!mounted) {
-        return;
-      }
-
-      setState(() {
-        _testRoutePoints = const [];
-        _testStopConnections = const [];
-      });
-    }
   }
 
   void _fitDistrict(List<TourStop> stops) {
@@ -880,10 +641,6 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
           }
 
           final selectedSegment = _selectedSegment;
-          final displayedRoutePoints = _routeWithSavedCorrections(
-            _testRoutePoints,
-            stops,
-          );
 
           return Stack(
             children: [
@@ -902,6 +659,24 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                   minZoom: 4,
 
                   maxZoom: 19,
+
+                  onPositionChanged: (position, hasGesture) {
+                    final newZoom = position.zoom;
+                    final newMarkerZoomLevel = newZoom < 14.2
+                        ? 0
+                        : newZoom < 15.5
+                        ? 1
+                        : 2;
+
+
+                    if (newMarkerZoomLevel == _markerZoomLevel) {
+                      return;
+                    }
+
+                    setState(() {
+                      _markerZoomLevel = newMarkerZoomLevel;
+                    });
+                  },
                 ),
 
                 children: [
@@ -911,52 +686,6 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
                     userAgentPackageName: 'de.ramonvidal.tourgo',
                   ),
-
-                  if (_testStopConnections.isNotEmpty) ...[
-                    PolylineLayer(
-                      polylines: _testStopConnections
-                          .map(
-                            (points) => Polyline(
-                              points: points,
-                              strokeWidth: 5.5,
-                              color: Colors.white.withValues(alpha: 0.95),
-                            ),
-                          )
-                          .toList(),
-                    ),
-                    PolylineLayer(
-                      polylines: _testStopConnections
-                          .map(
-                            (points) => Polyline(
-                              points: points,
-                              strokeWidth: 3.5,
-                              color: const Color(0xFF1976D2),
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  ],
-
-                  if (displayedRoutePoints.length > 1) ...[
-                    PolylineLayer(
-                      polylines: [
-                        Polyline(
-                          points: displayedRoutePoints,
-                          strokeWidth: 9,
-                          color: Colors.white.withValues(alpha: 0.95),
-                        ),
-                      ],
-                    ),
-                    PolylineLayer(
-                      polylines: [
-                        Polyline(
-                          points: displayedRoutePoints,
-                          strokeWidth: 5.5,
-                          color: const Color(0xFF1565C0),
-                        ),
-                      ],
-                    ),
-                  ],
 
                   if (_currentPosition != null &&
                       _currentPosition!.accuracy > 0)
@@ -978,60 +707,149 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                       ],
                     ),
 
-                  MarkerLayer(
-                    markers: List.generate(stops.length, (index) {
-                      final stop = stops[index];
+                  if (_markerZoomLevel == 0)
+                    CircleLayer(
+                      circles: List.generate(stops.length, (index) {
+                        final stop = stops[index];
+                        final inSelectedSegment =
+                            _isStopInSelectedSegment(index);
+                        final isSelectedStop = _selectedStopIndex == index;
+                        final dimmed =
+                            selectedSegment != null && !inSelectedSegment;
 
-                      final inSelectedSegment = _isStopInSelectedSegment(index);
+                        Color fillColor;
+                        Color borderColor;
 
-                      final isSelectedStop = _selectedStopIndex == index;
+                        if (stop.isMailbox) {
+                          fillColor = Colors.amber.shade200;
+                          borderColor = Colors.amber.shade900;
+                        } else if (stop.isCompany) {
+                          fillColor = Colors.orange.shade200;
+                          borderColor = Colors.orange.shade800;
+                        } else {
+                          fillColor = const Color(0xFFE3F2FD);
+                          borderColor = const Color(0xFF1565C0);
+                        }
 
-                      final dimmed =
-                          selectedSegment != null && !inSelectedSegment;
+                        if (isSelectedStop) {
+                          fillColor = const Color(0xFF1565C0);
+                          borderColor = Colors.white;
+                        }
 
-                      final duplicateInfo = _duplicateInfoForGlobalStop(index);
+                        final opacity = dimmed ? 0.15 : 1.0;
 
-                      return Marker(
-                        point: LatLng(stop.latitude, stop.longitude),
+                        return CircleMarker(
+                          point: LatLng(stop.latitude, stop.longitude),
+                          radius: isSelectedStop ? 8 : 4.5,
+                          color: fillColor.withValues(alpha: opacity),
+                          borderColor:
+                              borderColor.withValues(alpha: opacity),
+                          borderStrokeWidth: isSelectedStop
+                              ? 2.5
+                              : inSelectedSegment
+                              ? 2
+                              : 1.2,
+                        );
+                      }),
+                    )
+                  else
+                    MarkerLayer(
+                      markers: List.generate(stops.length, (index) {
+                        final stop = stops[index];
 
-                        width: isSelectedStop
-                            ? 46
+                        final inSelectedSegment =
+                            _isStopInSelectedSegment(index);
+
+                        final isSelectedStop = _selectedStopIndex == index;
+
+                        final dimmed =
+                            selectedSegment != null && !inSelectedSegment;
+
+                        final duplicateInfo =
+                            _duplicateInfoForGlobalStop(index);
+
+                        final compact = _markerZoomLevel == 1;
+
+                        final markerWidth = isSelectedStop
+                            ? 46.0
+                            : compact
+                            ? 28.0
                             : inSelectedSegment
-                            ? 42
-                            : 38,
+                            ? 42.0
+                            : 38.0;
 
-                        height: isSelectedStop
-                            ? 42
+                        final markerHeight = isSelectedStop
+                            ? 42.0
+                            : compact
+                            ? 24.0
                             : inSelectedSegment
-                            ? 38
-                            : 34,
+                            ? 38.0
+                            : 34.0;
 
-                        child: Opacity(
-                          opacity: dimmed ? 0.15 : 1,
+                        return Marker(
+                          point: LatLng(stop.latitude, stop.longitude),
 
+                          width: markerWidth,
+
+                          height: markerHeight,
+
+                          child: Opacity(
+                            opacity: dimmed ? 0.15 : 1,
+
+                            child: GestureDetector(
+                              onTap: () {
+                                _selectStop(index);
+                              },
+
+                              child: _StopMarker(
+                                stop: stop,
+
+                                stopNumber: index + 1,
+
+                                duplicateInfo: duplicateInfo,
+
+                                selected: inSelectedSegment,
+
+                                target: isSelectedStop,
+
+                                zoomLevel: _markerZoomLevel,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+
+                  if (_markerZoomLevel == 0 && _selectedStopIndex != null)
+                    MarkerLayer(
+                      markers: [
+                        Marker(
+                          point: LatLng(
+                            stops[_selectedStopIndex!].latitude,
+                            stops[_selectedStopIndex!].longitude,
+                          ),
+                          width: 46,
+                          height: 42,
                           child: GestureDetector(
                             onTap: () {
-                              _selectStop(index);
-
-                              _showStop(stop, index + 1);
+                              _selectStop(_selectedStopIndex!);
                             },
-
                             child: _StopMarker(
-                              stop: stop,
-
-                              stopNumber: index + 1,
-
-                              duplicateInfo: duplicateInfo,
-
-                              selected: inSelectedSegment,
-
-                              target: isSelectedStop,
+                              stop: stops[_selectedStopIndex!],
+                              stopNumber: _selectedStopIndex! + 1,
+                              duplicateInfo: _duplicateInfoForGlobalStop(
+                                _selectedStopIndex!,
+                              ),
+                              selected: _isStopInSelectedSegment(
+                                _selectedStopIndex!,
+                              ),
+                              target: true,
+                              zoomLevel: _markerZoomLevel,
                             ),
                           ),
                         ),
-                      );
-                    }),
-                  ),
+                      ],
+                    ),
 
                   if (_currentPosition != null)
                     MarkerLayer(
@@ -1175,7 +993,6 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                                             return;
                                           }
                                           await _reloadStopsFromStorage();
-                                          await _loadSavedRouteSectionGeometries();
                                         });
                                   }
                                 },
@@ -1359,6 +1176,17 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
                       onClose: _clearSelection,
 
                       onSearch: _openSearch,
+
+                      onPreviousStop:
+                          _selectedStopIndex != null && _selectedStopIndex! > 0
+                          ? () => _selectStop(_selectedStopIndex! - 1)
+                          : null,
+
+                      onNextStop:
+                          _selectedStopIndex != null &&
+                              _selectedStopIndex! < stops.length - 1
+                          ? () => _selectStop(_selectedStopIndex! + 1)
+                          : null,
                     ),
                   ),
                 ),
@@ -1366,133 +1194,6 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
           );
         },
       ),
-    );
-  }
-
-  void _showStop(TourStop stop, int stopNumber) {
-    showModalBottomSheet<void>(
-      context: context,
-
-      showDragHandle: true,
-
-      builder: (context) {
-        return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
-
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-
-              crossAxisAlignment: CrossAxisAlignment.start,
-
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'Stopp $stopNumber',
-
-                        style: TextStyle(
-                          fontSize: 14,
-
-                          color: Colors.grey.shade600,
-                        ),
-                      ),
-                    ),
-
-                    if (stop.hasSection)
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-
-                          vertical: 5,
-                        ),
-
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primaryContainer,
-
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-
-                        child: Text(
-                          'Teil ${stop.section}',
-
-                          style: const TextStyle(
-                            fontSize: 12,
-
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
-
-                const SizedBox(height: 5),
-
-                Text(
-                  stop.name,
-
-                  style: const TextStyle(
-                    fontSize: 23,
-
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-
-                if (stop.isMailbox) ...[
-                  const SizedBox(height: 14),
-
-                  const Row(
-                    children: [
-                      Icon(Icons.markunread_mailbox_rounded, size: 20),
-
-                      SizedBox(width: 8),
-
-                      Text(
-                        'Briefkasten',
-
-                        style: TextStyle(fontWeight: FontWeight.w700),
-                      ),
-                    ],
-                  ),
-                ],
-
-                if (stop.company.isNotEmpty) ...[
-                  const SizedBox(height: 14),
-
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    children: [
-                      const Icon(Icons.business_rounded, size: 20),
-
-                      const SizedBox(width: 8),
-
-                      Expanded(child: Text(stop.company)),
-                    ],
-                  ),
-                ],
-
-                if (stop.note.isNotEmpty) ...[
-                  const SizedBox(height: 14),
-
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    children: [
-                      const Icon(Icons.info_outline_rounded, size: 20),
-
-                      const SizedBox(width: 8),
-
-                      Expanded(child: Text(stop.note)),
-                    ],
-                  ),
-                ],
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 
@@ -1519,210 +1220,345 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
 
 class _SelectedSegmentCard extends StatelessWidget {
   final StreetSegment segment;
-
   final StreetSegment? previous;
-
   final StreetSegment? next;
-
   final int? selectedStopIndex;
-
   final TourStop? selectedStop;
-
   final DuplicateStopPosition? duplicateInfo;
-
   final VoidCallback onClose;
-
   final VoidCallback onSearch;
+  final VoidCallback? onPreviousStop;
+  final VoidCallback? onNextStop;
 
   const _SelectedSegmentCard({
     required this.segment,
-
     required this.previous,
-
     required this.next,
-
     required this.selectedStopIndex,
-
     required this.selectedStop,
-
     required this.duplicateInfo,
-
     required this.onClose,
-
     required this.onSearch,
+    required this.onPreviousStop,
+    required this.onNextStop,
   });
 
   @override
   Widget build(BuildContext context) {
+    final stop = selectedStop;
+    final stopIndex = selectedStopIndex;
+
     return Material(
       color: Colors.white,
-
-      borderRadius: BorderRadius.circular(20),
-
+      borderRadius: BorderRadius.circular(22),
       elevation: 8,
-
+      shadowColor: Colors.black.withValues(alpha: 0.18),
+      clipBehavior: Clip.antiAlias,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(18, 14, 10, 14),
-
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-
-          crossAxisAlignment: CrossAxisAlignment.start,
-
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    children: [
-                      Text(
-                        segment.streetName,
-
-                        style: const TextStyle(
-                          fontSize: 19,
-
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-
-                      const SizedBox(height: 2),
-
-                      Text(
-                        'Abschnitt '
-                        '${segment.segmentNumber} • '
-                        '${segment.stopRange}',
-
-                        style: TextStyle(color: Colors.grey.shade600),
-                      ),
-                    ],
-                  ),
-                ),
-
-                IconButton(
-                  tooltip: 'Suche',
-
-                  onPressed: onSearch,
-
-                  icon: const Icon(Icons.search_rounded),
-                ),
-
-                IconButton(
-                  tooltip: 'Schließen',
-
-                  onPressed: onClose,
-
-                  icon: const Icon(Icons.close_rounded),
-                ),
-              ],
-            ),
-
-            if (selectedStop != null && selectedStopIndex != null) ...[
-              const SizedBox(height: 10),
-
-              Container(
-                width: double.infinity,
-
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-
-                  vertical: 10,
-                ),
-
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-
-                  borderRadius: BorderRadius.circular(12),
-                ),
-
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.location_on_rounded,
-
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-
-                    const SizedBox(width: 8),
-
-                    Expanded(
-                      child: Text(
-                        _selectedStopText(),
-
-                        style: const TextStyle(fontWeight: FontWeight.w800),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-
-            if (segment.houseNumbers.isNotEmpty) ...[
-              const SizedBox(height: 10),
-
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-
-                child: Text(
-                  segment.houseNumbers,
-
-                  style: const TextStyle(
-                    fontSize: 15,
-
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ],
-
-            const SizedBox(height: 12),
-
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    previous == null ? '← Start' : '← ${previous!.streetName}',
-
-                    overflow: TextOverflow.ellipsis,
-
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-
-                const SizedBox(width: 12),
-
-                Expanded(
-                  child: Text(
-                    next == null ? 'Ende →' : '${next!.streetName} →',
-
-                    textAlign: TextAlign.right,
-
-                    overflow: TextOverflow.ellipsis,
-
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        padding: const EdgeInsets.fromLTRB(18, 14, 14, 14),
+        child: stop != null && stopIndex != null
+            ? _buildStopView(context, stop, stopIndex)
+            : _buildSegmentView(context),
       ),
     );
   }
 
-  String _selectedStopText() {
-    final stop = selectedStop!;
+  Widget _buildStopView(BuildContext context, TourStop stop, int stopIndex) {
+    final primary = Theme.of(context).colorScheme.primary;
+    final address = stop.address.isNotEmpty ? stop.address : stop.name;
 
-    var result = stop.address.isNotEmpty ? stop.address : stop.name;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 42,
+              height: 42,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(13),
+              ),
+              child: Icon(Icons.location_on_rounded, color: primary, size: 23),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    address,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 19,
+                      height: 1.08,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: -0.25,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Wrap(
+                    spacing: 7,
+                    runSpacing: 5,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      _InfoPill(label: 'Stopp ${stopIndex + 1}'),
+                      if (duplicateInfo != null)
+                        _InfoPill(
+                          label:
+                              '${duplicateInfo!.position} von ${duplicateInfo!.total}',
+                          emphasized: true,
+                        ),
+                      if (stop.hasSection)
+                        _InfoPill(label: 'Teil ${stop.section}'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            IconButton(
+              tooltip: 'Schließen',
+              onPressed: onClose,
+              visualDensity: VisualDensity.compact,
+              icon: const Icon(Icons.close_rounded),
+            ),
+          ],
+        ),
+        if (stop.isMailbox ||
+            stop.company.isNotEmpty ||
+            stop.note.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: BoxDecoration(
+              color: const Color(0xFFF6F8FB),
+              borderRadius: BorderRadius.circular(13),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (stop.isMailbox)
+                  const _StopDetailRow(
+                    icon: Icons.markunread_mailbox_rounded,
+                    text: 'Briefkasten',
+                  ),
+                if (stop.company.isNotEmpty)
+                  _StopDetailRow(
+                    icon: Icons.business_rounded,
+                    text: stop.company,
+                  ),
+                if (stop.note.isNotEmpty)
+                  _StopDetailRow(
+                    icon: Icons.info_outline_rounded,
+                    text: stop.note,
+                  ),
+              ],
+            ),
+          ),
+        ],
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: _StopNavigationButton(
+                icon: Icons.arrow_back_rounded,
+                label: 'Vorheriger',
+                onPressed: onPreviousStop,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: _StopNavigationButton(
+                icon: Icons.arrow_forward_rounded,
+                label: 'Nächster',
+                onPressed: onNextStop,
+                iconAfter: true,
+              ),
+            ),
+            const SizedBox(width: 8),
+            IconButton.filledTonal(
+              tooltip: 'Suche',
+              onPressed: onSearch,
+              icon: const Icon(Icons.search_rounded),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 
-    if (duplicateInfo != null) {
-      result += ' · ${duplicateInfo!.position}/${duplicateInfo!.total}';
-    }
+  Widget _buildSegmentView(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    segment.streetName,
+                    style: const TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    '${segment.stopRange} · ${segment.stopCount} ${segment.stopCount == 1 ? 'Stopp' : 'Stopps'}',
+                    style: TextStyle(color: Colors.grey.shade600),
+                  ),
+                ],
+              ),
+            ),
+            IconButton(
+              tooltip: 'Suche',
+              onPressed: onSearch,
+              icon: const Icon(Icons.search_rounded),
+            ),
+            IconButton(
+              tooltip: 'Schließen',
+              onPressed: onClose,
+              icon: const Icon(Icons.close_rounded),
+            ),
+          ],
+        ),
+        if (segment.houseNumbers.isNotEmpty) ...[
+          const SizedBox(height: 10),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Text(
+              segment.houseNumbers,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+            ),
+          ),
+        ],
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                previous == null ? '← Start' : '← ${previous!.streetName}',
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                next == null ? 'Ende →' : '${next!.streetName} →',
+                textAlign: TextAlign.right,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
 
-    result += ' · Stopp ${selectedStopIndex! + 1}';
+class _InfoPill extends StatelessWidget {
+  final String label;
+  final bool emphasized;
 
-    return result;
+  const _InfoPill({required this.label, this.emphasized = false});
+
+  @override
+  Widget build(BuildContext context) {
+    final primary = Theme.of(context).colorScheme.primary;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: emphasized
+            ? Theme.of(context).colorScheme.primaryContainer
+            : const Color(0xFFF0F2F5),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.w700,
+          color: emphasized ? primary : Colors.grey.shade700,
+        ),
+      ),
+    );
+  }
+}
+
+class _StopDetailRow extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const _StopDetailRow({required this.icon, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, size: 17, color: Colors.grey.shade700),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _StopNavigationButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback? onPressed;
+  final bool iconAfter;
+
+  const _StopNavigationButton({
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+    this.iconAfter = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final children = <Widget>[
+      Icon(icon, size: 17),
+      const SizedBox(width: 5),
+      Flexible(
+        child: Text(
+          label,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontWeight: FontWeight.w700),
+        ),
+      ),
+    ];
+
+    return OutlinedButton(
+      onPressed: onPressed,
+      style: OutlinedButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 11),
+        visualDensity: VisualDensity.compact,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: iconAfter ? children.reversed.toList() : children,
+      ),
+    );
   }
 }
 
@@ -1737,6 +1573,8 @@ class _StopMarker extends StatelessWidget {
 
   final bool target;
 
+  final int zoomLevel;
+
   const _StopMarker({
     required this.stop,
 
@@ -1747,17 +1585,18 @@ class _StopMarker extends StatelessWidget {
     this.selected = false,
 
     this.target = false,
+
+    required this.zoomLevel,
   });
 
   @override
   Widget build(BuildContext context) {
     final houseNumber = stop.houseNumber.isNotEmpty ? stop.houseNumber : '•';
 
-    final secondaryParts = <String>[];
+    final compact = !target && zoomLevel < 2;
+    final veryCompact = !target && zoomLevel == 0;
 
-    if (duplicateInfo != null) {
-      secondaryParts.add('${duplicateInfo!.position}/${duplicateInfo!.total}');
-    }
+    final secondaryParts = <String>[];
 
     if (stop.hasSection) {
       secondaryParts.add(stop.section);
@@ -1766,6 +1605,28 @@ class _StopMarker extends StatelessWidget {
     secondaryParts.add('$stopNumber');
 
     final secondaryText = secondaryParts.join(' · ');
+
+    String duplicateSuperscript = '';
+    if (duplicateInfo != null) {
+      const superscriptDigits = <String>[
+        '⁰',
+        '¹',
+        '²',
+        '³',
+        '⁴',
+        '⁵',
+        '⁶',
+        '⁷',
+        '⁸',
+        '⁹',
+      ];
+
+      final positionText = duplicateInfo!.position.toString();
+      duplicateSuperscript = positionText
+          .split('')
+          .map((digit) => superscriptDigits[int.parse(digit)])
+          .join();
+    }
 
     Color backgroundColor;
 
@@ -1810,6 +1671,79 @@ class _StopMarker extends StatelessWidget {
         : stop.isCompany
         ? Icons.business_rounded
         : null;
+
+    if (veryCompact) {
+      return Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: backgroundColor,
+          border: Border.all(
+            color: borderColor,
+            width: selected ? 2.2 : 1.4,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: selected ? 0.24 : 0.14),
+              blurRadius: selected ? 4 : 2,
+            ),
+          ],
+        ),
+        child: statusIcon == null
+            ? null
+            : Center(
+                child: Icon(
+                  statusIcon,
+                  size: 10,
+                  color: foregroundColor,
+                ),
+              ),
+      );
+    }
+
+    if (compact) {
+      return Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 2),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(7),
+          border: Border.all(
+            color: borderColor,
+            width: selected ? 2.4 : 1.4,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: selected ? 0.25 : 0.14),
+              blurRadius: selected ? 4 : 2,
+            ),
+          ],
+        ),
+        child: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(text: houseNumber),
+              if (duplicateSuperscript.isNotEmpty)
+                TextSpan(
+                  text: duplicateSuperscript,
+                  style: const TextStyle(
+                    fontSize: 6,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+            ],
+          ),
+          maxLines: 1,
+          overflow: TextOverflow.fade,
+          softWrap: false,
+          style: TextStyle(
+            fontSize: 10,
+            height: 1,
+            fontWeight: FontWeight.w900,
+            color: foregroundColor,
+          ),
+        ),
+      );
+    }
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
@@ -1857,8 +1791,24 @@ class _StopMarker extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
 
               children: [
-                Text(
-                  houseNumber,
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(text: houseNumber),
+                      if (duplicateSuperscript.isNotEmpty)
+                        TextSpan(
+                          text: duplicateSuperscript,
+                          style: TextStyle(
+                            fontSize: target
+                                ? 9
+                                : selected
+                                ? 8
+                                : 7.5,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                    ],
+                  ),
 
                   maxLines: 1,
 
@@ -2542,19 +2492,6 @@ class DistrictEditorPage extends StatelessWidget {
             },
           ),
           const SizedBox(height: 10),
-          _EditorActionCard(
-            icon: Icons.alt_route_rounded,
-            title: 'Route bearbeiten',
-            subtitle: 'Fahrweg und manuelle Zwischenpunkte festlegen',
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) =>
-                      DistrictRouteEditorPage(district: district, stops: stops),
-                ),
-              );
-            },
-          ),
           const SizedBox(height: 18),
           Container(
             padding: const EdgeInsets.all(14),
@@ -2570,8 +2507,8 @@ class DistrictEditorPage extends StatelessWidget {
                 SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    'Zustellpunkte und Fahrroute werden getrennt bearbeitet. '
-                    'Eine Routenkorrektur verändert weder Adresse noch Reihenfolge eines Stopps.',
+                    'Die Reihenfolge der Zustellpunkte bestimmt die Tour. '
+                    'Du kannst Stopps hinzufügen, verschieben, bearbeiten oder neu anordnen.',
                   ),
                 ),
               ],
@@ -3448,748 +3385,4 @@ class _EditorAddressParts {
   final String houseNumber;
 
   const _EditorAddressParts({required this.street, required this.houseNumber});
-}
-
-class DistrictRouteEditorPage extends StatefulWidget {
-  final District district;
-  final List<TourStop> stops;
-
-  const DistrictRouteEditorPage({
-    super.key,
-    required this.district,
-    required this.stops,
-  });
-
-  @override
-  State<DistrictRouteEditorPage> createState() =>
-      _DistrictRouteEditorPageState();
-}
-
-class _DistrictRouteEditorPageState extends State<DistrictRouteEditorPage> {
-  final LocalDistrictStorage _localStorage = const LocalDistrictStorage();
-
-  final List<StoredRouteViaPoint> _viaPoints = <StoredRouteViaPoint>[];
-  bool _loading = true;
-  bool _addMode = false;
-  int? _moveViaPointIndex;
-  int? _selectedAfterStopIndex;
-  final Map<int, List<LatLng>> _routedSectionGeometry = <int, List<LatLng>>{};
-  final Set<int> _routingSections = <int>{};
-
-  @override
-  void initState() {
-    super.initState();
-    _loadViaPoints();
-  }
-
-  Future<void> _loadViaPoints() async {
-    try {
-      final points = await _localStorage.loadRouteViaPoints(
-        widget.district.number,
-      );
-
-      final savedGeometries = await _localStorage.loadRouteSectionGeometries(
-        widget.district.number,
-      );
-      final sectionsWithViaPoints = points
-          .map((point) => point.afterStopIndex)
-          .toSet();
-
-      for (final afterStopIndex in savedGeometries.keys) {
-        if (!sectionsWithViaPoints.contains(afterStopIndex)) {
-          await _localStorage.removeRouteSectionGeometry(
-            widget.district.number,
-            afterStopIndex,
-          );
-        }
-      }
-
-      if (!mounted) return;
-      setState(() {
-        _viaPoints
-          ..clear()
-          ..addAll(points);
-        _loading = false;
-      });
-    } catch (error) {
-      if (!mounted) return;
-      setState(() => _loading = false);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Routenpunkte konnten nicht geladen werden: $error'),
-        ),
-      );
-    }
-  }
-
-  Future<bool> _saveViaPoints(String successMessage) async {
-    try {
-      await _localStorage.saveRouteViaPoints(
-        widget.district.number,
-        _viaPoints,
-      );
-      if (!mounted) return false;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(successMessage),
-          duration: const Duration(seconds: 2),
-        ),
-      );
-      return true;
-    } catch (error) {
-      if (!mounted) return false;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Speichern fehlgeschlagen: $error'),
-          duration: const Duration(seconds: 4),
-        ),
-      );
-      return false;
-    }
-  }
-
-  Future<void> _calculateSectionRoute(int afterStopIndex) async {
-    if (afterStopIndex < 0 || afterStopIndex >= widget.stops.length - 1) {
-      return;
-    }
-
-    final start = widget.stops[afterStopIndex];
-    final end = widget.stops[afterStopIndex + 1];
-    final viaPoints = _pointsForSection(afterStopIndex);
-
-    if (viaPoints.isEmpty) {
-      await _localStorage.removeRouteSectionGeometry(
-        widget.district.number,
-        afterStopIndex,
-      );
-      if (!mounted) return;
-      setState(() {
-        _routedSectionGeometry.remove(afterStopIndex);
-        _routingSections.remove(afterStopIndex);
-      });
-      return;
-    }
-
-    final coordinates = <LatLng>[
-      LatLng(start.latitude, start.longitude),
-      ...viaPoints.map((point) => point.position),
-      LatLng(end.latitude, end.longitude),
-    ];
-
-    if (mounted) {
-      setState(() => _routingSections.add(afterStopIndex));
-    }
-
-    final coordinateString = coordinates
-        .map(
-          (point) =>
-              '${point.longitude.toStringAsFixed(7)},${point.latitude.toStringAsFixed(7)}',
-        )
-        .join(';');
-
-    final uri = Uri.parse(
-      'https://router.project-osrm.org/route/v1/driving/'
-      '$coordinateString'
-      '?overview=full&geometries=geojson&steps=false',
-    );
-
-    final client = HttpClient();
-    client.connectionTimeout = const Duration(seconds: 15);
-
-    try {
-      final request = await client.getUrl(uri);
-      request.headers.set(
-        HttpHeaders.userAgentHeader,
-        'TourGo/de.ramonvidal.tourgo',
-      );
-
-      final response = await request.close().timeout(
-        const Duration(seconds: 20),
-      );
-      final body = await response.transform(utf8.decoder).join();
-
-      if (response.statusCode != HttpStatus.ok) {
-        throw HttpException(
-          'Routing-Server antwortet mit ${response.statusCode}.',
-          uri: uri,
-        );
-      }
-
-      final decoded = jsonDecode(body);
-      if (decoded is! Map<String, dynamic> || decoded['code'] != 'Ok') {
-        throw const FormatException(
-          'Für diesen Abschnitt konnte keine Straßenroute berechnet werden.',
-        );
-      }
-
-      final routes = decoded['routes'];
-      if (routes is! List || routes.isEmpty) {
-        throw const FormatException(
-          'Der Routing-Server hat keine Route zurückgegeben.',
-        );
-      }
-
-      final route = routes.first;
-      if (route is! Map) {
-        throw const FormatException('Ungültige Routenantwort.');
-      }
-
-      final geometry = route['geometry'];
-      if (geometry is! Map) {
-        throw const FormatException('Routengeometrie fehlt.');
-      }
-
-      final rawCoordinates = geometry['coordinates'];
-      if (rawCoordinates is! List) {
-        throw const FormatException('Routenkoordinaten fehlen.');
-      }
-
-      final routedPoints = rawCoordinates.map<LatLng>((item) {
-        if (item is! List || item.length < 2) {
-          throw const FormatException('Ungültiger Routenpunkt.');
-        }
-        return LatLng((item[1] as num).toDouble(), (item[0] as num).toDouble());
-      }).toList();
-
-      await _localStorage.saveRouteSectionGeometry(
-        widget.district.number,
-        afterStopIndex,
-        routedPoints,
-      );
-
-      if (!mounted) return;
-      setState(() {
-        _routedSectionGeometry[afterStopIndex] = routedPoints;
-      });
-    } catch (error) {
-      if (!mounted) return;
-      _routedSectionGeometry.remove(afterStopIndex);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Straßenroute konnte nicht berechnet werden: $error'),
-          duration: const Duration(seconds: 4),
-        ),
-      );
-    } finally {
-      client.close(force: true);
-      if (mounted) {
-        setState(() => _routingSections.remove(afterStopIndex));
-      }
-    }
-  }
-
-  void _invalidateSectionRoute(int afterStopIndex) {
-    _routedSectionGeometry.remove(afterStopIndex);
-  }
-
-  Future<void> _selectRouteSection(int stopIndex) async {
-    if (stopIndex >= widget.stops.length - 1) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Der letzte Stopp hat keinen folgenden Routenabschnitt.',
-          ),
-        ),
-      );
-      return;
-    }
-
-    final start = widget.stops[stopIndex];
-    final end = widget.stops[stopIndex + 1];
-    final startLabel = start.address.isNotEmpty ? start.address : start.name;
-    final endLabel = end.address.isNotEmpty ? end.address : end.name;
-
-    final selected = await showModalBottomSheet<bool>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Routenabschnitt bearbeiten',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'Stopp ${stopIndex + 1} → ${stopIndex + 2}',
-                style: const TextStyle(fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: 4),
-              Text('$startLabel\n→ $endLabel'),
-              const SizedBox(height: 18),
-              SizedBox(
-                width: double.infinity,
-                child: FilledButton.icon(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  icon: const Icon(Icons.alt_route_rounded),
-                  label: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 12),
-                    child: Text('Diesen Abschnitt bearbeiten'),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-
-    if (selected == true && mounted) {
-      setState(() {
-        _selectedAfterStopIndex = stopIndex;
-        _moveViaPointIndex = null;
-        _addMode = true;
-      });
-      await _calculateSectionRoute(stopIndex);
-    }
-  }
-
-  Future<void> _addViaPoint(LatLng point) async {
-    final afterStopIndex = _selectedAfterStopIndex;
-    if (afterStopIndex == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Wähle zuerst einen Zustellpunkt und damit den Abschnitt zum nächsten Stopp.',
-          ),
-        ),
-      );
-      return;
-    }
-
-    final newPoint = StoredRouteViaPoint(
-      latitude: point.latitude,
-      longitude: point.longitude,
-      afterStopIndex: afterStopIndex,
-    );
-
-    setState(() => _viaPoints.add(newPoint));
-    final saved = await _saveViaPoints(
-      'Routenpunkt für Stopp ${afterStopIndex + 1} → ${afterStopIndex + 2} hinzugefügt.',
-    );
-    if (!saved && mounted) {
-      setState(() => _viaPoints.remove(newPoint));
-      return;
-    }
-    _invalidateSectionRoute(afterStopIndex);
-    await _calculateSectionRoute(afterStopIndex);
-  }
-
-  Future<void> _moveViaPoint(LatLng point) async {
-    final index = _moveViaPointIndex;
-    if (index == null || index < 0 || index >= _viaPoints.length) return;
-
-    final previous = _viaPoints[index];
-    final moved = StoredRouteViaPoint(
-      latitude: point.latitude,
-      longitude: point.longitude,
-      afterStopIndex: previous.afterStopIndex,
-    );
-
-    setState(() {
-      _viaPoints[index] = moved;
-      _moveViaPointIndex = null;
-    });
-
-    final saved = await _saveViaPoints(
-      'Routenpunkt ${index + 1} wurde verschoben.',
-    );
-    if (!saved && mounted) {
-      setState(() => _viaPoints[index] = previous);
-      return;
-    }
-    _invalidateSectionRoute(previous.afterStopIndex);
-    await _calculateSectionRoute(previous.afterStopIndex);
-  }
-
-  Future<void> _deleteViaPoint(int index) async {
-    final removed = _viaPoints[index];
-    setState(() => _viaPoints.removeAt(index));
-
-    final saved = await _saveViaPoints('Routenpunkt wurde gelöscht.');
-    if (!saved && mounted) {
-      setState(() => _viaPoints.insert(index, removed));
-      return;
-    }
-    _invalidateSectionRoute(removed.afterStopIndex);
-
-    if (_pointsForSection(removed.afterStopIndex).isEmpty) {
-      await _localStorage.removeRouteSectionGeometry(
-        widget.district.number,
-        removed.afterStopIndex,
-      );
-      if (mounted) {
-        setState(() {
-          _routedSectionGeometry.remove(removed.afterStopIndex);
-        });
-      }
-      return;
-    }
-
-    await _calculateSectionRoute(removed.afterStopIndex);
-  }
-
-  Future<void> _showViaPointActions(int index) async {
-    final point = _viaPoints[index];
-    final action = await showModalBottomSheet<String>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: CircleAvatar(child: Text('${index + 1}')),
-                title: Text(
-                  'Routenpunkt ${index + 1}',
-                  style: const TextStyle(fontWeight: FontWeight.w800),
-                ),
-                subtitle: Text(
-                  'Abschnitt Stopp ${point.afterStopIndex + 1} → '
-                  '${point.afterStopIndex + 2}',
-                ),
-              ),
-              const Divider(),
-              ListTile(
-                leading: const Icon(Icons.open_with_rounded),
-                title: const Text('Verschieben'),
-                subtitle: const Text(
-                  'Danach die neue Position auf der Karte antippen',
-                ),
-                onTap: () => Navigator.of(context).pop('move'),
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.delete_outline_rounded,
-                  color: Theme.of(context).colorScheme.error,
-                ),
-                title: Text(
-                  'Löschen',
-                  style: TextStyle(color: Theme.of(context).colorScheme.error),
-                ),
-                onTap: () => Navigator.of(context).pop('delete'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-
-    if (!mounted) return;
-    if (action == 'move') {
-      setState(() {
-        _addMode = false;
-        _moveViaPointIndex = index;
-        _selectedAfterStopIndex = point.afterStopIndex;
-      });
-    } else if (action == 'delete') {
-      await _deleteViaPoint(index);
-    }
-  }
-
-  List<StoredRouteViaPoint> _pointsForSection(int afterStopIndex) {
-    return _viaPoints
-        .where((point) => point.afterStopIndex == afterStopIndex)
-        .toList();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final first = widget.stops.isEmpty
-        ? const LatLng(50.0, 10.0)
-        : LatLng(widget.stops.first.latitude, widget.stops.first.longitude);
-
-    final selectedSection = _selectedAfterStopIndex;
-    final selectedSectionPoints = selectedSection == null
-        ? const <StoredRouteViaPoint>[]
-        : _pointsForSection(selectedSection);
-    final routedGeometry = selectedSection == null
-        ? const <LatLng>[]
-        : (_routedSectionGeometry[selectedSection] ?? const <LatLng>[]);
-    final routingSelectedSection =
-        selectedSection != null && _routingSections.contains(selectedSection);
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Route bearbeiten'),
-        actions: [
-          if (_viaPoints.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(right: 12),
-              child: Center(
-                child: Text(
-                  '${_viaPoints.length} Routenpunkte',
-                  style: const TextStyle(fontWeight: FontWeight.w700),
-                ),
-              ),
-            ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          FlutterMap(
-            options: MapOptions(
-              initialCenter: first,
-              initialZoom: 14,
-              minZoom: 4,
-              maxZoom: 19,
-              onTap: (_, point) {
-                if (_moveViaPointIndex != null) {
-                  _moveViaPoint(point);
-                } else if (_addMode) {
-                  _addViaPoint(point);
-                }
-              },
-            ),
-            children: [
-              TileLayer(
-                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                userAgentPackageName: 'de.ramonvidal.tourgo',
-              ),
-              if (selectedSection != null &&
-                  selectedSection < widget.stops.length - 1)
-                PolylineLayer(
-                  polylines: [
-                    Polyline(
-                      points: routedGeometry.isNotEmpty
-                          ? routedGeometry
-                          : [
-                              LatLng(
-                                widget.stops[selectedSection].latitude,
-                                widget.stops[selectedSection].longitude,
-                              ),
-                              ...selectedSectionPoints.map(
-                                (point) => point.position,
-                              ),
-                              LatLng(
-                                widget.stops[selectedSection + 1].latitude,
-                                widget.stops[selectedSection + 1].longitude,
-                              ),
-                            ],
-                      strokeWidth: routedGeometry.isNotEmpty ? 5 : 3,
-                      color: routedGeometry.isNotEmpty
-                          ? const Color(0xFF1565C0)
-                          : const Color(0xFF7B1FA2),
-                    ),
-                  ],
-                ),
-              MarkerLayer(
-                markers: [
-                  ...List.generate(widget.stops.length, (index) {
-                    final stop = widget.stops[index];
-                    final sectionStart = _selectedAfterStopIndex == index;
-                    final sectionEnd =
-                        _selectedAfterStopIndex != null &&
-                        _selectedAfterStopIndex! + 1 == index;
-
-                    return Marker(
-                      point: LatLng(stop.latitude, stop.longitude),
-                      width: sectionStart || sectionEnd ? 42 : 34,
-                      height: sectionStart || sectionEnd ? 38 : 30,
-                      child: GestureDetector(
-                        onTap: () {
-                          if (!_addMode && _moveViaPointIndex == null) {
-                            _selectRouteSection(index);
-                          }
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: sectionStart
-                                ? const Color(0xFF2E7D32)
-                                : sectionEnd
-                                ? const Color(0xFFC62828)
-                                : stop.company.isNotEmpty
-                                ? Colors.orange
-                                : Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: sectionStart || sectionEnd
-                                  ? Colors.white
-                                  : const Color(0xFF1565C0),
-                              width: sectionStart || sectionEnd ? 2.5 : 1.5,
-                            ),
-                            boxShadow: sectionStart || sectionEnd
-                                ? const [
-                                    BoxShadow(
-                                      blurRadius: 4,
-                                      offset: Offset(0, 2),
-                                      color: Color(0x44000000),
-                                    ),
-                                  ]
-                                : null,
-                          ),
-                          child: Text(
-                            stop.houseNumber.isNotEmpty
-                                ? stop.houseNumber
-                                : '${index + 1}',
-                            style: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w800,
-                              color:
-                                  sectionStart ||
-                                      sectionEnd ||
-                                      stop.company.isNotEmpty
-                                  ? Colors.white
-                                  : const Color(0xFF1565C0),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
-                  ...List.generate(_viaPoints.length, (index) {
-                    final point = _viaPoints[index];
-                    final selected = _moveViaPointIndex == index;
-                    final belongsToSelected =
-                        point.afterStopIndex == _selectedAfterStopIndex;
-
-                    return Marker(
-                      point: point.position,
-                      width: belongsToSelected ? 44 : 34,
-                      height: belongsToSelected ? 44 : 34,
-                      child: GestureDetector(
-                        onTap: () {
-                          if (!_addMode && _moveViaPointIndex == null) {
-                            _showViaPointActions(index);
-                          }
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: selected
-                                ? Colors.red
-                                : belongsToSelected
-                                ? const Color(0xFF6A1B9A)
-                                : const Color(0xFF9E9E9E),
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.white, width: 3),
-                            boxShadow: const [
-                              BoxShadow(
-                                blurRadius: 4,
-                                offset: Offset(0, 2),
-                                color: Color(0x44000000),
-                              ),
-                            ],
-                          ),
-                          child: Text(
-                            '${index + 1}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
-                ],
-              ),
-            ],
-          ),
-          Positioned(
-            top: 12,
-            left: 12,
-            right: 12,
-            child: SafeArea(
-              bottom: false,
-              child: Material(
-                color: (_addMode || _moveViaPointIndex != null)
-                    ? const Color(0xFF1565C0)
-                    : Colors.white.withValues(alpha: 0.96),
-                borderRadius: BorderRadius.circular(14),
-                elevation: 5,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 11,
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        _moveViaPointIndex != null
-                            ? Icons.open_with_rounded
-                            : _addMode
-                            ? Icons.add_road_rounded
-                            : Icons.alt_route_rounded,
-                        color: (_addMode || _moveViaPointIndex != null)
-                            ? Colors.white
-                            : const Color(0xFF1565C0),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          routingSelectedSection
-                              ? 'Straßenroute wird berechnet …'
-                              : _moveViaPointIndex != null
-                              ? 'Routenpunkt verschieben: Tippe auf die neue Position.'
-                              : _addMode && selectedSection != null
-                              ? 'Abschnitt ${selectedSection + 1} → ${selectedSection + 2}: Setze die Via-Punkte in Fahrreihenfolge. Die blaue Linie folgt danach den Straßen.'
-                              : 'Tippe einen Zustellpunkt an und wähle den Abschnitt zum nächsten Stopp.',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: (_addMode || _moveViaPointIndex != null)
-                                ? Colors.white
-                                : Colors.black87,
-                          ),
-                        ),
-                      ),
-                      if (routingSelectedSection)
-                        const Padding(
-                          padding: EdgeInsets.only(left: 8),
-                          child: SizedBox(
-                            width: 20,
-                            height: 20,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2.5,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      if ((_addMode || _moveViaPointIndex != null) &&
-                          !routingSelectedSection)
-                        TextButton(
-                          onPressed: () => setState(() {
-                            _addMode = false;
-                            _moveViaPointIndex = null;
-                          }),
-                          style: TextButton.styleFrom(
-                            foregroundColor: Colors.white,
-                          ),
-                          child: Text(
-                            _moveViaPointIndex != null ? 'Abbrechen' : 'Fertig',
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          if (_loading) const Center(child: CircularProgressIndicator()),
-        ],
-      ),
-      floatingActionButton:
-          !_loading &&
-              _moveViaPointIndex == null &&
-              _selectedAfterStopIndex != null
-          ? FloatingActionButton.extended(
-              onPressed: () {
-                setState(() => _addMode = !_addMode);
-              },
-              icon: Icon(
-                _addMode ? Icons.close_rounded : Icons.add_road_rounded,
-              ),
-              label: Text(_addMode ? 'Abbrechen' : 'Via-Punkt hinzufügen'),
-            )
-          : null,
-    );
-  }
 }
