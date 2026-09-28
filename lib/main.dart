@@ -466,6 +466,8 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
           coordinates: points,
 
           padding: const EdgeInsets.fromLTRB(60, 120, 60, 250),
+
+          maxZoom: 17.5,
         ),
       );
     });
@@ -502,7 +504,18 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
         return;
       }
 
-      _mapController.move(LatLng(stop.latitude, stop.longitude), 18);
+      final camera = _mapController.camera;
+      final targetZoom = camera.zoom < 17 ? 17.0 : camera.zoom.clamp(17.0, 18.0);
+
+      // The detail card occupies the lower part of the screen. By targeting
+      // a point slightly south of the stop, the selected stop appears above
+      // the card instead of underneath it.
+      final targetCenter = LatLng(
+        stop.latitude - 0.00055,
+        stop.longitude,
+      );
+
+      _mapController.move(targetCenter, targetZoom);
     });
   }
 
@@ -2607,7 +2620,9 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
   double _editorZoom = 16;
   bool _mapView = true;
   bool _addMode = false;
-  int? _moveStopIndex;
+  int? _insertAfterIndex;
+  int? _dragStopIndex;
+  TourStop? _dragOriginalStop;
 
   @override
   void initState() {
@@ -2829,17 +2844,45 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
   }
 
   Future<void> _addStopAt(LatLng position) async {
+    final insertAfterIndex = _insertAfterIndex;
     final newStop = await _showStopForm(position: position);
     if (newStop == null || !mounted) return;
 
-    setState(() => _editableStops.add(newStop));
+    final insertIndex = insertAfterIndex == null
+        ? _editableStops.length
+        : (insertAfterIndex + 1).clamp(0, _editableStops.length);
+
+    setState(() {
+      _editableStops.insert(insertIndex, newStop);
+      if (insertAfterIndex != null) {
+        _insertAfterIndex = null;
+        _addMode = false;
+      }
+    });
+
     final saved = await _saveStops(
-      successMessage:
-          'Stopp ${_editableStops.length} wurde hinzugefügt. Du kannst direkt den nächsten Punkt setzen.',
+      successMessage: insertAfterIndex == null
+          ? 'Stopp ${insertIndex + 1} wurde hinzugefügt. Du kannst direkt den nächsten Punkt setzen.'
+          : 'Neuer Stopp ${insertIndex + 1} wurde eingefügt.',
     );
     if (!saved && mounted) {
-      setState(() => _editableStops.removeLast());
+      setState(() {
+        _editableStops.removeAt(insertIndex);
+        if (insertAfterIndex != null) {
+          _insertAfterIndex = insertAfterIndex;
+          _addMode = true;
+        }
+      });
     }
+  }
+
+  void _startInsertAfter(int index) {
+    setState(() {
+      _insertAfterIndex = index;
+      _addMode = true;
+      _dragStopIndex = null;
+      _dragOriginalStop = null;
+    });
   }
 
   Future<void> _editStop(int index) async {
@@ -2898,150 +2941,6 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
     }
   }
 
-  void _startMoveStop(int index) {
-    setState(() {
-      _addMode = false;
-      _moveStopIndex = index;
-    });
-  }
-
-  Future<void> _moveStopToMapPosition(LatLng position) async {
-    final index = _moveStopIndex;
-    if (index == null || index < 0 || index >= _editableStops.length) return;
-
-    final previous = _editableStops[index];
-    final moved = TourStop(
-      latitude: position.latitude,
-      longitude: position.longitude,
-      name: previous.name,
-      address: previous.address,
-      streetName: previous.streetName,
-      houseNumber: previous.houseNumber,
-      company: previous.company,
-      note: previous.note,
-      recipients: List<dynamic>.from(previous.recipients),
-      isMailbox: previous.isMailbox,
-      section: previous.section,
-    );
-
-    setState(() {
-      _editableStops[index] = moved;
-      _moveStopIndex = null;
-    });
-
-    final saved = await _saveStops(
-      successMessage: 'Position von Stopp ${index + 1} wurde gespeichert.',
-    );
-    if (!saved && mounted) {
-      setState(() => _editableStops[index] = previous);
-    }
-  }
-
-  Future<void> _reorderStops(int oldIndex, int newIndex) async {
-    if (oldIndex == newIndex) return;
-
-    final previousOrder = List<TourStop>.from(_editableStops);
-    setState(() {
-      final stop = _editableStops.removeAt(oldIndex);
-      _editableStops.insert(newIndex, stop);
-    });
-
-    final saved = await _saveStops(
-      successMessage: 'Zustellreihenfolge wurde gespeichert.',
-    );
-    if (!saved && mounted) {
-      setState(() {
-        _editableStops
-          ..clear()
-          ..addAll(previousOrder);
-      });
-    }
-  }
-
-  Future<void> _moveStopToPosition(int index) async {
-    final controller = TextEditingController(text: '${index + 1}');
-    final target = await showDialog<int>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('An Position verschieben'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Aktuell: Stopp ${index + 1}\n'
-              'Neue Position zwischen 1 und ${_editableStops.length}:',
-            ),
-            const SizedBox(height: 14),
-            TextField(
-              controller: controller,
-              autofocus: true,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Neue Stoppnummer',
-                border: OutlineInputBorder(),
-              ),
-              onSubmitted: (_) {
-                final value = int.tryParse(controller.text.trim());
-                if (value != null &&
-                    value >= 1 &&
-                    value <= _editableStops.length) {
-                  Navigator.of(context).pop(value);
-                }
-              },
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Abbrechen'),
-          ),
-          FilledButton(
-            onPressed: () {
-              final value = int.tryParse(controller.text.trim());
-              if (value == null || value < 1 || value > _editableStops.length) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      'Bitte eine Zahl zwischen 1 und ${_editableStops.length} eingeben.',
-                    ),
-                  ),
-                );
-                return;
-              }
-              Navigator.of(context).pop(value);
-            },
-            child: const Text('Verschieben'),
-          ),
-        ],
-      ),
-    );
-
-    if (target == null || !mounted || target == index + 1) return;
-
-    final previousOrder = List<TourStop>.from(_editableStops);
-    setState(() {
-      final stop = _editableStops.removeAt(index);
-      var insertIndex = target - 1;
-      if (insertIndex > _editableStops.length) {
-        insertIndex = _editableStops.length;
-      }
-      _editableStops.insert(insertIndex, stop);
-    });
-
-    final saved = await _saveStops(
-      successMessage: 'Stopp wurde an Position $target verschoben.',
-    );
-    if (!saved && mounted) {
-      setState(() {
-        _editableStops
-          ..clear()
-          ..addAll(previousOrder);
-      });
-    }
-  }
-
   Future<void> _showMapStopActions(int index) async {
     final stop = _editableStops[index];
     final action = await showModalBottomSheet<String>(
@@ -3071,12 +2970,12 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
                 onTap: () => Navigator.of(context).pop('edit'),
               ),
               ListTile(
-                leading: const Icon(Icons.open_with_rounded),
-                title: const Text('Position verschieben'),
-                subtitle: const Text(
-                  'Danach neue Position auf der Karte antippen',
+                leading: const Icon(Icons.add_location_alt_rounded),
+                title: const Text('Danach Stopp einfügen'),
+                subtitle: Text(
+                  'Neuer Stopp wird zu Stopp ${index + 2}',
                 ),
-                onTap: () => Navigator.of(context).pop('move'),
+                onTap: () => Navigator.of(context).pop('insertAfter'),
               ),
               ListTile(
                 leading: Icon(
@@ -3098,8 +2997,8 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
     if (!mounted) return;
     if (action == 'edit') {
       await _editStop(index);
-    } else if (action == 'move') {
-      _startMoveStop(index);
+    } else if (action == 'insertAfter') {
+      _startInsertAfter(index);
     } else if (action == 'delete') {
       await _deleteStop(index);
     }
@@ -3120,9 +3019,7 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
               _editorZoom = position.zoom;
             },
             onTap: (_, point) {
-              if (_moveStopIndex != null) {
-                _moveStopToMapPosition(point);
-              } else if (_addMode) {
+              if (_addMode && _dragStopIndex == null) {
                 _addStopAt(point);
               }
             },
@@ -3141,8 +3038,53 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
                   height: 36,
                   child: GestureDetector(
                     onTap: () {
-                      if (!_addMode && _moveStopIndex == null) {
+                      if (!_addMode && _dragStopIndex == null) {
                         _showMapStopActions(index);
+                      }
+                    },
+                    onLongPressStart: (_) {
+                      if (_addMode) return;
+                      setState(() {
+                        _dragStopIndex = index;
+                        _dragOriginalStop = _editableStops[index];
+                      });
+                    },
+                    onLongPressMoveUpdate: (details) {
+                      if (_dragStopIndex != index) return;
+                      final camera = _editorMapController.camera;
+                      final point = camera.screenOffsetToLatLng(
+                        details.globalPosition,
+                      );
+                      final previous = _editableStops[index];
+                      setState(() {
+                        _editableStops[index] = TourStop(
+                          latitude: point.latitude,
+                          longitude: point.longitude,
+                          name: previous.name,
+                          address: previous.address,
+                          streetName: previous.streetName,
+                          houseNumber: previous.houseNumber,
+                          company: previous.company,
+                          note: previous.note,
+                          recipients: List<dynamic>.from(previous.recipients),
+                          isMailbox: previous.isMailbox,
+                          section: previous.section,
+                        );
+                      });
+                    },
+                    onLongPressEnd: (_) async {
+                      if (_dragStopIndex != index) return;
+                      final original = _dragOriginalStop;
+                      setState(() {
+                        _dragStopIndex = null;
+                        _dragOriginalStop = null;
+                      });
+                      final saved = await _saveStops(
+                        successMessage:
+                            'Position von Stopp ${index + 1} wurde gespeichert.',
+                      );
+                      if (!saved && mounted && original != null) {
+                        setState(() => _editableStops[index] = original);
                       }
                     },
                     child: Container(
@@ -3153,10 +3095,10 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
                             : Colors.white,
                         borderRadius: BorderRadius.circular(9),
                         border: Border.all(
-                          color: _moveStopIndex == index
+                          color: _dragStopIndex == index
                               ? Colors.red
                               : const Color(0xFF1565C0),
-                          width: _moveStopIndex == index ? 3 : 1.8,
+                          width: _dragStopIndex == index ? 3 : 1.8,
                         ),
                         boxShadow: const [
                           BoxShadow(
@@ -3192,7 +3134,7 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
           child: SafeArea(
             bottom: false,
             child: Material(
-              color: (_addMode || _moveStopIndex != null)
+              color: (_addMode || _dragStopIndex != null)
                   ? const Color(0xFF1565C0)
                   : Colors.white.withValues(alpha: 0.96),
               borderRadius: BorderRadius.circular(14),
@@ -3205,42 +3147,44 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
                 child: Row(
                   children: [
                     Icon(
-                      _moveStopIndex != null
+                      _dragStopIndex != null
                           ? Icons.open_with_rounded
                           : _addMode
                           ? Icons.add_location_alt_rounded
                           : Icons.touch_app_rounded,
-                      color: (_addMode || _moveStopIndex != null)
+                      color: (_addMode || _dragStopIndex != null)
                           ? Colors.white
                           : const Color(0xFF1565C0),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
-                        _moveStopIndex != null
-                            ? 'Stopp ${_moveStopIndex! + 1} verschieben: Tippe auf die neue Position.'
+                        _dragStopIndex != null
+                            ? 'Stopp ${_dragStopIndex! + 1} verschieben: Marker an die neue Position ziehen.'
+                            : _insertAfterIndex != null
+                            ? 'Nach Stopp ${_insertAfterIndex! + 1} einfügen: Tippe auf die Position des neuen Stopps.'
                             : _addMode
                             ? 'Hinzufügen aktiv: Tippe auf die Position des nächsten Zustellpunkts.'
-                            : 'Tippe einen Zustellpunkt an, um ihn zu bearbeiten, zu verschieben oder zu löschen.',
+                            : 'Tippe einen Zustellpunkt an, um ihn zu bearbeiten, einen Stopp danach einzufügen oder ihn zu löschen.',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
-                          color: (_addMode || _moveStopIndex != null)
+                          color: (_addMode || _dragStopIndex != null)
                               ? Colors.white
                               : Colors.black87,
                         ),
                       ),
                     ),
-                    if (_addMode || _moveStopIndex != null)
+                    if (_addMode || _dragStopIndex != null)
                       TextButton(
                         onPressed: () => setState(() {
                           _addMode = false;
-                          _moveStopIndex = null;
+                          _insertAfterIndex = null;
                         }),
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.white,
                         ),
                         child: Text(
-                          _moveStopIndex != null ? 'Abbrechen' : 'Fertig',
+                          _dragStopIndex != null ? 'Verschieben' : 'Fertig',
                         ),
                       ),
                   ],
@@ -3258,20 +3202,9 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
       return const Center(child: Text('Noch keine Zustellpunkte'));
     }
 
-    return ReorderableListView.builder(
+    return ListView.builder(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 100),
       itemCount: _editableStops.length,
-      onReorderItem: (oldIndex, newIndex) {
-        _reorderStops(oldIndex, newIndex);
-      },
-      buildDefaultDragHandles: false,
-      proxyDecorator: (child, index, animation) {
-        return Material(
-          elevation: 6,
-          borderRadius: BorderRadius.circular(12),
-          child: child,
-        );
-      },
       itemBuilder: (context, index) {
         final stop = _editableStops[index];
         final subtitleParts = <String>['Stopp ${index + 1}'];
@@ -3280,18 +3213,12 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
         if (stop.isMailbox) subtitleParts.add('Briefkasten');
 
         return Padding(
-          key: ObjectKey(stop),
           padding: const EdgeInsets.only(bottom: 4),
           child: Card(
             margin: EdgeInsets.zero,
             child: ListTile(
-              leading: ReorderableDragStartListener(
-                index: index,
-                child: const SizedBox(
-                  width: 44,
-                  height: 44,
-                  child: Icon(Icons.drag_handle_rounded),
-                ),
+              leading: CircleAvatar(
+                child: Text('${index + 1}'),
               ),
               title: Text(
                 stop.address.isNotEmpty ? stop.address : stop.name,
@@ -3303,18 +3230,12 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
                 onSelected: (value) {
                   if (value == 'edit') {
                     _editStop(index);
-                  } else if (value == 'position') {
-                    _moveStopToPosition(index);
                   } else if (value == 'delete') {
                     _deleteStop(index);
                   }
                 },
                 itemBuilder: (context) => const [
                   PopupMenuItem(value: 'edit', child: Text('Bearbeiten')),
-                  PopupMenuItem(
-                    value: 'position',
-                    child: Text('An Position verschieben'),
-                  ),
                   PopupMenuItem(value: 'delete', child: Text('Löschen')),
                 ],
               ),
@@ -3338,7 +3259,7 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
                 _mapView = !_mapView;
                 if (!_mapView) {
                   _addMode = false;
-                  _moveStopIndex = null;
+                  _insertAfterIndex = null;
                 }
               });
             },
@@ -3347,10 +3268,18 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
         ],
       ),
       body: _mapView ? _buildMap() : _buildList(),
-      floatingActionButton: _mapView && _moveStopIndex == null
+      floatingActionButton: _mapView && _dragStopIndex == null
           ? FloatingActionButton.extended(
               onPressed: () {
-                setState(() => _addMode = !_addMode);
+                setState(() {
+                  if (_addMode) {
+                    _addMode = false;
+                    _insertAfterIndex = null;
+                  } else {
+                    _insertAfterIndex = null;
+                    _addMode = true;
+                  }
+                });
               },
               icon: Icon(
                 _addMode ? Icons.close_rounded : Icons.add_location_alt_rounded,
