@@ -64,6 +64,7 @@ class _DistrictSelectionPageState extends State<DistrictSelectionPage> {
   String _query = '';
   List<District> _localDistricts = const [];
   bool _localDistrictsLoading = true;
+  Map<int, int> _districtStopCounts = const {};
 
   @override
   void initState() {
@@ -72,10 +73,32 @@ class _DistrictSelectionPageState extends State<DistrictSelectionPage> {
   }
 
   Future<void> _loadLocalDistricts() async {
-    final districts = await _localStorage.loadCustomDistricts();
+    final localDistricts = await _localStorage.loadCustomDistricts();
+    final allDistricts = <District>[
+      ...DistrictRepository.districts,
+      ...localDistricts,
+    ];
+
+    final counts = <int, int>{};
+    for (final district in allDistricts) {
+      final savedStops = await _localStorage.loadStops(district.number);
+      if (savedStops != null) {
+        counts[district.number] = savedStops.length;
+        continue;
+      }
+
+      try {
+        final assetStops = await DistrictRepository().loadDistrict(district);
+        counts[district.number] = assetStops.length;
+      } catch (_) {
+        counts[district.number] = 0;
+      }
+    }
+
     if (!mounted) return;
     setState(() {
-      _localDistricts = districts;
+      _localDistricts = localDistricts;
+      _districtStopCounts = counts;
       _localDistrictsLoading = false;
     });
   }
@@ -176,6 +199,195 @@ class _DistrictSelectionPageState extends State<DistrictSelectionPage> {
     }
   }
 
+  Future<void> _renameDistrict(District district) async {
+    final controller = TextEditingController(text: '${district.number}');
+
+    final newNumber = await showDialog<int>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Text('Bezirksnummer ändern'),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            keyboardType: TextInputType.number,
+            decoration: const InputDecoration(
+              labelText: 'Bezirksnummer',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: const Text('Abbrechen'),
+            ),
+            FilledButton(
+              onPressed: () {
+                final value = int.tryParse(controller.text.trim());
+                if (value == null || value <= 0) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Bitte eine gültige Bezirksnummer eingeben.'),
+                    ),
+                  );
+                  return;
+                }
+
+                final numberTaken = DistrictRepository.districts.any(
+                      (item) => item.number == value,
+                    ) ||
+                    _localDistricts.any(
+                      (item) =>
+                          item.number == value &&
+                          item.number != district.number,
+                    );
+
+                if (numberTaken) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Bezirk $value existiert bereits.')),
+                  );
+                  return;
+                }
+
+                Navigator.of(dialogContext).pop(value);
+              },
+              child: const Text('Speichern'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (newNumber == null ||
+        newNumber == district.number ||
+        !mounted) {
+      return;
+    }
+
+    try {
+      await _localStorage.renameCustomDistrict(
+        district.number,
+        newNumber,
+      );
+      await _loadLocalDistricts();
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Bezirk ${district.number} wurde in Bezirk $newNumber geändert.',
+          ),
+        ),
+      );
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Bezirksnummer konnte nicht geändert werden: $error')),
+      );
+    }
+  }
+
+  Future<void> _deleteDistrict(District district) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: Text('Bezirk ${district.number} löschen?'),
+          content: const Text(
+            'Der Bezirk und alle darin gespeicherten Stopps werden dauerhaft '
+            'von diesem Gerät gelöscht.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(false),
+              child: const Text('Abbrechen'),
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.error,
+                foregroundColor: Theme.of(context).colorScheme.onError,
+              ),
+              onPressed: () => Navigator.of(dialogContext).pop(true),
+              child: const Text('Löschen'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirmed != true || !mounted) return;
+
+    try {
+      await _localStorage.deleteCustomDistrict(district.number);
+      await _loadLocalDistricts();
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Bezirk ${district.number} wurde gelöscht.')),
+      );
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Bezirk konnte nicht gelöscht werden: $error')),
+      );
+    }
+  }
+
+  Future<void> _showDistrictManagement(District district) async {
+    final action = await showModalBottomSheet<String>(
+      context: context,
+      showDragHandle: true,
+      builder: (sheetContext) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  title: Text(
+                    'Bezirk ${district.number}',
+                    style: const TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  subtitle: const Text('Lokal erstellter Bezirk'),
+                ),
+                const Divider(),
+                ListTile(
+                  leading: const Icon(Icons.edit_rounded),
+                  title: const Text('Bezirksnummer ändern'),
+                  onTap: () =>
+                      Navigator.of(sheetContext).pop('rename'),
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.delete_outline_rounded,
+                    color: Theme.of(context).colorScheme.error,
+                  ),
+                  title: Text(
+                    'Bezirk löschen',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.error,
+                    ),
+                  ),
+                  onTap: () =>
+                      Navigator.of(sheetContext).pop('delete'),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+
+    if (!mounted) return;
+    if (action == 'rename') {
+      await _renameDistrict(district);
+    } else if (action == 'delete') {
+      await _deleteDistrict(district);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final allDistricts = <District>[
@@ -189,93 +401,206 @@ class _DistrictSelectionPageState extends State<DistrictSelectionPage> {
           district.number.toString().contains(normalizedQuery);
     }).toList();
 
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F7FB),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.fromLTRB(22, 18, 22, 24),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(28),
+                  bottomRight: Radius.circular(28),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Expanded(
-                    child: Text(
-                      'TourGo',
-                      style: TextStyle(
-                        fontSize: 34,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: -1,
+                  Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: colorScheme.primary,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: const Icon(
+                          Icons.location_on_rounded,
+                          color: Colors.white,
+                          size: 29,
+                        ),
+                      ),
+                      const SizedBox(width: 13),
+                      const Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'TourGo',
+                              style: TextStyle(
+                                fontSize: 27,
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: -0.8,
+                                height: 1,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Schnell im Bezirk orientieren',
+                              style: TextStyle(
+                                fontSize: 13.5,
+                                color: Color(0xFF6B7280),
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      IconButton.filled(
+                        tooltip: 'Neuen Bezirk erstellen',
+                        onPressed:
+                            _localDistrictsLoading ? null : _createDistrict,
+                        style: IconButton.styleFrom(
+                          minimumSize: const Size(46, 46),
+                        ),
+                        icon: const Icon(Icons.add_rounded, size: 25),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 27),
+                  const Text(
+                    'Bezirk auswählen',
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: -0.45,
+                    ),
+                  ),
+                  const SizedBox(height: 7),
+                  Text(
+                    'Suche nach einer Bezirksnummer und öffne direkt die Karte.',
+                    style: TextStyle(
+                      fontSize: 14,
+                      height: 1.35,
+                      color: Colors.grey.shade600,
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  TextField(
+                    onChanged: (value) => setState(() => _query = value),
+                    decoration: InputDecoration(
+                      hintText: 'Bezirk suchen',
+                      hintStyle: TextStyle(color: Colors.grey.shade500),
+                      prefixIcon: const Icon(Icons.search_rounded),
+                      suffixIcon: _query.isEmpty
+                          ? null
+                          : IconButton(
+                              tooltip: 'Suche löschen',
+                              onPressed: () {
+                                FocusScope.of(context).unfocus();
+                                setState(() => _query = '');
+                              },
+                              icon: const Icon(Icons.close_rounded),
+                            ),
+                      filled: true,
+                      fillColor: const Color(0xFFF3F5F8),
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 15,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                        borderSide: BorderSide.none,
                       ),
                     ),
                   ),
-                  IconButton.filled(
-                    tooltip: 'Neuen Bezirk erstellen',
-                    onPressed: _localDistrictsLoading ? null : _createDistrict,
-                    icon: const Icon(Icons.add_rounded),
-                  ),
                 ],
               ),
-              const SizedBox(height: 6),
-              Text(
-                'Welchen Bezirk möchtest du öffnen?',
-                style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
-              ),
-              const SizedBox(height: 24),
-              TextField(
-                onChanged: (value) => setState(() => _query = value),
-                decoration: InputDecoration(
-                  hintText: 'Bezirk suchen',
-                  prefixIcon: const Icon(Icons.search_rounded),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 18),
-              SizedBox(
-                width: double.infinity,
-                child: FilledButton.icon(
-                  onPressed: _localDistrictsLoading ? null : _createDistrict,
-                  icon: const Icon(Icons.add_location_alt_rounded),
-                  label: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 12),
-                    child: Text('Neuen Bezirk erstellen'),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 22),
-              const Text(
-                'Bezirke',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(height: 12),
-              Expanded(
-                child: _localDistrictsLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : ListView.separated(
-                        itemCount: districts.length,
-                        separatorBuilder: (_, _) => const SizedBox(height: 10),
-                        itemBuilder: (context, index) {
-                          final district = districts[index];
-                          return _DistrictCard(
-                            district: district,
-                            onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) =>
-                                      DistrictMapPage(district: district),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 22, 20, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: Text(
+                            'Deine Bezirke',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: -0.2,
+                            ),
+                          ),
+                        ),
+                        if (!_localDistrictsLoading)
+                          Text(
+                            '${districts.length}',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.grey.shade500,
+                            ),
+                          ),
+                      ],
+                    ),
+                    const SizedBox(height: 13),
+                    Expanded(
+                      child: _localDistrictsLoading
+                          ? const Center(child: CircularProgressIndicator())
+                          : districts.isEmpty
+                              ? _EmptyDistrictSearch(
+                                  hasQuery: normalizedQuery.isNotEmpty,
+                                  onCreate: _createDistrict,
+                                )
+                              : ListView.separated(
+                                  padding: const EdgeInsets.only(bottom: 24),
+                                  itemCount: districts.length,
+                                  separatorBuilder: (_, _) =>
+                                      const SizedBox(height: 10),
+                                  itemBuilder: (context, index) {
+                                    final district = districts[index];
+                                    return _DistrictCard(
+                                      district: district,
+                                      stopCount: _districtStopCounts[district.number] ?? 0,
+                                      isCustom: _localDistricts.any(
+                                        (item) =>
+                                            item.number == district.number,
+                                      ),
+                                      onManage: _localDistricts.any(
+                                        (item) => item.number == district.number,
+                                      )
+                                          ? () => _showDistrictManagement(district)
+                                          : null,
+                                      onTap: () async {
+                                        await Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) => DistrictMapPage(
+                                              district: district,
+                                            ),
+                                          ),
+                                        );
+                                        if (mounted) {
+                                          await _loadLocalDistricts();
+                                        }
+                                      },
+                                    );
+                                  },
                                 ),
-                              );
-                            },
-                          );
-                        },
-                      ),
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -284,61 +609,116 @@ class _DistrictSelectionPageState extends State<DistrictSelectionPage> {
 
 class _DistrictCard extends StatelessWidget {
   final District district;
-
+  final int stopCount;
+  final bool isCustom;
   final VoidCallback onTap;
+  final VoidCallback? onManage;
 
-  const _DistrictCard({required this.district, required this.onTap});
+  const _DistrictCard({
+    required this.district,
+    required this.stopCount,
+    required this.isCustom,
+    required this.onTap,
+    this.onManage,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Material(
       color: Colors.white,
-
-      borderRadius: BorderRadius.circular(16),
-
+      borderRadius: BorderRadius.circular(19),
       child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-
         onTap: onTap,
-
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 17),
-
+        borderRadius: BorderRadius.circular(19),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(15, 14, 13, 14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(19),
+            border: Border.all(color: const Color(0xFFE8EBF0)),
+          ),
           child: Row(
             children: [
               Container(
-                width: 46,
-
-                height: 46,
-
+                width: 52,
+                height: 52,
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-
-                  borderRadius: BorderRadius.circular(13),
+                  color: colorScheme.primaryContainer.withValues(alpha: 0.72),
+                  borderRadius: BorderRadius.circular(16),
                 ),
-
-                child: Icon(
-                  Icons.route_rounded,
-
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-
-              const SizedBox(width: 14),
-
-              Expanded(
                 child: Text(
-                  district.name,
-
-                  style: const TextStyle(
-                    fontSize: 17,
-
-                    fontWeight: FontWeight.w700,
+                  '${district.number}',
+                  style: TextStyle(
+                    fontSize: district.number >= 100 ? 16 : 19,
+                    fontWeight: FontWeight.w800,
+                    color: colorScheme.onPrimaryContainer,
+                    letterSpacing: -0.3,
                   ),
                 ),
               ),
-
-              const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      district.name,
+                      style: const TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: -0.2,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Icon(
+                          isCustom
+                              ? Icons.edit_location_alt_rounded
+                              : Icons.map_outlined,
+                          size: 15,
+                          color: Colors.grey.shade500,
+                        ),
+                        const SizedBox(width: 5),
+                        Text(
+                          stopCount == 1 ? '1 Stopp' : '$stopCount Stopps',
+                          style: TextStyle(
+                            fontSize: 12.5,
+                            color: Colors.grey.shade600,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              if (isCustom)
+                IconButton(
+                  tooltip: 'Bezirk verwalten',
+                  onPressed: onManage,
+                  icon: const Icon(Icons.more_horiz_rounded),
+                  style: IconButton.styleFrom(
+                    backgroundColor: const Color(0xFFF3F5F8),
+                    minimumSize: const Size(38, 38),
+                  ),
+                )
+              else
+                Container(
+                  width: 35,
+                  height: 35,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF3F5F8),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.chevron_right_rounded,
+                    size: 22,
+                    color: Color(0xFF68717D),
+                  ),
+                ),
             ],
           ),
         ),
@@ -346,6 +726,74 @@ class _DistrictCard extends StatelessWidget {
     );
   }
 }
+
+class _EmptyDistrictSearch extends StatelessWidget {
+  final bool hasQuery;
+  final VoidCallback onCreate;
+
+  const _EmptyDistrictSearch({
+    required this.hasQuery,
+    required this.onCreate,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(28),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 62,
+              height: 62,
+              decoration: BoxDecoration(
+                color: const Color(0xFFE9EEF6),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Icon(
+                hasQuery
+                    ? Icons.search_off_rounded
+                    : Icons.add_location_alt_outlined,
+                size: 31,
+                color: Colors.grey.shade600,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              hasQuery ? 'Kein Bezirk gefunden' : 'Noch keine Bezirke',
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 7),
+            Text(
+              hasQuery
+                  ? 'Versuche eine andere Bezirksnummer.'
+                  : 'Erstelle deinen ersten Bezirk direkt in TourGo.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+                height: 1.35,
+                color: Colors.grey.shade600,
+              ),
+            ),
+            if (!hasQuery) ...[
+              const SizedBox(height: 18),
+              FilledButton.icon(
+                onPressed: onCreate,
+                icon: const Icon(Icons.add_rounded),
+                label: const Text('Bezirk erstellen'),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 class DistrictMapPage extends StatefulWidget {
   final District district;

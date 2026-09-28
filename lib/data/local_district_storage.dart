@@ -83,6 +83,57 @@ class LocalDistrictStorage {
     }
   }
 
+  Future<void> renameCustomDistrict(
+    int oldNumber,
+    int newNumber,
+  ) async {
+    if (oldNumber == newNumber) return;
+
+    final districts = await loadCustomDistricts();
+    if (!districts.any((item) => item.number == oldNumber)) {
+      throw StateError('Bezirk $oldNumber wurde nicht gefunden.');
+    }
+    if (districts.any((item) => item.number == newNumber)) {
+      throw StateError('Bezirk $newNumber existiert bereits.');
+    }
+
+    final preferences = await SharedPreferences.getInstance();
+    final oldStops = await loadStops(oldNumber);
+
+    final updated = districts
+        .map(
+          (district) => district.number == oldNumber
+              ? District(number: newNumber, assetPath: '')
+              : district,
+        )
+        .toList()
+      ..sort((a, b) => a.number.compareTo(b.number));
+
+    await _saveCustomDistricts(updated);
+
+    if (oldStops != null) {
+      await saveStops(newNumber, oldStops);
+    }
+
+    await preferences.remove(_stopsKey(oldNumber));
+  }
+
+  Future<void> deleteCustomDistrict(int districtNumber) async {
+    final districts = await loadCustomDistricts();
+    final updated = districts
+        .where((district) => district.number != districtNumber)
+        .toList();
+
+    if (updated.length == districts.length) {
+      throw StateError('Bezirk $districtNumber wurde nicht gefunden.');
+    }
+
+    await _saveCustomDistricts(updated);
+
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.remove(_stopsKey(districtNumber));
+  }
+
   Future<List<TourStop>?> loadStops(int districtNumber) async {
     final preferences = await SharedPreferences.getInstance();
     final rawJson = preferences.getString(_stopsKey(districtNumber));
