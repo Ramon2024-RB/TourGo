@@ -59,101 +59,220 @@ class DistrictSelectionPage extends StatefulWidget {
 }
 
 class _DistrictSelectionPageState extends State<DistrictSelectionPage> {
+  final LocalDistrictStorage _localStorage = const LocalDistrictStorage();
+
   String _query = '';
+  List<District> _localDistricts = const [];
+  bool _localDistrictsLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadLocalDistricts();
+  }
+
+  Future<void> _loadLocalDistricts() async {
+    final districts = await _localStorage.loadCustomDistricts();
+    if (!mounted) return;
+    setState(() {
+      _localDistricts = districts;
+      _localDistrictsLoading = false;
+    });
+  }
+
+  Future<void> _createDistrict() async {
+    final numberController = TextEditingController();
+    final district = await showDialog<District>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Text('Neuen Bezirk erstellen'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: numberController,
+                autofocus: true,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  labelText: 'Bezirksnummer',
+                  hintText: 'z. B. 24',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: const Text('Abbrechen'),
+            ),
+            FilledButton(
+              onPressed: () {
+                final number = int.tryParse(numberController.text.trim());
+                if (number == null || number <= 0) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Bitte eine gültige Bezirksnummer eingeben.'),
+                    ),
+                  );
+                  return;
+                }
+
+                final allDistricts = <District>[
+                  ...DistrictRepository.districts,
+                  ..._localDistricts,
+                ];
+                if (allDistricts.any((item) => item.number == number)) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Bezirk $number existiert bereits.'),
+                    ),
+                  );
+                  return;
+                }
+
+                Navigator.of(dialogContext).pop(
+                  District(
+                    number: number,
+                    assetPath: '',
+                  ),
+                );
+              },
+              child: const Text('Erstellen'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (district == null || !mounted) return;
+
+    try {
+      await _localStorage.saveCustomDistrict(district);
+      await _localStorage.saveStops(district.number, const <TourStop>[]);
+      if (!mounted) return;
+
+      setState(() {
+        _localDistricts = [..._localDistricts, district]
+          ..sort((a, b) => a.number.compareTo(b.number));
+      });
+
+      await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => DistrictStopsEditorPage(
+            district: district,
+            stops: const <TourStop>[],
+            startInAddMode: true,
+          ),
+        ),
+      );
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Bezirk konnte nicht erstellt werden: $error')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final districts = DistrictRepository.districts.where((district) {
-      return district.name.toLowerCase().contains(_query.trim().toLowerCase());
+    final allDistricts = <District>[
+      ...DistrictRepository.districts,
+      ..._localDistricts,
+    ]..sort((a, b) => a.number.compareTo(b.number));
+
+    final normalizedQuery = _query.trim().toLowerCase();
+    final districts = allDistricts.where((district) {
+      return district.name.toLowerCase().contains(normalizedQuery) ||
+          district.number.toString().contains(normalizedQuery);
     }).toList();
 
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-
             children: [
-              const Text(
-                'TourGo',
-
-                style: TextStyle(
-                  fontSize: 34,
-
-                  fontWeight: FontWeight.w800,
-
-                  letterSpacing: -1,
-                ),
+              Row(
+                children: [
+                  const Expanded(
+                    child: Text(
+                      'TourGo',
+                      style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: -1,
+                      ),
+                    ),
+                  ),
+                  IconButton.filled(
+                    tooltip: 'Neuen Bezirk erstellen',
+                    onPressed: _localDistrictsLoading ? null : _createDistrict,
+                    icon: const Icon(Icons.add_rounded),
+                  ),
+                ],
               ),
-
               const SizedBox(height: 6),
-
               Text(
                 'Welchen Bezirk möchtest du öffnen?',
-
                 style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
               ),
-
               const SizedBox(height: 24),
-
               TextField(
-                onChanged: (value) {
-                  setState(() {
-                    _query = value;
-                  });
-                },
-
+                onChanged: (value) => setState(() => _query = value),
                 decoration: InputDecoration(
                   hintText: 'Bezirk suchen',
-
                   prefixIcon: const Icon(Icons.search_rounded),
-
                   filled: true,
-
                   fillColor: Colors.white,
-
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
-
                     borderSide: BorderSide.none,
                   ),
                 ),
               ),
-
-              const SizedBox(height: 24),
-
+              const SizedBox(height: 18),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton.icon(
+                  onPressed: _localDistrictsLoading ? null : _createDistrict,
+                  icon: const Icon(Icons.add_location_alt_rounded),
+                  label: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    child: Text('Neuen Bezirk erstellen'),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 22),
               const Text(
                 'Bezirke',
-
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
               ),
-
               const SizedBox(height: 12),
-
               Expanded(
-                child: ListView.separated(
-                  itemCount: districts.length,
-
-                  separatorBuilder: (_, _) => const SizedBox(height: 10),
-
-                  itemBuilder: (context, index) {
-                    final district = districts[index];
-
-                    return _DistrictCard(
-                      district: district,
-
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => DistrictMapPage(district: district),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
+                child: _localDistrictsLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : ListView.separated(
+                        itemCount: districts.length,
+                        separatorBuilder: (_, _) => const SizedBox(height: 10),
+                        itemBuilder: (context, index) {
+                          final district = districts[index];
+                          return _DistrictCard(
+                            district: district,
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) =>
+                                      DistrictMapPage(district: district),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
               ),
             ],
           ),
@@ -386,14 +505,12 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
   }
 
   Future<List<TourStop>> _loadStops() async {
-    final assetStops = await _repository.loadDistrict(widget.district);
     final savedStops = await _localStorage.loadStops(widget.district.number);
-
-    if (savedStops == null) {
-      return assetStops;
+    if (savedStops != null) {
+      return savedStops;
     }
 
-    return savedStops;
+    return _repository.loadDistrict(widget.district);
   }
 
   Future<void> _reloadStopsFromStorage() async {
@@ -634,10 +751,24 @@ class _DistrictMapPageState extends State<DistrictMapPage> {
           final stops = snapshot.data ?? const <TourStop>[];
 
           if (stops.isEmpty) {
-            return _ErrorView(
-              districtName: widget.district.name,
-
-              message: 'Dieser Bezirk enthält keine Stopps.',
+            return _EmptyDistrictView(
+              district: widget.district,
+              onEdit: () {
+                Navigator.of(context)
+                    .push(
+                      MaterialPageRoute(
+                        builder: (_) => DistrictStopsEditorPage(
+                          district: widget.district,
+                          stops: const <TourStop>[],
+                          startInAddMode: true,
+                        ),
+                      ),
+                    )
+                    .then((_) async {
+                      if (!mounted) return;
+                      await _reloadStopsFromStorage();
+                    });
+              },
             );
           }
 
@@ -2408,6 +2539,56 @@ class _StreetSegmentTile extends StatelessWidget {
   }
 }
 
+class _EmptyDistrictView extends StatelessWidget {
+  final District district;
+  final VoidCallback onEdit;
+
+  const _EmptyDistrictView({
+    required this.district,
+    required this.onEdit,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(district.name)),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.add_location_alt_rounded,
+                size: 58,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Noch keine Zustellpunkte',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Öffne den Karteneditor und setze den ersten Stopp. '
+                'Danach kannst du die weiteren Stopps direkt nacheinander anlegen.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.grey.shade600),
+              ),
+              const SizedBox(height: 20),
+              FilledButton.icon(
+                onPressed: onEdit,
+                icon: const Icon(Icons.map_rounded),
+                label: const Text('Ersten Stopp setzen'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _ErrorView extends StatelessWidget {
   final String districtName;
 
@@ -2599,11 +2780,13 @@ class _EditorActionCard extends StatelessWidget {
 class DistrictStopsEditorPage extends StatefulWidget {
   final District district;
   final List<TourStop> stops;
+  final bool startInAddMode;
 
   const DistrictStopsEditorPage({
     super.key,
     required this.district,
     required this.stops,
+    this.startInAddMode = false,
   });
 
   @override
@@ -2628,6 +2811,7 @@ class _DistrictStopsEditorPageState extends State<DistrictStopsEditorPage> {
   void initState() {
     super.initState();
     _editableStops = List<TourStop>.from(widget.stops);
+    _addMode = widget.startInAddMode;
     _editorCenter = _editableStops.isNotEmpty
         ? LatLng(_editableStops.first.latitude, _editableStops.first.longitude)
         : const LatLng(50.05, 10.23);

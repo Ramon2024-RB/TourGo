@@ -2,12 +2,86 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/district.dart';
 import '../models/tour_stop.dart';
 
 class LocalDistrictStorage {
   const LocalDistrictStorage();
 
+  static const String _customDistrictsKey = 'custom_districts_v1';
+
   String _stopsKey(int districtNumber) => 'district_${districtNumber}_stops_v1';
+
+  Future<List<District>> loadCustomDistricts() async {
+    final preferences = await SharedPreferences.getInstance();
+    final rawJson = preferences.getString(_customDistrictsKey);
+
+    if (rawJson == null || rawJson.isEmpty) {
+      return const <District>[];
+    }
+
+    final decoded = jsonDecode(rawJson);
+    if (decoded is! List) {
+      throw const FormatException(
+        'Gespeicherte Bezirke haben ein ungültiges Format.',
+      );
+    }
+
+    final districts = decoded.map<District>((item) {
+      if (item is! Map) {
+        throw const FormatException('Ein gespeicherter Bezirk ist ungültig.');
+      }
+
+      final map = Map<String, dynamic>.from(item);
+      final number = map['number'];
+      if (number is! num) {
+        throw const FormatException(
+          'Ein gespeicherter Bezirk hat keine gültige Nummer.',
+        );
+      }
+
+      return District(
+        number: number.toInt(),
+        assetPath: '',
+      );
+    }).toList();
+
+    districts.sort((a, b) => a.number.compareTo(b.number));
+    return districts;
+  }
+
+  Future<void> saveCustomDistrict(District district) async {
+    final districts = await loadCustomDistricts();
+
+    if (districts.any((item) => item.number == district.number)) {
+      throw StateError('Bezirk ${district.number} existiert bereits.');
+    }
+
+    final updated = <District>[...districts, district]
+      ..sort((a, b) => a.number.compareTo(b.number));
+
+    await _saveCustomDistricts(updated);
+  }
+
+  Future<void> _saveCustomDistricts(List<District> districts) async {
+    final preferences = await SharedPreferences.getInstance();
+    final encoded = jsonEncode(
+      districts
+          .map(
+            (district) => <String, dynamic>{
+              'number': district.number,
+            },
+          )
+          .toList(),
+    );
+
+    final success = await preferences.setString(_customDistrictsKey, encoded);
+    if (!success) {
+      throw StateError(
+        'Die lokalen Bezirksdaten konnten nicht gespeichert werden.',
+      );
+    }
+  }
 
   Future<List<TourStop>?> loadStops(int districtNumber) async {
     final preferences = await SharedPreferences.getInstance();
